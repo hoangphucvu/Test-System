@@ -1,0 +1,5 @@
+*{box-sizing: border-box}
+.wrapped{
+	background-image:url("images/background.jpg");
+	background-repeat:no-repeat;
+}
