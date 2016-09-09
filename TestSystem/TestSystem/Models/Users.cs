@@ -10,7 +10,7 @@ namespace TestSystem.Models
     {
         public int Id { get; set; }
 
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         [Required(ErrorMessage = "Tên đăng nhập không được để trống")]
         [Display(Name = "Tên Đăng Nhập")]

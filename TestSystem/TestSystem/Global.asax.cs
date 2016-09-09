@@ -20,7 +20,10 @@ namespace TestSystem
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Database.SetInitializer<TestSystemManagementContext>(new CreateDatabaseIfNotExists<TestSystemManagementContext>());
+            Database.SetInitializer<TestSystem.Models.TestSystemManagementContext>(
+                new MigrateDatabaseToLatestVersion<TestSystem.Models.TestSystemManagementContext,
+                TestSystem.Migrations.Configuration>()
+            );
         }
     }
 }

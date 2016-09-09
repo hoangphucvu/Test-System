@@ -49,7 +49,7 @@ namespace TestSystem.Models
         [Display(Name = "Điểm câu hỏi ")]
         public double Point { get; set; }
 
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         public Guid TestChildSubjectId { get; set; }
         public ICollection<Users> Users { get; set; }
