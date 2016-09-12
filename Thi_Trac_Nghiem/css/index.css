@@ -2,15 +2,13 @@
 @fa-font-path:"fonts";
 @font-face {
     font-family: helveticaneue-light-webfont;
-    src: url(fonts/helveticaneue-light-webfont.woff);
+    src: url(../fonts/helveticaneue-light-webfont.woff);
 }
 body{
-	font-family:helveticaneue-light-webfont !important;
+	font-family: helveticaneue-light-webfont;
 }
 .wrapped {
 	height:620px;
-
-	
 }
 .card{
 	display: inline-block;
@@ -21,13 +19,13 @@ body{
     background: #fff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 	top:125px;
-	height:425px;
+	min-height:425px;
 }
 .card  .head{
     background: linear-gradient(60deg, #26A69A, #1F7EA2);
 	width: 80%;
     margin: auto;
-	height:145px;
+	min-height:160px;
 }
 .card-login .head{
 	box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
@@ -36,7 +34,9 @@ body{
 	margin-bottom: 60px;
 	color: #FFFFFF;
 }
-
+.text-center{
+	text-align: center;
+}
 .content .fa-2x {
     padding-left: 25px;
     padding-top: 15px;
@@ -103,6 +103,6 @@ label{margin-top:2px !important;}
 	color:#26A69A;
 	transition:all 1.2s;
 }
-.padding18{
-	padding:18px;
+.padding20{
+	padding:20px;
 }
