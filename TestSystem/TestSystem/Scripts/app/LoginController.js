@@ -26,9 +26,9 @@
         $scope.Login = function () {
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
-                LoginService.GetLogin($scope.LoginData).then(function () {
+                LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data.Username != null) {
-                        $scope.IsLogin = false;
+                        $scope.IsLogin = true;
                         alert('Login success');
                     }
                     else {
@@ -43,7 +43,7 @@
         var factoryService = {};
         factoryService.GetLogin = function (result) {
             return $http({
-                url: '/Data/UserLogin',
+                url: '/Admin/Login',
                 method: 'POST',
                 data: JSON.stringify(result),
                 header: { 'content-type': 'application/json' }

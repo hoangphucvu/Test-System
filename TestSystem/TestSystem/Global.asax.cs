@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -11,6 +13,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using TestSystem.Models;
+using TestSystem.Repository;
 
 namespace TestSystem
 {
@@ -18,14 +21,21 @@ namespace TestSystem
     {
         private static TestSystemManagementContext context = new TestSystemManagementContext();
 
-        private void DBMigraSeed()
+        public static void RegisterComponent()
         {
-            context.Database.CreateIfNotExists();
-            Database.SetInitializer(
-                new MigrateDatabaseToLatestVersion<TestSystemManagementContext,
-                Migrations.Configuration>()
-            );
+            var container = new UnityContainer();
+            container.RegisterType<IAdminRepo, AdminRepo>();
+            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
+
+        //private void DBMigraSeed()
+        //{
+        //    context.Database.CreateIfNotExists();
+        //    Database.SetInitializer(
+        //        new MigrateDatabaseToLatestVersion<TestSystemManagementContext,
+        //        Migrations.Configuration>()
+        //    );
+        //}
 
         protected void Application_Start()
         {
@@ -35,7 +45,8 @@ namespace TestSystem
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            DBMigraSeed();
+            //DBMigraSeed();
+            RegisterComponent();
         }
     }
 }

@@ -16,23 +16,21 @@
                             <i class="fa fa-file-code-o fa-2x padding20" aria-hidden="true"></i>
                         </div>
                     </div>
-
                     <div class="content">
                         <form class="form-inline" name="LoginForm" novalidate ng-submit="Login()">
                             <div class="form-group">
                                 <i class="fa fa-user fa-2x" aria-hidden="true"></i>
                                 <div class="input-field">
-                                    <input type="text" ng-model="LoginData.Username" name="username" ng-class="Submitted?'ng-dirty':''" required autofocus class="validate">
+                                    <input type="text" ng-model="LoginData.Username" name="username" ng-class="Submitted?'ng-dirty':''" required autofocus>
                                     <label for="username">Tài khoản</label>
-                                    <label for="username" ng-show="(LoginForm.username.$dirty || Submitted) && LoginForm.username.$error.required" data-error="Tài khoản không được để trống">Tài khoản</label>
+                                    <label for="username" ng-show="(LoginForm.username.$dirty || Submitted) && LoginForm.username.$error.required">Tài khoản không được để trống</label>
                                 </div>
                             </div>
                             <div class="form-group clear">
                                 <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
                                 <div class="input-field">
-                                    <input type="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus class="validate">
-                                    <label for="password">Mật khẩu</label>
-                                    <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required" data-error="Mật khẩu không được để trống">Mật khẩu</label>
+                                    <input type="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                    <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required">Mật khẩu không được để trống</label>
                                 </div>
                             </div>
                             <div class="footer text-center">
@@ -47,7 +45,6 @@
         </div>
     </div>
 </div>
-
 @section scripts{
     <script src="~/Scripts/app/LoginController.js"></script>
 }
