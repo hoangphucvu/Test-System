@@ -1,0 +1,31 @@
+input[type=text].validate+label{
+	width: 2% !important;
+	font-size: 15px;
+}
+input[type=text]{
+	width: 80% !important;
+}
+.btn-floating.btn-large {
+	width: 30.5px !important; 
+    height: 30.5px !important;
+    line-height: 0 !important;
+}
+.btn-large i{
+	font-size: 0.8rem !important;
+	line-height: 32px !important;
+}
+.modal.modal-fixed-footer {
+    padding: 0;
+    height: 85% !important;
+}
+.modal{
+	max-height: 85% !important;
+	width: 90% !important;
+}
+.answer{
+	position: relative;
+	margin-bottom: 15px;
+}
+.answer label{
+	left: 0rem !important;
+}
