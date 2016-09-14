@@ -30,6 +30,7 @@
                                 <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
                                 <div class="input-field">
                                     <input type="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                    <label for="password">Mật khẩu</label>
                                     <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required">Mật khẩu không được để trống</label>
                                 </div>
                             </div>

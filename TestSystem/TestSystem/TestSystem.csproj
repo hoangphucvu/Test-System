@@ -192,11 +192,12 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\API\AdminManageController.cs" />
+    <Compile Include="Controllers\Controller\AdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\SessionAttriubte.cs" />
     <Compile Include="Migrations\201609110601468_Initial Create.cs" />
     <Compile Include="Migrations\201609110601468_Initial Create.Designer.cs">
       <DependentUpon>201609110601468_Initial Create.cs</DependentUpon>
@@ -208,6 +209,7 @@
     <Compile Include="Models\TestDetail.cs" />
     <Compile Include="Models\TestMap.cs" />
     <Compile Include="Models\TestSubject.cs" />
+    <Compile Include="Models\TestSystemEntities.cs" />
     <Compile Include="Models\TestSystemManagementContext.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

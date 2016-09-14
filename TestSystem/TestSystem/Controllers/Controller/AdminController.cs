@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Web.Mvc;
+using TestSystem.Helpers;
 using TestSystem.Models;
 using TestSystem.Repository;
 
 namespace TestSystem.Controllers
 {
+    [Session]
     public class AdminController : Controller
     {
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         public IAdminRepo _repo;
 
         public AdminController(IAdminRepo repo)
@@ -14,14 +21,8 @@ namespace TestSystem.Controllers
             _repo = repo;
         }
 
-        public ActionResult Login()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(string userName, string passWord)
+        public JsonResult Login(string userName, string passWord)
         {
             if (string.IsNullOrEmpty(userName))
             {
@@ -33,12 +34,12 @@ namespace TestSystem.Controllers
             }
 
             var currentUser = _repo.Login(userName, passWord);
-            if (currentUser != null)
-            {
-                //Session["user"] = new Users { Username = userName, Level = 1 };
-                Session.Add(Constant.UserSession, currentUser);
-            }
-            return RedirectToAction("Index");
+            //if (currentUser != null)
+            //{
+            //    //Session["user"] = new Users { Username = userName, Level = 1 };
+            //    Session.Add(Constant.UserSession, currentUser);
+            //}
+            return new JsonResult { Data = currentUser, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
         public ActionResult Index()
