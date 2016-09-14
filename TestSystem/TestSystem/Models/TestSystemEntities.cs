@@ -6,14 +6,8 @@ using System.Web;
 
 namespace TestSystem.Models
 {
-    public class TestSystemEntities : TestSystemManagementContext
+    public class TestSystemEntities : DbContext
     {
-        public DbContext db = new TestSystemManagementContext();
-
-        public TestSystemEntities()
-        {
-        }
-
         public DbSet<Users> Users { get; set; }
         public DbSet<TestChildSubject> TestChildSubjects { get; set; }
         public DbSet<TestDetail> TestDetails { get; set; }

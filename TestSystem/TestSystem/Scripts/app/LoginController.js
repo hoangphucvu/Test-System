@@ -27,12 +27,13 @@
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
-                    if (result.data.Username !== null) {
+                    if (result.data.Username === null) {
                         $scope.IsLogin = true;
-                        $location.path('/Admin/Index');
+                        window.location.href = "/Admin/Index";
                     }
-                    else {
-                        alert('Login failed');
+                    if (result.data.message !== null) {
+                        $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
+                        Materialize.toast('Vui lòng kiểm tra tên đăng nhập vả mật khẩu', 4000);
                     }
                 });
             }
@@ -43,7 +44,7 @@
         var factoryService = {};
         factoryService.GetLogin = function (result) {
             return $http({
-                url: '/api/AdminManage/Login',
+                url: 'api/AdminManage/Login',
                 method: 'POST',
                 data: JSON.stringify(result),
                 header: { 'content-type': 'application/json' }

@@ -17,11 +17,7 @@ namespace TestSystem.Helpers
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary(new { controller = "Admin", action = "Login" }));
             }
-            else
-            {
-                filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(new { controller = "Admin", action = "Index" }));
-            }
+
             base.OnActionExecuting(filterContext);
         }
     }
