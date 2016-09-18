@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TestSystem.Helpers;
 using TestSystem.Models;
+using TestSystemManagement.Core;
 using TestSystemManagement.Core.Interfaces;
 
 namespace TestSystemManagement.Controllers
@@ -19,9 +20,16 @@ namespace TestSystemManagement.Controllers
             this.repo = repo;
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        #region Login-Logout
+
         public ActionResult Login()
         {
-            if (!string.IsNullOrEmpty(Constant.UserSession))
+            if (Session[Constant.UserSession] != null)
             {
                 return RedirectToAction("Index");
             }
@@ -34,15 +42,18 @@ namespace TestSystemManagement.Controllers
             var currentUser = repo.Login(userName, passWord);
             if (currentUser != null)
             {
-                Session.Add(Constant.UserSession, currentUser);
+                Session[Constant.UserSession] = currentUser;
                 return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
 
-        public ActionResult Index()
+        public ActionResult Logout()
         {
-            return View();
+            Session[Constant.UserSession] = null;
+            return RedirectToAction("Login");
         }
+
+        #endregion Login-Logout
     }
 }
