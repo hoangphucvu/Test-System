@@ -43,6 +43,7 @@ namespace TestSystemManagement.Controllers
             if (currentUser != null)
             {
                 Session[Constant.UserSession] = currentUser;
+                Logger.WriteAuthLog(userName, "login");
                 return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };

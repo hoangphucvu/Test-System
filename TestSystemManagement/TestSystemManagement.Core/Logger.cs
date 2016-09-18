@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
@@ -8,20 +9,24 @@ namespace TestSystemManagement.Core
 {
     public class Logger
     {
-        private Logger()
-        {
-        }
+        private static StreamWriter log;
 
-        private static Logger instance;
-
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public static Logger getInstace()
+        public static void WriteAuthLog(string userName, string action)
         {
-            if (instance == null)
+            if (!File.Exists("Log/AuthLog.txt"))
             {
-                instance = new Logger();
+                log = new StreamWriter("~/Log/AuthLog.txt");
             }
-            return instance;
+            else
+            {
+                log = File.AppendText("~/Log/AuthLog.txt");
+            }
+
+            log.WriteLine("...........");
+            log.WriteLine("Time" + DateTime.Now.ToShortDateString());
+            log.WriteLine("User" + userName + " :" + action);
+            log.WriteLine("............");
+            log.Close();
         }
     }
 }
