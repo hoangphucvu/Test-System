@@ -183,6 +183,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\loading.gif" />
     <Content Include="Content\login.css" />
     <Content Include="Content\materialize.min.css" />
     <Content Include="favicon.ico" />

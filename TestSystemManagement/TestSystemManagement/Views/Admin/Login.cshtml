@@ -36,7 +36,12 @@
                                 </div>
                             </div>
                             <div class="footer text-center">
-                                <button type="submit" class="waves-effect waves-light btn">Đăng nhập</button>
+                                <button type="submit" class="waves-effect waves-light btn" ng-hide="IsClick">
+                                    Đăng nhập
+                                </button>
+                                <div ng-show="IsLogging">
+                                    <img src="~/Content/img/loading.gif" />
+                                </div>
                             </div>
                         </form>
                     </div>

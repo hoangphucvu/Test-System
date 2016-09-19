@@ -10,7 +10,8 @@
 
     function LoginController($scope, $location, LoginService) {
         $scope.title = 'Hệ Thống Quản Lý Đề Thi';
-        $scope.IsLogin = false;
+        $scope.IsClick = false;
+        $scope.IsLogging = false;
         $scope.Submitted = false;
         $scope.IsFormValid = false;
 
@@ -24,6 +25,8 @@
         });
 
         $scope.Login = function () {
+            $scope.IsClick = true;
+            $scope.IsLogging = true;
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
