@@ -9,24 +9,48 @@ namespace TestSystemManagement.Core
 {
     public class Logger
     {
-        private static StreamWriter log;
+        public string path { get; set; }
+        private StreamWriter log;
 
-        public static void WriteAuthLog(string userName, string action)
+        public Logger(string path)
         {
-            if (!File.Exists("Log/AuthLog.txt"))
+            this.path = HttpContext.Current.Server.MapPath(path);
+        }
+
+        public void WriteAuthLog(string userName, string action)
+        {
+            if (!File.Exists(path))
             {
-                log = new StreamWriter("~/Log/AuthLog.txt");
+                log = new StreamWriter(path);
             }
             else
             {
-                log = File.AppendText("~/Log/AuthLog.txt");
+                using (log = File.AppendText(path))
+                {
+                    log.WriteLine("Datetime: {0} - {1}" + DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                    log.WriteLine("User" + userName + " :" + action);
+                    log.WriteLine("............");
+                    log.Close();
+                }
             }
+        }
 
-            log.WriteLine("...........");
-            log.WriteLine("Time" + DateTime.Now.ToShortDateString());
-            log.WriteLine("User" + userName + " :" + action);
-            log.WriteLine("............");
-            log.Close();
+        public void WriteActionLog(string userName, string action, string msg)
+        {
+            if (!File.Exists(path))
+            {
+                log = new StreamWriter(path);
+            }
+            else
+            {
+                using (log = File.AppendText(path))
+                {
+                    log.WriteLine("Datetime: {0} - {1}" + DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                    log.WriteLine("User" + userName + " :" + action + " " + msg);
+                    log.WriteLine("............");
+                    log.Close();
+                }
+            }
         }
     }
 }

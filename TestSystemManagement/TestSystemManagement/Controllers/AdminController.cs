@@ -14,6 +14,8 @@ namespace TestSystemManagement.Controllers
     public class AdminController : Controller
     {
         private IUsersRepository repo;
+        protected Logger logAccessPath = new Logger("~/Log/AccessLog.txt");
+        protected Logger logaction = new Logger("~/LogFiles/ActionLog.txt");
 
         public AdminController(IUsersRepository repo)
         {
@@ -43,7 +45,13 @@ namespace TestSystemManagement.Controllers
             if (currentUser != null)
             {
                 Session[Constant.UserSession] = currentUser;
-                Logger.WriteAuthLog(userName, "login");
+                if (!System.IO.File.Exists(logAccessPath.path))
+                {
+                }
+                else
+                {
+                    logAccessPath.WriteAuthLog(userName, "login");
+                }
                 return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
