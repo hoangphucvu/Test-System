@@ -17,32 +17,26 @@ namespace TestSystemManagement.Core
             string path = HttpContext.Current.Server.MapPath(logAccessPath);
             if (!File.Exists(path))
             {
-                File.Create(path);
-                TextWriter log = new StreamWriter(path);
-                log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-                log.WriteLine("User" + userName + " :" + action);
-                log.WriteLine("............");
-                log.Close();
+                using (StreamWriter log = File.CreateText(path))
+                {
+                    WriteLog(log, userName, action);
+                }
             }
             else if (File.Exists(path))
             {
-                //true append to file,false overwrite file
                 using (StreamWriter log = File.AppendText(path))
                 {
-                    log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-                    log.WriteLine("User" + userName + " :" + action);
-                    log.WriteLine("............");
-                    log.Close();
+                    WriteLog(log, userName, action);
                 }
             }
         }
 
-        //public void WriteActionLog(TextWriter log,string userName, string action)
-        //{
-        //    log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-        //    log.WriteLine("User" + userName + " :" + action);
-        //    log.WriteLine("............");
-        //    log.Close();
-        //}
+        public void WriteLog(StreamWriter log, string userName, string action)
+        {
+            log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+            log.WriteLine("User" + userName + " :" + action);
+            log.WriteLine("............");
+            log.Close();
+        }
     }
 }
