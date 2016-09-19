@@ -31,7 +31,7 @@
                         $scope.IsLogin = true;
                         window.location.href = "/Admin/Index";
                     }
-                    if (result.data == false) {
+                    if (result.data === false) {
                         $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
                         Materialize.toast('Vui lòng kiểm tra tên đăng nhập vả mật khẩu', 4000);
                     }

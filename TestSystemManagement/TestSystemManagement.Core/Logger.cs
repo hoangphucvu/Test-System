@@ -9,25 +9,27 @@ namespace TestSystemManagement.Core
 {
     public class Logger
     {
-        public string path { get; set; }
-        private StreamWriter log;
-
-        public Logger(string path)
-        {
-            this.path = HttpContext.Current.Server.MapPath(path);
-        }
+        //private StreamWriter log;
+        private string logAccessPath = "~/Log/AccessLog.txt";
 
         public void WriteAuthLog(string userName, string action)
         {
+            string path = HttpContext.Current.Server.MapPath(logAccessPath);
             if (!File.Exists(path))
             {
-                log = new StreamWriter(path);
+                File.Create(path);
+                TextWriter log = new StreamWriter(path);
+                log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                log.WriteLine("User" + userName + " :" + action);
+                log.WriteLine("............");
+                log.Close();
             }
-            else
+            else if (File.Exists(path))
             {
-                using (log = File.AppendText(path))
+                //true append to file,false overwrite file
+                using (StreamWriter log = File.AppendText(path))
                 {
-                    log.WriteLine("Datetime: {0} - {1}" + DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+                    log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
                     log.WriteLine("User" + userName + " :" + action);
                     log.WriteLine("............");
                     log.Close();
@@ -35,22 +37,12 @@ namespace TestSystemManagement.Core
             }
         }
 
-        public void WriteActionLog(string userName, string action, string msg)
-        {
-            if (!File.Exists(path))
-            {
-                log = new StreamWriter(path);
-            }
-            else
-            {
-                using (log = File.AppendText(path))
-                {
-                    log.WriteLine("Datetime: {0} - {1}" + DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-                    log.WriteLine("User" + userName + " :" + action + " " + msg);
-                    log.WriteLine("............");
-                    log.Close();
-                }
-            }
-        }
+        //public void WriteActionLog(TextWriter log,string userName, string action)
+        //{
+        //    log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+        //    log.WriteLine("User" + userName + " :" + action);
+        //    log.WriteLine("............");
+        //    log.Close();
+        //}
     }
 }
