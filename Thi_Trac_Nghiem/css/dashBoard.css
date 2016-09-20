@@ -181,6 +181,9 @@ div.panel.show {
 .main{
   margin-left: 299px;
 }
+.page-footer{
+  background-color: #3E444C !important;
+}
 @media only screen and (max-width: 770px){
   .main{
     margin-left: 0;
