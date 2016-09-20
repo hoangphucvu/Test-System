@@ -1,0 +1,20 @@
+.upload-form{
+	margin: 61px 0px;
+}
+.upload-form form .file-field{
+	padding: 7px;
+}
+.input-field .custom-top-icon.active{
+	font-size: 1.3rem;
+}
+
+
+
+.page-footer{
+	background-color: #3E444C !important;
+}
+@media only screen and (max-width: 470px){
+	.upload-form button{
+		margin: 10px 0;
+	}
+}
