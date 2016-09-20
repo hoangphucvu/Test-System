@@ -6,7 +6,21 @@
 }
 body{
   font-family: helveticaneue-light-webfont;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
 }
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 771px){
+    main, footer{
+    padding-left: 299px;
+  }
+}
+
 nav{
   background-color: rgba(46, 53, 61, 0.92) !important;
 }
@@ -21,6 +35,7 @@ nav{
   width: 300px;
   height: 100%;
   color: #e1ffff;
+  z-index: 999;
 }
 .nav-side-menu .brand {
   background-color: #23282e;
@@ -133,10 +148,6 @@ nav{
     display: block;
   }
 }
-body {
-  margin: 0px;
-  padding: 0px;
-}
 button.accordion {
   background-color: #2E353D;
   color: #e1ffff;
@@ -178,14 +189,18 @@ div.panel.show {
 .pad10{
   padding: 10px;
 }
-.main{
-  margin-left: 299px;
-}
 .page-footer{
   background-color: #3E444C !important;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
-@media only screen and (max-width: 770px){
+@media only screen and (max-width: 767px){
   .main{
-    margin-left: 0;
+    padding-left: 0;
+  }
+  .page-footer{
+    bottom: -100px;
   }
 }
