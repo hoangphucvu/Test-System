@@ -10,7 +10,6 @@
 
     function LoginController($scope, $location, LoginService) {
         $scope.title = 'Hệ Thống Quản Lý Đề Thi';
-        $scope.IsClick = false;
         $scope.IsLogging = false;
         $scope.Submitted = false;
         $scope.IsFormValid = false;
@@ -25,7 +24,6 @@
         });
 
         $scope.Login = function () {
-            $scope.IsClick = true;
             $scope.IsLogging = true;
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
@@ -37,6 +35,23 @@
                     if (result.data === false) {
                         $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
                         Materialize.toast('Vui lòng kiểm tra tên đăng nhập vả mật khẩu', 4000);
+                    }
+                });
+            }
+        }
+
+        $scope.checkValid = function () {
+            if ($scope.IsFormValid) {
+                $scope.ShowLoading = true;
+                $scope.HideLoginBtn = true;
+                LoginService.GetLogin($scope.LoginData).then(function (result) {
+                    if (result.data === true) {
+                        $scope.IsLogin = true;
+                        window.location.href = "/Admin/Index";
+                    }
+                    if (result.data === false) {
+                        $scope.ShowLoading = false;
+                        $scope.HideLoginBtn = false;
                     }
                 });
             }

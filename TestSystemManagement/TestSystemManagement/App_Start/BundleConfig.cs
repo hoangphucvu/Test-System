@@ -19,6 +19,8 @@ namespace TestSystemManagement
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/materialize.min.css",
                       "~/Content/login.css",
+                      "~/Content/dashBoard.css",
+                      "~/Content/upload.css",
                       "~/Content/font-awesome.min.css"));
         }
     }

@@ -36,10 +36,10 @@
                                 </div>
                             </div>
                             <div class="footer text-center">
-                                <button type="submit" class="waves-effect waves-light btn" ng-hide="IsClick">
+                                <button type="submit" class="waves-effect waves-light btn" ng-click="checkValid()" ng-hide="HideLoginBtn">
                                     Đăng nhập
                                 </button>
-                                <div ng-show="IsLogging">
+                                <div ng-show="ShowLoading">
                                     <img src="~/Content/img/loading.gif" />
                                 </div>
                             </div>

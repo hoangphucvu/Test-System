@@ -1,0 +1,24 @@
+.input-field .custom-top-icon.active{
+	font-size: 1.3rem;
+}
+.upload-form{
+	padding-left: 225px;
+	padding-right: 225px;
+	padding-top: 100px;
+}
+@media only screen and (max-width: 1080px){
+	.upload-form{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+@media only screen and (min-width: 993px){
+	.row .col.l8 {
+		width: 69.666667% !important;
+	}
+}
+@media only screen and (min-width: 601px){
+	.row .col.m8 {
+		width: 69.666667% !important;
+	}
+}    

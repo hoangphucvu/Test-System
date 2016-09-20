@@ -14,8 +14,8 @@
             templateUrl: '/Template/About.html',
             controller: 'AboutController'
         })
-        .when('/order/:id', {
-            templateUrl: '/Template/Order.html',
+        .when('/upload/import-quiz', {
+            templateUrl: '/Template/UploadQuestion.html',
             controller: 'OrderController'
         })
         .otherwise({   // This is when any route not matched

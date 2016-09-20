@@ -182,10 +182,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\create-new-quiz.css" />
+    <Content Include="Content\dashBoard.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\avatar.png" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\login.css" />
     <Content Include="Content\materialize.min.css" />
+    <Content Include="Content\upload.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -207,6 +211,7 @@
     <Content Include="Template\About.html" />
     <Content Include="Template\Error.html" />
     <Content Include="Template\Order.html" />
+    <Content Include="Template\UploadQuestion.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
