@@ -1,15 +1,10 @@
-.upload-form{
-	margin: 61px 0px;
-}
 .input-field .custom-top-icon.active{
 	font-size: 1.3rem;
 }
 .upload-form{
 	padding-left: 225px;
 	padding-right: 225px;
-}
-.page-footer{
-	background-color: #3E444C !important;
+	padding-top: 100px;
 }
 @media only screen and (max-width: 1080px){
 	.upload-form{

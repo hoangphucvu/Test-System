@@ -17,10 +17,9 @@ html {
 }
 @media only screen and (min-width: 771px){
     main, footer{
-    padding-left: 299px;
+    padding-left: 255px;
   }
 }
-
 nav{
   background-color: rgba(46, 53, 61, 0.92) !important;
 }
@@ -32,7 +31,7 @@ nav{
   background-color: #2e353d;
   position: fixed;
   top: 0px;
-  width: 300px;
+  width: 255px;
   height: 100%;
   color: #e1ffff;
   z-index: 999;
