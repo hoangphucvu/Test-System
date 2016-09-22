@@ -16,11 +16,8 @@ namespace TestSystemManagement
                     "~/Scripts/angular.js",
                       "~/Scripts/angular-route.js"
                       ));
-            bundles.Add(new StyleBundle("~/Content/css").Include(
+            bundles.Add(new StyleBundle("~/lib-css").Include(
                       "~/Content/materialize.min.css",
-                      "~/Content/login.css",
-                      "~/Content/dashBoard.css",
-                      "~/Content/upload.css",
                       "~/Content/font-awesome.min.css"));
         }
     }

@@ -4,7 +4,8 @@
     angular
         .module('TestManagementSystem')
         .controller('LoginController', LoginController)
-        .factory('LoginService', LoginService);
+        .factory('LoginService', LoginService)
+        .factory('UserInfoService', UserInfoService);
 
     LoginController.$inject = ['$scope', '$location', 'LoginService'];
 
@@ -30,7 +31,7 @@
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data === true) {
                         $scope.IsLogin = true;
-                        window.location.href = "/Admin/Index";
+                        window.location.href = "/Admin";
                     }
                     if (result.data === false) {
                         $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
@@ -47,7 +48,7 @@
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data === true) {
                         $scope.IsLogin = true;
-                        window.location.href = "/Admin/Index";
+                        window.location.href = "/Admin";
                     }
                     if (result.data === false) {
                         $scope.ShowLoading = false;
@@ -69,5 +70,11 @@
             });
         }
         return factoryService;
+    }
+
+    function UserInfoService($scope) {
+        var userInfo = {};
+        userInfo.name = $scope.LoginData.Username;
+        return userInfo;
     }
 })();

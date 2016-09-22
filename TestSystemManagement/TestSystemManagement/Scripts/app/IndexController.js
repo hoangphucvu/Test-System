@@ -4,41 +4,43 @@
     angular
         .module('TestManagementSystem')
         .config(config)
-        .controller('AboutController', AboutController)
-        .controller('OrderController', OrderController)
-        .controller('ErrorController', ErrorController);
-
+        .controller('IndexController', IndexController)
+        .controller('ImportQuizController', ImportQuizController)
+        .controller('NewQuizController', ImportQuizController);
     function config($locationProvider, $routeProvider) {
         $routeProvider
-        .when('/about', {
-            templateUrl: '/Template/About.html',
-            controller: 'AboutController'
+        .when('/', {
+            templateUrl: '/Template/Index.html',
+            controller: 'IndexController'
         })
         .when('/upload/import-quiz', {
             templateUrl: '/Template/UploadQuestion.html',
-            controller: 'OrderController'
+            controller: 'ImportQuizController'
+        }).when('/upload/new-quiz', {
+            templateUrl: '/Template/NewQuiz.html',
+            controller: 'NewQuizController'
         })
-        .otherwise({   // This is when any route not matched
-            templateUrl: '/Template/Error.html',
-            controller: 'ErrorController'
-        })
+       .otherwise({   // This is when any route not matched
+           templateUrl: '/Template/Index.html',
+           controller: 'IndexController'
+       })
         //pretty url  // use the HTML5 History API
-        $locationProvider.html5Mode({
-            enabled: true,
-            requireBase: false
-        });
+        //$locationProvider.html5Mode({
+        //    //enabled: true,
+        //    requireBase: false
+        //}).hasPrefix('!');
     }
 
-    AboutController.$inject = ['$scope'];
-    OrderController.$inject = ['$scope', '$routeParams'];
-    ErrorController.$inject = ['$scope'];
-    function AboutController($scope) {
-        $scope.Message = "This is ABOUT page";
+    IndexController.$inject = ['$scope', 'UserInfoService'];
+    ImportQuizController.$inject = ['$scope'];
+    NewQuizController.$inject = ['$scope'];
+    function IndexController($scope, UserInfoService) {
+        $scope.Message = UserInfoService.name;
     }
-    function OrderController($scope, $routeParams) {
-        $scope.Message = "This is ORDER Page with query string id value " + $routeParams.id;
+    function ImportQuizController($scope) {
+        $scope.Message = "This is ImportQuizController Page with query string id value";
     }
-    function ErrorController($scope) {
-        $scope.Message = "404 Not Found!";
+    function NewQuizController($scope) {
+        $scope.Message = "NewQuizController";
     }
 })();

@@ -21,6 +21,7 @@ namespace TestSystemManagement.Controllers
             this.repo = repo;
         }
 
+        [Route("Admin")]
         public ActionResult Index()
         {
             return View();
@@ -45,6 +46,7 @@ namespace TestSystemManagement.Controllers
             {
                 Session[Constant.UserSession] = currentUser;
                 log.WriteAuthLog(userName, "login");
+                var result = new { data = true, name = currentUser.Username };
                 return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };

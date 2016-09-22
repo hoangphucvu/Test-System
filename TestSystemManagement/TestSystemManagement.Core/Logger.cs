@@ -12,6 +12,7 @@ namespace TestSystemManagement.Core
         //private StreamWriter log;
         private string logAccessPath = "~/Log/AccessLog.txt";
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
         public void WriteAuthLog(string userName, string action)
         {
             string path = HttpContext.Current.Server.MapPath(logAccessPath);
