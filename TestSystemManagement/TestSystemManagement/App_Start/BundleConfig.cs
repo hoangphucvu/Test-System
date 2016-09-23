@@ -9,11 +9,11 @@ namespace TestSystemManagement
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/material").Include(
+                      "~/Scripts/jquery-1.10.2.min.js",
                       "~/Scripts/materialize.min.js"
                       ));
-
-            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                    "~/Scripts/angular.js",
+            bundles.Add(new ScriptBundle("~/bundles/angular-lib").Include(
+                      "~/Scripts/angular.js",
                       "~/Scripts/angular-route.js"
                       ));
             bundles.Add(new StyleBundle("~/lib-css").Include(

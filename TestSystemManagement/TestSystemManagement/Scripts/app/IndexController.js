@@ -29,13 +29,16 @@
         //    //enabled: true,
         //    requireBase: false
         //}).hasPrefix('!');
+        //$locationProvider
+        //  .html5Mode(false)
+        //  .hashPrefix('!');
     }
 
-    IndexController.$inject = ['$scope', 'UserInfoService'];
+    IndexController.$inject = ['$scope'];
     ImportQuizController.$inject = ['$scope'];
     NewQuizController.$inject = ['$scope'];
-    function IndexController($scope, UserInfoService) {
-        $scope.Message = UserInfoService.name;
+    function IndexController($scope) {
+        //$scope.Message = UserInfoService.name;
     }
     function ImportQuizController($scope) {
         $scope.Message = "This is ImportQuizController Page with query string id value";

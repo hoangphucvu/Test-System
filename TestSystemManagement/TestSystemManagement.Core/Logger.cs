@@ -9,8 +9,8 @@ namespace TestSystemManagement.Core
 {
     public class Logger
     {
-        //private StreamWriter log;
         private string logAccessPath = "~/Log/AccessLog.txt";
+        private string exceptionLogPath = "~/Log/ExceptionLog.txt";
 
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void WriteAuthLog(string userName, string action)
@@ -38,6 +38,33 @@ namespace TestSystemManagement.Core
             log.WriteLine("User" + userName + " :" + action);
             log.WriteLine("............");
             log.Close();
+        }
+
+        public void WriteExceptionLogMessage(StreamWriter log, string exception)
+        {
+            log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
+            log.WriteLine("Exception " + exception);
+            log.WriteLine("............");
+            log.Close();
+        }
+
+        public void WriteExceptionLog(string exception)
+        {
+            string path = HttpContext.Current.Server.MapPath(logAccessPath);
+            if (!File.Exists(exceptionLogPath))
+            {
+                using (StreamWriter log = File.CreateText(path))
+                {
+                    WriteExceptionLogMessage(log, exception);
+                }
+            }
+            else if (File.Exists(path))
+            {
+                using (StreamWriter log = File.AppendText(path))
+                {
+                    WriteExceptionLogMessage(log, exception);
+                }
+            }
         }
     }
 }

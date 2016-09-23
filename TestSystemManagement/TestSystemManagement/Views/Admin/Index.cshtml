@@ -9,7 +9,7 @@
         <div class="nav-side-menu">
             <div class="brand">
                 <img src="~/Content/img/avatar.png" />
-                <p>{{Message}}</p>
+                <p>Admin</p>
             </div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
@@ -27,13 +27,14 @@
                     </ul>
                     <div class="panel">
                         <ul class="sub-menu collapse" id="new">
-                            <li> <a href="/#/upload/import-quiz">Upload đề thi </a></li>
-                            <li> <a href="/#/upload/new-quiz">Tạo mới </a> </li>
-                            <li> <a href="/#/upload/edit-quiz"> Chỉnh sửa</a></li>
-                            <li> <a href="/#/upload/delete-quiz">Xoá</a></li>
+                            <li> <a href="#/upload/import-quiz">Upload đề thi </a></li>
+                            <li> <a href="#/upload/new-quiz">Tạo mới </a> </li>
+                            <li> <a href="#/upload/edit-quiz"> Chỉnh sửa</a></li>
+                            <li> <a href="#/upload/delete-quiz">Xoá</a></li>
                         </ul>
                     </div>
-                    <li><a href="/Admin/Logout"><i class="fa fa-power-off" aria-hidden="true"></i>Đăng xuất</a></li>
+                    <li><a href="@Url.Action("Logout","Admin")"><i class="fa fa-power-off" aria-hidden="true"></i>Đăng xuất</a></li>
+                    <li><a href="@Url.Action("CreateError","Error")"><i class="fa fa-power-off" aria-hidden="true"></i>CreateError</a></li>
                 </ul>
             </div>
         </div>

@@ -170,11 +170,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomHandleErrorAttribute.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +210,7 @@
     <Content Include="Scripts\app\LoginController.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\materialize.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Template\Index.html" />
     <Content Include="Template\NewQuiz.html" />
     <Content Include="Template\UploadQuestion.html" />
@@ -242,6 +245,8 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Error\HttpError500.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">

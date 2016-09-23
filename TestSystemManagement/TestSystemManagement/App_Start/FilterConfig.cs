@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using TestSystemManagement.App_Start;
 
 namespace TestSystemManagement
 {
@@ -7,7 +8,7 @@ namespace TestSystemManagement
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new CustomHandleErrorAttribute());
         }
     }
 }
