@@ -11,60 +11,52 @@ namespace TestSystemManagement.App_Start
     {
         private Logger log = new Logger();
 
-        //public override void OnException(ExceptionContext filterContext)
-        //{
-        //    //check if the exception has been handle or not
-        //    //check custom error mode is enable
-        //    if (filterContext.ExceptionHandled || !filterContext.HttpContext.IsCustomErrorEnabled)
-        //    {
-        //        return;
-        //    }
+        public override void OnException(ExceptionContext filterContext)
+        {
+            if (filterContext == null)
+            {
+                throw new ArgumentNullException("filterContext is null");
+            }
 
-        //    //status !=500 return
-        //    if (new HttpException(null, filterContext.Exception).GetHttpCode() != 500)
-        //    {
-        //        return;
-        //    }
+            // If custom errors are disabled, we need to let the normal ASP.NET exception handler
+            // execute so that the user can see useful debugging information.
+            if (filterContext.ExceptionHandled || !filterContext.HttpContext.IsCustomErrorEnabled)
+            {
+                return;
+            }
 
-        //    if (!ExceptionType.IsInstanceOfType(filterContext.Exception))
-        //    {
-        //        return;
-        //    }
+            //status !=500 return
+            if (new HttpException(null, filterContext.Exception).GetHttpCode() != 500)
+            {
+                return;
+            }
 
-        //    // if the request is AJAX return JSON else view.
-        //    if (filterContext.HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-        //    {
-        //        filterContext.Result = new JsonResult
-        //        {
-        //            JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        //            Data = new
-        //            {
-        //                error = true,
-        //                message = filterContext.Exception.Message
-        //            }
-        //        };
-        //    }
-        //    else
-        //    {
-        //        var controllerName = (string)filterContext.RouteData.Values["controller"];
-        //        var actionName = (string)filterContext.RouteData.Values["action"];
-        //        var model = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
+            if (!ExceptionType.IsInstanceOfType(filterContext.Exception))
+            {
+                return;
+            }
 
-        //        filterContext.Result = new ViewResult
-        //        {
-        //            ViewName = "Error/HttpError500",
-        //            MasterName = Master,
-        //            ViewData = new ViewDataDictionary<HandleErrorInfo>(model),
-        //            TempData = filterContext.Controller.TempData
-        //        };
-        //    }
+            string controllerName = (string)filterContext.RouteData.Values["controller"];
+            string actionName = (string)filterContext.RouteData.Values["action"];
+            var model = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
 
-        //    log.WriteExceptionLog(filterContext.Exception.StackTrace);
-        //    filterContext.ExceptionHandled = true;
-        //    filterContext.HttpContext.Response.Clear();
-        //    filterContext.HttpContext.Response.StatusCode = 500;
+            filterContext.Result = new ViewResult
+            {
+                ViewName = View,
+                MasterName = Master,
+                ViewData = new ViewDataDictionary<HandleErrorInfo>(model),
+                TempData = filterContext.Controller.TempData
+            };
 
-        //    filterContext.HttpContext.Response.TrySkipIisCustomErrors = true;
-        //}
+            log.WriteExceptionLog(filterContext.Exception.StackTrace);
+            filterContext.ExceptionHandled = true;
+            filterContext.HttpContext.Response.Clear();
+            filterContext.HttpContext.Response.StatusCode = new HttpException(null, filterContext.Exception).GetHttpCode();
+
+            // Certain versions of IIS will sometimes use their own error page when
+            // they detect a server error. Setting this property indicates that we
+            // want it to try to render ASP.NET MVC's error page instead.
+            filterContext.HttpContext.Response.TrySkipIisCustomErrors = false;
+        }
     }
 }

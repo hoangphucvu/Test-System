@@ -16,26 +16,17 @@ namespace TestSystemManagement.Core
         public void WriteAuthLog(string userName, string action)
         {
             string path = HttpContext.Current.Server.MapPath(logAccessPath);
-            if (!File.Exists(path))
+
+            using (StreamWriter log = File.AppendText(path))
             {
-                using (StreamWriter log = File.CreateText(path))
-                {
-                    WriteLog(log, userName, action);
-                }
-            }
-            else if (File.Exists(path))
-            {
-                using (StreamWriter log = File.AppendText(path))
-                {
-                    WriteLog(log, userName, action);
-                }
+                WriteLog(log, userName, action);
             }
         }
 
         public void WriteLog(StreamWriter log, string userName, string action)
         {
             log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
-            log.WriteLine("User" + userName + " :" + action);
+            log.WriteLine("User " + userName + " :" + action);
             log.WriteLine("............");
             log.Close();
         }
@@ -50,20 +41,11 @@ namespace TestSystemManagement.Core
 
         public void WriteExceptionLog(string exception)
         {
-            string path = HttpContext.Current.Server.MapPath(logAccessPath);
-            if (!File.Exists(exceptionLogPath))
+            string path = HttpContext.Current.Server.MapPath(exceptionLogPath);
+
+            using (StreamWriter log = File.AppendText(path))
             {
-                using (StreamWriter log = File.CreateText(path))
-                {
-                    WriteExceptionLogMessage(log, exception);
-                }
-            }
-            else if (File.Exists(path))
-            {
-                using (StreamWriter log = File.AppendText(path))
-                {
-                    WriteExceptionLogMessage(log, exception);
-                }
+                WriteExceptionLogMessage(log, exception);
             }
         }
     }
