@@ -55,7 +55,7 @@ namespace TestSystemManagement.Controllers
         public ActionResult Logout()
         {
             Session[Constant.UserSession] = null;
-            return RedirectToAction("Login");
+            return Redirect("Login");
         }
 
         #endregion Login-Logout
