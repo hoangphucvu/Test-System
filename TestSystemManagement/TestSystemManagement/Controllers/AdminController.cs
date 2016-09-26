@@ -21,7 +21,7 @@ namespace TestSystemManagement.Controllers
             this.repo = repo;
         }
 
-        [Route("Admin")]
+        [Route("")]
         public ActionResult Index()
         {
             return View();

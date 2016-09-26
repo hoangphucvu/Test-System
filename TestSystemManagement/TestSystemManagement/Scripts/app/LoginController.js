@@ -31,7 +31,7 @@
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data === true) {
                         $scope.IsLogin = true;
-                        window.location.href = "/Admin";
+                        window.location.href = "/";
                     }
                     if (result.data === false) {
                         $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
@@ -48,7 +48,7 @@
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data === true) {
                         $scope.IsLogin = true;
-                        window.location.href = "/Admin";
+                        window.location.href = "/";
                     }
                     if (result.data === false) {
                         $scope.ShowLoading = false;
