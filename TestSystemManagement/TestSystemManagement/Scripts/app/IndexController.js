@@ -6,7 +6,7 @@
         .config(config)
         .controller('IndexController', IndexController)
         .controller('ImportQuizController', ImportQuizController)
-        .controller('NewQuizController', ImportQuizController);
+        .controller('NewQuizController', NewQuizController);
     function config($locationProvider, $routeProvider) {
         $routeProvider
         .when('/', {
@@ -34,16 +34,46 @@
         //  .hashPrefix('!');
     }
 
-    IndexController.$inject = ['$scope'];
+    IndexController.$inject = ['$scope', '$http'];
     ImportQuizController.$inject = ['$scope'];
     NewQuizController.$inject = ['$scope'];
-    function IndexController($scope) {
-        //$scope.Message = UserInfoService.name;
+    function IndexController($scope, $http) {
+        $scope.Logout = function () {
+            return $http({
+                url: '/Admin/Logout',
+                method: 'GET'
+            });
+        }
     }
     function ImportQuizController($scope) {
-        $scope.Message = "This is ImportQuizController Page with query string id value";
     }
     function NewQuizController($scope) {
         $scope.Message = "NewQuizController";
+        $scope.GenerateQuestion = function (totalQuestion) {
+            var total = TryParseInt(totalQuestion, null);
+            if (typeof (total) === 'number') {
+                for (i = 0; i < total; i++) {
+                    var parentElement = angular.element(document.querySelector('#cloneArea'));
+                    var childElement = angular.element(document.querySelector('#cloneContent'));
+                    parentElement.append(childElement.clone());
+                }
+            }
+            else {
+                alert('Vui lòng nhập số thích hợp');
+                return false;
+            }
+        };
+    }
+
+    function TryParseInt(str, defaultValue) {
+        var convertValue = defaultValue;
+        if (str != null) {
+            if (str.length > 0) {
+                if (!isNaN(str)) {
+                    convertValue = parseInt(str);
+                }
+            }
+        }
+        return convertValue;
     }
 })();
