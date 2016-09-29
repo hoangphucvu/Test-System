@@ -10,16 +10,15 @@ namespace TestSystem.Models
         public string UserId { get; set; }
 
         [Required(ErrorMessage = "Tên đăng nhập không được để trống")]
-        [Display(Name = "Tên Đăng Nhập")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Mật khẩu không được để trống")]
-        [Display(Name = "Mật Khẩu")]
         public string Password { get; set; }
 
-        public int Level { get; set; }
+        public int AccessLevel { get; set; }
 
         public ICollection<TestDetail> TestDetail { get; set; }
         public ICollection<Result> Result { get; set; }
+        public ICollection<TestMap> TestMap { get; set; }
     }
 }

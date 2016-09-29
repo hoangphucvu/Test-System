@@ -7,17 +7,19 @@ namespace TestSystem.Models
     public class TestChildSubject
     {
         public int Id { get; set; }
-        public Guid TestChildSubjectId { get; set; }
 
+        [MinLength(5), MaxLength(20)]
+        public string TestChildSubjectId { get; set; }
+
+        [MinLength(3), MaxLength(50)]
         [Required(ErrorMessage = "Mã môn học không được để trống")]
-        [Display(Name = "Mã môn học")]
-        public Guid SubjectCode { get; set; }
+        public string SubjectCode { get; set; }
 
-        [MinLength(5), MaxLength(10)]
+        [MinLength(5), MaxLength(50)]
         [Required(ErrorMessage = "Tên tiểu mục không được để trống")]
-        [Display(Name = "Tên tiểu mục")]
         public string TestChildSubjectName { get; set; }
 
+        public TestSubject TestSubject { get; set; }
         public ICollection<TestDetail> TestDetail { get; set; }
     }
 }

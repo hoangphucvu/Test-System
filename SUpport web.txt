@@ -6,3 +6,7 @@ https://github.com/hoangphucvu/Test-System | hoangphucvu/Test-System: Hệ thố
 http://www.w3schools.com/bootstrap/bootstrap_theme_company.asp | Bootstrap Theme "Company"
 https://admin.typeform.com/form/2134758/fields/ | Form > Questions | Typeform
 file:///D:/Thi_Trac_Nghiem/dashBoard.html# | W3.CSS
+
+Enable-Migrations -ProjectName "TestSystemManagement.Infrastructure" -StartUpProjectName "TestSystemManagement.Core" -ContextTypeName TestSystem.Models.TestSystemManagementContext
+Add-Migration TestSystemManagementMigration -ProjectName "TestSystemManagement.Infrastructure" -StartUpProjectName "TestSystemManagement.Core"
+Update-Database -ProjectName "TestSystemManagement.Infrastructure" -StartUpProjectName "TestSystemManagement.Core"
