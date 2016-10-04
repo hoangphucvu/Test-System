@@ -1,6 +1,6 @@
 ﻿using TestSystem.Models;
 
-namespace TestSystemManagement.Core.Interfaces
+namespace TestSystemManagement.Infrastructure
 {
     public interface IUsersRepository
     {

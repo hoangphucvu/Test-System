@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{738AD251-62F0-40BE-9933-F8E765812522}</ProjectGuid>
+    <ProjectGuid>{C794A84A-673F-4887-8B94-4BC914BC52F6}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -117,9 +117,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201609291613145_TestSystemManagementMigration.cs" />
-    <Compile Include="Migrations\201609291613145_TestSystemManagementMigration.Designer.cs">
-      <DependentUpon>201609291613145_TestSystemManagementMigration.cs</DependentUpon>
+    <Compile Include="Interfaces\IUsersRepository.cs" />
+    <Compile Include="Migrations\201610041507347_TestSystemManagementMigration.cs" />
+    <Compile Include="Migrations\201610041507347_TestSystemManagementMigration.Designer.cs">
+      <DependentUpon>201610041507347_TestSystemManagementMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,13 +130,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">
-      <Project>{1cffcc9a-cc39-4b53-9530-07d3868257c5}</Project>
+      <Project>{67b26af6-7d45-4fcb-9b3b-987374acd35d}</Project>
       <Name>TestSystemManagement.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201609291613145_TestSystemManagementMigration.resx">
-      <DependentUpon>201609291613145_TestSystemManagementMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610041507347_TestSystemManagementMigration.resx">
+      <DependentUpon>201610041507347_TestSystemManagementMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -151,9 +152,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6358</DevelopmentServerPort>
+          <DevelopmentServerPort>9871</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:6358/</IISUrl>
+          <IISUrl>http://localhost:9871/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

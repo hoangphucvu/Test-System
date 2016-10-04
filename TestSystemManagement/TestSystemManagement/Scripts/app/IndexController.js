@@ -13,25 +13,22 @@
             templateUrl: '/Template/Index.html',
             controller: 'IndexController'
         })
-        .when('/upload/import-quiz', {
+        .when('/admin/upload/import-quiz', {
             templateUrl: '/Template/UploadQuestion.html',
             controller: 'ImportQuizController'
-        }).when('/upload/new-quiz', {
+        }).when('/admin/upload/new-quiz', {
             templateUrl: '/Template/NewQuiz.html',
             controller: 'NewQuizController'
         })
-       .otherwise({   // This is when any route not matched
+       .otherwise({
            templateUrl: '/Template/Index.html',
            controller: 'IndexController'
        })
         //pretty url  // use the HTML5 History API
-        //$locationProvider.html5Mode({
-        //    //enabled: true,
-        //    requireBase: false
-        //}).hasPrefix('!');
-        //$locationProvider
-        //  .html5Mode(false)
-        //  .hashPrefix('!');
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
     }
 
     IndexController.$inject = ['$scope', '$http'];

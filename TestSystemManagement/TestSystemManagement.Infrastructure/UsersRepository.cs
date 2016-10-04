@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using TestSystem.Models;
-using TestSystemManagement.Core.Interfaces;
 
 namespace TestSystemManagement.Infrastructure
 {

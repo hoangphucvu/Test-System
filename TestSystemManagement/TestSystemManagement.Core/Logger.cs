@@ -27,7 +27,7 @@ namespace TestSystemManagement.Core
         {
             log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
             log.WriteLine("User " + userName + " :" + action);
-            log.WriteLine("............");
+            log.WriteLine("................................................");
             log.Close();
         }
 
@@ -35,7 +35,7 @@ namespace TestSystemManagement.Core
         {
             log.WriteLine("Datetime: {0} - {1}", DateTime.Now.ToShortDateString(), DateTime.Now.ToLongTimeString());
             log.WriteLine("Exception " + exception);
-            log.WriteLine("............");
+            log.WriteLine("................................................");
             log.Close();
         }
 

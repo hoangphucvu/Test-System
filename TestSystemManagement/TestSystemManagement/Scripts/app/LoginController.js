@@ -28,29 +28,16 @@
             $scope.IsLogging = true;
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
-                LoginService.GetLogin($scope.LoginData).then(function (result) {
-                    if (result.data === true) {
-                        $scope.IsLogin = true;
-                        window.location.href = "/";
-                    }
-                    if (result.data === false) {
-                        $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
-                        Materialize.toast('Vui lòng kiểm tra tên đăng nhập vả mật khẩu', 4000);
-                    }
-                });
-            }
-        }
-
-        $scope.checkValid = function () {
-            if ($scope.IsFormValid) {
                 $scope.ShowLoading = true;
                 $scope.HideLoginBtn = true;
                 LoginService.GetLogin($scope.LoginData).then(function (result) {
                     if (result.data === true) {
                         $scope.IsLogin = true;
-                        window.location.href = "/";
+                        window.location.href = "/Admin/Index";
                     }
                     if (result.data === false) {
+                        $scope.Message = 'Vui lòng kiểm tra tên đăng nhập vả mật khẩu';
+                        Materialize.toast('Vui lòng kiểm tra tên đăng nhập vả mật khẩu', 4000);
                         $scope.ShowLoading = false;
                         $scope.HideLoginBtn = false;
                     }
@@ -63,7 +50,7 @@
         var factoryService = {};
         factoryService.GetLogin = function (result) {
             return $http({
-                url: '/Admin/Login',
+                url: '/Account/Login',
                 method: 'POST',
                 data: JSON.stringify(result),
                 header: { 'content-type': 'application/json' }

@@ -1,7 +1,6 @@
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System;
-using TestSystemManagement.Core.Interfaces;
 using TestSystemManagement.Infrastructure;
 
 namespace TestSystemManagement.App_Start
