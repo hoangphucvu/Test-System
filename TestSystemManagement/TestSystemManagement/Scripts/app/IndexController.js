@@ -5,25 +5,35 @@
         .module('TestManagementSystem')
         .config(config)
         .controller('IndexController', IndexController)
+        .controller('NewSubjectController', NewSubjectController)
         .controller('ImportQuizController', ImportQuizController)
         .controller('NewQuizController', NewQuizController);
     function config($locationProvider, $routeProvider) {
         $routeProvider
-        .when('/', {
-            templateUrl: '/Template/Index.html',
-            controller: 'IndexController'
-        })
-        .when('/admin/upload/import-quiz', {
-            templateUrl: '/Template/UploadQuestion.html',
-            controller: 'ImportQuizController'
-        }).when('/admin/upload/new-quiz', {
-            templateUrl: '/Template/NewQuiz.html',
-            controller: 'NewQuizController'
-        })
-       .otherwise({
-           templateUrl: '/Template/Index.html',
-           controller: 'IndexController'
-       })
+            .when('/',
+            {
+                templateUrl: '/Template/Index.html',
+                controller: 'IndexController'
+            })
+            .when('/admin/subject/new-subject',
+            {
+                templateUrl: '/Template/NewSubject.html',
+                controller: 'NewSubjectController'
+            })
+            .when('/admin/quiz/import-quiz',
+            {
+                templateUrl: '/Template/UploadQuestion.html',
+                controller: 'ImportQuizController'
+            })
+            .when('/admin/quiz/new-quiz',
+            {
+                templateUrl: '/Template/NewQuiz.html',
+                controller: 'NewQuizController'
+            })
+            .otherwise({
+                templateUrl: '/Template/Index.html',
+                controller: 'IndexController'
+            });
         //pretty url  // use the HTML5 History API
         $locationProvider.html5Mode({
             enabled: true,
@@ -32,8 +42,10 @@
     }
 
     IndexController.$inject = ['$scope', '$http'];
+    NewSubjectController.inject = ['$scope', '$http'];
     ImportQuizController.$inject = ['$scope'];
     NewQuizController.$inject = ['$scope'];
+
     function IndexController($scope, $http) {
         $scope.Logout = function () {
             return $http({
@@ -59,6 +71,11 @@
                 alert('Vui lòng nhập số thích hợp');
                 return false;
             }
+        };
+    }
+
+    function NewSubjectController($scope, $http) {
+        $scope.SubjectData = {
         };
     }
 

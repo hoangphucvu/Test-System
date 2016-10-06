@@ -15,7 +15,7 @@ namespace TestSystem.Helpers
                 || filterContext.RouteData.Values["action"].ToString().ToLower() != "login"))
             {
                 filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(new { controller = "Admin", action = "Login" }));
+                    new RouteValueDictionary(new { controller = "Account", action = "Login" }));
             }
             base.OnActionExecuting(filterContext);
         }

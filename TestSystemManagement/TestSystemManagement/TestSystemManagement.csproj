@@ -195,38 +195,40 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\create-new-quiz.css" />
-    <Content Include="Content\dashBoard.css" />
-    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Css-Lib\bootstrap-material-datetimepicker.css" />
+    <Content Include="Content\Style\create-new-quiz.css" />
+    <Content Include="Content\Style\dash-board.css" />
+    <Content Include="Content\Css-Lib\font-awesome.min.css" />
     <Content Include="Content\img\avatar.png" />
     <Content Include="Content\img\loading.gif" />
-    <Content Include="Content\login.css" />
-    <Content Include="Content\materialize.min.css" />
-    <Content Include="Content\upload.css" />
+    <Content Include="Content\Style\login.css" />
+    <Content Include="Content\Css-Lib\materialize.min.css" />
+    <Content Include="Content\Style\upload.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\Style\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
-    <Content Include="Scripts\angular-mocks.js" />
-    <Content Include="Scripts\angular-route.js" />
-    <Content Include="Scripts\angular-route.min.js" />
-    <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\Lib-Js\bootstrap-material-datetimepicker.js" />
+    <Content Include="Scripts\Lib-Js\moment.min.js" />
+    <Content Include="Scripts\Lib-Js\angular-mocks.js" />
+    <Content Include="Scripts\Lib-Js\angular-route.js" />
+    <Content Include="Scripts\Lib-Js\angular-route.min.js" />
+    <Content Include="Scripts\Lib-Js\angular.js" />
+    <Content Include="Scripts\Lib-Js\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\IndexController.js" />
     <Content Include="Scripts\app\LoginController.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\materialize.min.js" />
-    <Content Include="Scripts\site.js" />
+    <Content Include="Scripts\Lib-Js\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\Lib-Js\materialize.min.js" />
+    <Content Include="Scripts\app\site.js" />
     <Content Include="Template\Index.html" />
+    <Content Include="Template\NewSubject.html" />
     <Content Include="Template\NewQuiz.html" />
     <Content Include="Template\UploadQuestion.html" />
     <Content Include="Web.config" />
@@ -260,8 +262,8 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\helveticaneue-light-webfont.woff" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\angular-route.min.js.map" />
-    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\Lib-Js\angular-route.min.js.map" />
+    <Content Include="Scripts\Lib-Js\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">

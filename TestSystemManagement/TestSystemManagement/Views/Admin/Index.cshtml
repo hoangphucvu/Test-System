@@ -1,15 +1,15 @@
 ﻿@{
     ViewBag.Title = "Trang chủ";
 }
-<link href="~/Content/dashBoard.css" rel="stylesheet" />
-<link href="~/Content/create-new-quiz.css" rel="stylesheet" />
-<link href="~/Content/upload.css" rel="stylesheet" />
+<link href="~/Content/Style/dash-board.css" rel="stylesheet" />
+<link href="~/Content/Style/create-new-quiz.css" rel="stylesheet" />
+<link href="~/Content/Style/upload.css" rel="stylesheet" />
 <header>
     <div class="side-navbar" ng-controller="IndexController">
         <div class="nav-side-menu">
             <div class="brand">
                 <img src="~/Content/img/avatar.png" />
-                <p>Admin</p>
+                <p>Welcome</p>
             </div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
@@ -21,16 +21,29 @@
                     </li>
                     <ul class="accordion active">
                         <li>
+                            <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý môn thi
+                            <span class="arrow"></span>
+                        </li>
+                    </ul>
+                    <div class="panel">
+                        <ul class="sub-menu collapse" id="new">
+                            <li> <a href="/admin/subject/new-subject">Tạo mới môn thi </a></li>
+                            <li> <a href="/admin/subject/update-subject">Cập nhật môn thi </a> </li>
+                            <li> <a href="/admin/subject/delete-subject"> Xóa môn thi</a></li>
+                        </ul>
+                    </div>
+                    <ul class="accordion active">
+                        <li>
                             <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý đề thi
                             <span class="arrow"></span>
                         </li>
                     </ul>
                     <div class="panel">
                         <ul class="sub-menu collapse" id="new">
-                            <li> <a href="/admin/upload/import-quiz">Upload đề thi </a></li>
-                            <li> <a href="/admin/upload/new-quiz">Tạo mới </a> </li>
-                            <li> <a href="/admin/upload/edit-quiz"> Chỉnh sửa</a></li>
-                            <li> <a href="/admin/upload/delete-quiz">Xoá</a></li>
+                            <li> <a href="/admin/quiz/import-quiz">Upload đề thi </a></li>
+                            <li> <a href="/admin/quiz/new-quiz">Tạo mới đề thi </a> </li>
+                            <li> <a href="/admin/quiz/edit-quiz"> Chỉnh sửa đề thi</a></li>
+                            <li> <a href="/admin/quiz/delete-quiz">Xoá đề thi</a></li>
                         </ul>
                     </div>
                     <li><a href="@Url.Action("Logout","Account")"><i class="fa fa-power-off" aria-hidden="true"></i>Đăng xuất</a></li>
@@ -40,15 +53,8 @@
     </div>
 </header>
 <ng-view></ng-view>
-<footer class="page-footer">
-    <div class="footer-copyright">
-        <div class="container">
-            © 2016 Copyright
-            <a class="grey-text text-lighten-4 right" href="#!">Test System Management</a>
-        </div>
-    </div>
-</footer>
-@section Scripts{
+
+@section scripts{
     <script src="~/Scripts/app/IndexController.js"></script>
-    <script src="~/Scripts/site.js"></script>
+
 }
