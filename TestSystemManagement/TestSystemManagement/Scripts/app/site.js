@@ -7,5 +7,3 @@ for (i = 0; i < acc.length; i++) {
         this.nextElementSibling.classList.toggle("show");
     }
 }
-$('#finish-time-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm' });
-$('#test-date').bootstrapMaterialDatePicker({ format: 'DD/MM/YYYY HH:mm' });

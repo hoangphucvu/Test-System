@@ -11,7 +11,7 @@ namespace TestSystemManagement
             bundles.Add(new StyleBundle("~/lib-css").Include(
                      "~/Content/Css-Lib/materialize.min.css",
                      "~/Content/Css-Lib/font-awesome.min.css",
-                     "~/Content/Css-Lib/bootstrap-material-datetimepicker.css"));
+                     "~/Content/Css-Lib/angularjs-datetime-picker.css"));
 
             bundles.Add(new StyleBundle("~/web-css").Include(
                     "~/Content/Style/dash-board.css",
@@ -20,6 +20,7 @@ namespace TestSystemManagement
 
             bundles.Add(new ScriptBundle("~/site-js").Include(
                       "~/Scripts/app/site.js"
+                      //"~/Scripts/Lib-Js/angularjs-datetime-picker.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(

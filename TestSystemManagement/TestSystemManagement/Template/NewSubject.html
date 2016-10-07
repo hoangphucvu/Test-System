@@ -1,4 +1,6 @@
-﻿<main ng-controller="NewSubjectController">
+﻿
+<script src="../Scripts/Lib-Js/angularjs-datetime-picker.min.js"></script>
+<main ng-controller="NewSubjectController">
     <div class="row">
         <form class="col s12" name="AddNewSubjectForm" novalidate ng-submit="AddNewSubject()">
             <div class="row">
@@ -43,14 +45,14 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" id="test-date" ng-model="AddNewSubjectForm.TestDate" required autofocus>
+                    <input datetime-picker date-format="yyyy-MM-dd HH:mm:ss" year="2014" month="12" day="31" hour="23" minute="59" id="test-date" ng-model="AddNewSubjectForm.TestDate" required autofocus>
                     <label for="test-date">Ngày kiểm tra</label>
                     <label for="test-date" ng-show="(AddNewSubjectForm.TestDate.$dirty || Submitted) && AddNewSubjectForm.TestDate.$error.required">Ngày kiểm tra không được để trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input type="text" id="finish-time-date" ng-model="AddNewSubjectForm.FinishTime" required autofocus>
+                    <input datetime-picker date-format="yyyy-MM-dd HH:mm:ss" year="2014" month="12" day="31" hour="23" minute="59" id="finish-time-date" ng-model="AddNewSubjectForm.FinishTime" required autofocus>
                     <label for="finish-time-date">Giờ kết thúc</label>
                     <label for="finish-time-date" ng-show="(AddNewSubjectForm.FinishTime.$dirty || Submitted) && AddNewSubjectForm.FinishTime.$error.required">Giờ kết thúc không được để trống</label>
                 </div>

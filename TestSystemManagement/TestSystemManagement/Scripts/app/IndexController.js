@@ -42,17 +42,15 @@
     }
 
     IndexController.$inject = ['$scope', '$http'];
-    NewSubjectController.inject = ['$scope', '$http'];
+    NewSubjectController.inject = ['$scope', '$http', 'angularjs-datetime-picker'];
     ImportQuizController.$inject = ['$scope'];
     NewQuizController.$inject = ['$scope'];
 
     function IndexController($scope, $http) {
         $scope.Logout = function () {
-            return $http({
-                url: '/Admin/Logout',
-                method: 'GET'
-            });
+            window.location = "/Account/Login";
         }
+        
     }
     function ImportQuizController($scope) {
     }

@@ -195,7 +195,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css-Lib\bootstrap-material-datetimepicker.css" />
+    <Content Include="Content\Css-Lib\angularjs-datetime-picker.css" />
     <Content Include="Content\Style\create-new-quiz.css" />
     <Content Include="Content\Style\dash-board.css" />
     <Content Include="Content\Css-Lib\font-awesome.min.css" />
@@ -214,7 +214,7 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
-    <Content Include="Scripts\Lib-Js\bootstrap-material-datetimepicker.js" />
+    <Content Include="Scripts\Lib-Js\angularjs-datetime-picker.min.js" />
     <Content Include="Scripts\Lib-Js\moment.min.js" />
     <Content Include="Scripts\Lib-Js\angular-mocks.js" />
     <Content Include="Scripts\Lib-Js\angular-route.js" />
