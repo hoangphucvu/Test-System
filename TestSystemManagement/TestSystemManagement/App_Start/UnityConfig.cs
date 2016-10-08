@@ -1,9 +1,9 @@
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using System;
 using TestSystemManagement.Infrastructure;
+using TestSystemManagement.Infrastructure.Repository;
 
-namespace TestSystemManagement.App_Start
+namespace TestSystemManagement
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.

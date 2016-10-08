@@ -43,7 +43,7 @@
                     }
                 });
             }
-        }
+        };
     }
 
     function LoginService($http) {
@@ -55,7 +55,7 @@
                 data: JSON.stringify(result),
                 header: { 'content-type': 'application/json' }
             });
-        }
+        };
         return factoryService;
     }
 

@@ -1,9 +1,9 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using TestSystem.Models;
+using TestSystemManagement.Core;
 
-namespace TestSystem.Helpers
+namespace TestSystemManagement.Helpers
 {
     public class SessionAttribute : ActionFilterAttribute
     {

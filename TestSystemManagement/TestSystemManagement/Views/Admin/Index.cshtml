@@ -1,9 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Trang chủ";
+    ViewBag.Title = "Hệ Thống Quản Lý Ngân Hàng Câu Hỏi Trắc Nghiệm";
 }
-<link href="~/Content/Style/dash-board.css" rel="stylesheet" />
-<link href="~/Content/Style/create-new-quiz.css" rel="stylesheet" />
-<link href="~/Content/Style/upload.css" rel="stylesheet" />
 <header>
     <div class="side-navbar" ng-controller="IndexController">
         <div class="nav-side-menu">
@@ -13,40 +10,50 @@
             </div>
             <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
             <div class="menu-list">
-                <ul id="menu-content" class="menu-content collapse out">
+                <ul class="collapsible" data-collapsible="expandable">
                     <li>
-                        <a href="#">
-                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
-                        </a>
+                        <div class="collapsible-header management">
+                            <i class="fa fa-dashboard fa-lg pad9"></i>Dashboard
+                        </div>
                     </li>
-                    <ul class="accordion active">
-                        <li>
-                            <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý môn thi
+                </ul>
+                <ul class="collapsible" data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header management">
+                            <i class="fa fa-pencil pad9" aria-hidden="true"></i>Quản Lý Môn Thi
                             <span class="arrow"></span>
-                        </li>
-                    </ul>
-                    <div class="panel">
-                        <ul class="sub-menu collapse" id="new">
-                            <li> <a href="/admin/subject/new-subject">Tạo mới môn thi </a></li>
-                            <li> <a href="/admin/subject/update-subject">Cập nhật môn thi </a> </li>
-                            <li> <a href="/admin/subject/delete-subject"> Xóa môn thi</a></li>
-                        </ul>
-                    </div>
-                    <ul class="accordion active">
-                        <li>
-                            <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý đề thi
+                        </div>
+                        <div class="collapsible-body sub-menu">
+                            <ul>
+                                <li> <a href="/admin/subject/new-subject">Tạo Mới Môn Thi </a></li>
+                                <li> <a href="/admin/subject/update-subject">Cập Nhật Môn Thi </a> </li>
+                                <li> <a href="/admin/subject/delete-subject"> Xóa Môn Thi</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header management">
+                            <i class="fa fa-pencil pad9" aria-hidden="true"></i>Quản Lý Đề Thi
                             <span class="arrow"></span>
-                        </li>
-                    </ul>
-                    <div class="panel">
-                        <ul class="sub-menu collapse" id="new">
-                            <li> <a href="/admin/quiz/import-quiz">Upload đề thi </a></li>
-                            <li> <a href="/admin/quiz/new-quiz">Tạo mới đề thi </a> </li>
-                            <li> <a href="/admin/quiz/edit-quiz"> Chỉnh sửa đề thi</a></li>
-                            <li> <a href="/admin/quiz/delete-quiz">Xoá đề thi</a></li>
-                        </ul>
-                    </div>
-                    <li><a href="/Account/Logout" ng-click="Logout()" target="_self"><i class="fa fa-power-off" aria-hidden="true"></i>Đăng xuất</a></li>
+                        </div>
+                        <div class="collapsible-body sub-menu">
+                            <ul>
+                                <li> <a href="/admin/quiz/import-quiz">Upload Đề Thi </a></li>
+                                <li> <a href="/admin/quiz/new-quiz">Tạo Mới Đề Thi </a> </li>
+                                <li> <a href="/admin/quiz/edit-quiz"> Chỉnh Sửa Đề Thi</a></li>
+                                <li> <a href="/admin/quiz/delete-quiz">Xoá Đề Thi</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="collapsible" data-collapsible="expandable">
+                    <li>
+                        <div class="collapsible-header management">
+                            <i class="fa fa-power-off pad9" aria-hidden="true"></i><a href="/Account/Logout" ng-click="Logout()" target="_self">Đăng Xuất</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

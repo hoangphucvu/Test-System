@@ -8,6 +8,5 @@
         // Custom modules
 
         // 3rd Party Modules
-       
     ]);
 })();

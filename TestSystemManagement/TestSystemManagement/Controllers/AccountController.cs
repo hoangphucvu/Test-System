@@ -8,7 +8,7 @@ namespace TestSystemManagement.Controllers
     public class AccountController : Controller
     {
         private IUsersRepository repo;
-        public Logger log = new Logger();
+        private Logger log = new Logger();
 
         public AccountController(IUsersRepository repo)
         {

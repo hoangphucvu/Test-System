@@ -2,7 +2,7 @@
 using System.Linq;
 using TestSystem.Models;
 
-namespace TestSystemManagement.Infrastructure
+namespace TestSystemManagement.Infrastructure.Repository
 {
     public class UsersRepository : IUsersRepository
     {

@@ -9,11 +9,11 @@ namespace TestSystemManagement.Infrastructure
 {
     public class TestSystemManagementEntities : TestSystemManagementContext
     {
-        public DbSet<Users> Users { get; set; }
-        public DbSet<TestChildSubject> TestChildSubjects { get; set; }
-        public DbSet<TestDetail> TestDetails { get; set; }
-        public DbSet<TestMap> TestMaps { get; set; }
-        public DbSet<TestSubject> TestSubjects { get; set; }
-        public DbSet<Result> Results { get; set; }
+        public new DbSet<Users> Users { get; set; }
+        public new DbSet<TestChildSubject> TestChildSubjects { get; set; }
+        public new DbSet<TestDetail> TestDetails { get; set; }
+        public new DbSet<TestMap> TestMaps { get; set; }
+        public new DbSet<TestSubject> TestSubjects { get; set; }
+        public new DbSet<Result> Results { get; set; }
     }
 }

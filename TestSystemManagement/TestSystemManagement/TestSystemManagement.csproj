@@ -184,7 +184,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -195,27 +194,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Css-Lib\angularjs-datetime-picker.css" />
-    <Content Include="Content\Style\create-new-quiz.css" />
-    <Content Include="Content\Style\dash-board.css" />
     <Content Include="Content\Css-Lib\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\avatar.png" />
     <Content Include="Content\img\loading.gif" />
-    <Content Include="Content\Style\login.css" />
     <Content Include="Content\Css-Lib\materialize.min.css" />
-    <Content Include="Content\Style\upload.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\fontawesome-webfont.svg" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Style\Site.css" />
+    <Content Include="Content\Style\site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
-    <Content Include="Scripts\Lib-Js\angularjs-datetime-picker.min.js" />
-    <Content Include="Scripts\Lib-Js\moment.min.js" />
     <Content Include="Scripts\Lib-Js\angular-mocks.js" />
     <Content Include="Scripts\Lib-Js\angular-route.js" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js" />
@@ -251,9 +242,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
@@ -261,6 +249,28 @@
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="fonts\helveticaneue-light-webfont.woff" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-Bold.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-BoldItalic.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-CondensedBlack.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-CondensedBold.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-Italic.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-Light.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-LightItalic.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-Medium.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-UltraLight.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue-UltraLightItalic.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\OTF\HelveticaNeue.otf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneue.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuebold.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuebolditalic.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuecondensedblack.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuecondensedbold.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneueitalic.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuelight.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuelightitalic.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneuemedium.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneueultralight.ttf" />
+    <Content Include="fonts\Fontbox.vn - Helvetica Neue Tieng Viet\TTF\helveticaneueultralightitalic.ttf" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js.map" />
     <Content Include="Scripts\Lib-Js\angular.min.js.map" />

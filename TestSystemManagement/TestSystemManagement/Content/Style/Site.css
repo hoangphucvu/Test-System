@@ -1,24 +1,490 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿* {
+    box-sizing: border-box;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+@fa-font-path:"fonts";
+
+@font-face {
+    font-family: helveticaneue-light-webfont;
+    src: url(../fonts/helveticaneue-light-webfont.woff);
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+body {
+    font-family: helveticaneue-light-webfont;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+html {
+    height: 100%;
+    box-sizing: border-box;
 }
+/* Index page css */
+#wrapped {
+    height: 620px;
+}
+
+#card {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    border-radius: 3px;
+    color: rgba(0,0,0, 0.87);
+    background: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    top: 125px;
+    min-height: 425px;
+}
+
+.card-login .head {
+    background: linear-gradient(60deg, #26A69A, #1F7EA2);
+    width: 80%;
+    margin: auto;
+    min-height: 160px;
+}
+
+.card-login .head {
+    box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    margin-top: -30px;
+    margin-bottom: 60px;
+    color: #FFFFFF;
+}
+
+.text-center {
+    text-align: center;
+}
+
+#card .content .fa-2x {
+    padding-left: 25px;
+    padding-top: 15px;
+}
+
+#card .footer .btn {
+    margin: 10px 0 10px 0 !important;
+}
+
+#card .content {
+    padding: 0 10px 0 10px;
+}
+
+    #card .content .input-field {
+        float: right;
+        margin-top: 0 !important;
+        width: 77%;
+        right: 23px;
+    }
+
+    #card .content .form-group {
+        margin-bottom: 30px !important;
+        margin-top: 20px;
+    }
+
+    #card .content input[type=text] {
+        margin: 0 0 15px 0 !important;
+    }
+
+.clear {
+    clear: both;
+}
+
+#card .btn:focus, .btn:hover {
+    color: #fff !important;
+    text-decoration: none;
+}
+
+#card .content p {
+    font-size: 1.1rem;
+    margin: 10px 0px 10px !important;
+}
+
+#card .content label {
+    margin-top: 2px !important;
+}
+
+#card .remember {
+    text-align: center;
+    margin: 10px 0 10px 0;
+}
+
+#card [type="checkbox"].filled-in:not(:checked) + label:after {
+    height: 15px !important;
+    width: 15px !important;
+}
+
+#card [type="checkbox"] + label {
+    padding-left: 30px !important;
+    line-height: 17px !important;
+}
+
+#card [type="checkbox"].filled-in:checked + label:after {
+    width: 15px !important;
+    height: 15px !important;
+}
+
+#card [type="checkbox"].filled-in:checked + label:before {
+    width: 6px !important;
+    height: 10px !important;
+}
+
+#footer-login .copyright {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+    #footer-login .copyright a:hover {
+        text-decoration: none;
+        color: #26A69A;
+        transition: all 1.2s;
+    }
+
+.padding20 {
+    padding: 20px;
+}
+/* End Index Page */
+
+/* Dashboard template css */
+@media only screen and (min-width: 771px) {
+    main, footer {
+        padding-left: 255px;
+    }
+}
+
+nav {
+    background-color: rgba(46, 53, 61, 0.92) !important;
+}
+
+.nav-side-menu {
+    overflow: auto;
+    font-family: verdana;
+    font-size: 12px;
+    font-weight: 200;
+    background-color: #2e353d;
+    position: fixed;
+    top: 0px;
+    width: 255px;
+    height: 100%;
+    color: #e1ffff;
+    z-index: 999;
+}
+
+    .nav-side-menu .brand {
+        background-color: #23282e;
+        line-height: 50px;
+        display: block;
+        text-align: center;
+        font-size: 14px;
+    }
+
+        .nav-side-menu .brand img {
+            width: 65px;
+            border-radius: 100%;
+            margin: 10px;
+        }
+
+        .nav-side-menu .brand p {
+            margin-top: -37px;
+            margin-bottom: 0;
+        }
+
+    .nav-side-menu .toggle-btn {
+        display: none;
+    }
+
+    .nav-side-menu ul,
+    .nav-side-menu li {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+        line-height: 35px;
+        cursor: pointer;
+    }
+
+        .nav-side-menu ul :not(collapsed) .arrow:before,
+        .nav-side-menu li :not(collapsed) .arrow:before {
+            font-family: FontAwesome;
+            content: "\f078";
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+            vertical-align: middle;
+            float: right;
+        }
+
+        .nav-side-menu ul .sub-menu li.active,
+        .nav-side-menu li .sub-menu li.active {
+            color: #d19b3d;
+        }
+
+            .nav-side-menu ul .sub-menu li.active a,
+            .nav-side-menu li .sub-menu li.active a {
+                color: #d19b3d;
+            }
+
+        .nav-side-menu ul .sub-menu li,
+        .nav-side-menu li .sub-menu li {
+            background-color: #181c20;
+            border: none;
+            line-height: 28px;
+            border-bottom: 1px solid #23282e;
+            margin-left: 0px;
+        }
+
+            .nav-side-menu ul .sub-menu li:hover,
+            .nav-side-menu li .sub-menu li:hover {
+                background-color: #020203;
+            }
+
+            .nav-side-menu ul .sub-menu li:before,
+            .nav-side-menu li .sub-menu li:before {
+                font-family: FontAwesome;
+                content: "\f105";
+                display: inline-block;
+                padding-left: 10px;
+                padding-right: 10px;
+                vertical-align: middle;
+            }
+
+    .nav-side-menu li {
+        padding-left: 0px;
+        /*   border-left: 3px solid #2e353d; */
+        /*   border-bottom: 1px solid #23282e; */
+    }
+
+        .nav-side-menu li a {
+            text-decoration: none;
+            color: #e1ffff;
+        }
+
+            .nav-side-menu li a i {
+                padding-left: 10px;
+                width: 20px;
+                padding-right: 20px;
+            }
+
+@media (max-width: 767px) {
+    .nav-side-menu {
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+        .nav-side-menu .toggle-btn {
+            display: block;
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 10 !important;
+            padding: 3px;
+            background-color: #ffffff;
+            color: #000;
+            width: 40px;
+            text-align: center;
+        }
+
+    .brand {
+        text-align: left !important;
+        font-size: 22px;
+        padding-left: 20px;
+        line-height: 50px !important;
+    }
+}
+
+@media (min-width: 767px) {
+    .nav-side-menu .menu-list .menu-content {
+        display: block;
+    }
+}
+
+.nav-side-menu .menu-list .management .active {
+    border-left: 3px solid #d19b3d;
+    background-color: #4f5b69;
+}
+
+.nav-side-menu .menu-list .management:hover {
+    /*   border-left: 3px solid #d19b3d; */
+    background-color: #4f5b69;
+    transition: all 1s ease;
+}
+
+.nav-side-menu .menu-list .management:after {
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.collapsible, .collapsible-body {
+    border: none !important;
+}
+
+.collapsible {
+    background-color: black;
+}
+
+.pad9 {
+    padding: 9px !important;
+}
+
+.collapsible-header i {
+    width: 2rem;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 0rem !important;
+}
+
+.collapsible-header {
+    display: block;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 3rem;
+    padding: 0 0;
+    background-color: #2e353d;
+    border-bottom: 1px solid #23282e;
+}
+
+.page-footer {
+    background-color: #3E444C !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+footer.page-footer .footer-copyright {
+    line-height: 35px !important;
+}
+
+@media only screen and (max-width: 767px) {
+    main {
+        padding-left: 0;
+    }
+
+    .page-footer {
+        bottom: -100px;
+    }
+}
+/* End Dashboard Template css */
+
+/* Create new quiz css */
+#question-form .input-form {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 16px;
+}
+
+#question-form textarea.materialize-textarea {
+    min-height: 10rem !important;
+}
+
+    #question-form textarea.materialize-textarea.answer-form {
+        min-height: 3rem !important;
+    }
+
+#question-form .input-field label {
+    top: 1rem !important;
+    left: 1rem;
+}
+
+#question-form .input-form, #question-form .answer-form, #question-form .number-of-question {
+    box-sizing: border-box;
+    border: 1px solid #3D434A;
+    border-radius: 4px;
+    background-color: rgba(62, 68, 76, 0);
+    resize: none;
+}
+
+#question-form .number-of-question {
+    width: 40%;
+    margin-right: 20px;
+    margin-top: 15px;
+}
+
+#question-form button {
+    bottom: 3px;
+    background-color: #2E353D;
+}
+
+#question-form button, #upload-form button:hover {
+    background-color: #5A7B78;
+}
+
+#question-form {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 55px;
+}
+
+    #question-form .input-form:focus, #question-form .number-of-question:focus, #question-form .answer-form:focus {
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        transition: all 0.4s;
+    }
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 55%;
+    }
+}
+
+#genQuestion {
+    margin: auto;
+}
+/* End New quiz css */
+
+/* Upload quiz */
+#upload-form .input-field .custom-top-icon.active {
+    font-size: 1.3rem;
+}
+
+#upload-form button {
+    background-color: #2E353D;
+}
+
+#upload-form {
+    padding-left: 225px;
+    padding-right: 225px;
+    padding-top: 100px;
+}
+
+    #upload-form .btn {
+        background-color: rgb(11, 12, 13);
+    }
+
+        #upload-form .btn:hover {
+            background-color: rgba(11, 12, 13, 0.82);
+        }
+
+    #upload-form .file-field .btn, .file-field .btn-large {
+        float: left;
+        height: 2.5rem !important;
+        line-height: 2.5rem !important;
+    }
+
+@media only screen and (max-width: 1080px) {
+    #upload-form {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .row .col.l8 {
+        width: 69.666667% !important;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .row .col.m8 {
+        width: 69.666667% !important;
+    }
+}
+
+/* End upload quiz */

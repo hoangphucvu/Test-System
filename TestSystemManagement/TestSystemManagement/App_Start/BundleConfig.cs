@@ -8,19 +8,14 @@ namespace TestSystemManagement
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new StyleBundle("~/lib-css").Include(
+            bundles.Add(new StyleBundle("~/web-css").Include(
                      "~/Content/Css-Lib/materialize.min.css",
                      "~/Content/Css-Lib/font-awesome.min.css",
-                     "~/Content/Css-Lib/angularjs-datetime-picker.css"));
-
-            bundles.Add(new StyleBundle("~/web-css").Include(
-                    "~/Content/Style/dash-board.css",
-                    "~/Content/Style/create-new-quiz.css",
-                    "~/Content/Style/upload.css"));
+                     "~/Content/Style/site.css"
+                      ));
 
             bundles.Add(new ScriptBundle("~/site-js").Include(
                       "~/Scripts/app/site.js"
-                      //"~/Scripts/Lib-Js/angularjs-datetime-picker.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(

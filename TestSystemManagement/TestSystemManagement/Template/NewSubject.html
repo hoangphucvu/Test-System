@@ -1,62 +1,63 @@
-﻿
-<script src="../Scripts/Lib-Js/angularjs-datetime-picker.min.js"></script>
-<main ng-controller="NewSubjectController">
+﻿<main ng-controller="NewSubjectController">
     <div class="row">
         <form class="col s12" name="AddNewSubjectForm" novalidate ng-submit="AddNewSubject()">
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="SubjectName" ng-model="AddNewSubjectForm.SubjectName" type="text" required autofocus>
+                    <input id="SubjectName" name="SubjectName" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.SubjectName" type="text" required autofocus>
                     <label for="SubjectName">Tên Môn</label>
-                    <label for="SubjectName" ng-show="(AddNewSubjectForm.SubjectName.$dirty || Submitted) && AddNewSubjectForm.SubjectName.$error.required">Tên môn không được để trống</label>
+                    <label for="SubjectName" ng-show="(AddNewSubjectForm.SubjectName.$dirty || Submitted) && AddNewSubjectForm.SubjectName.$error.required">Tên Môn Không Được Để Trống</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="SubjectCode" ng-model="AddNewSubjectForm.SubjectCode" type="text" required autofocus>
+                    <input id="SubjectCode" name="SubjectCode" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.SubjectCode" type="text" required autofocus>
                     <label for="SubjectCode">Mã Môn</label>
-                    <label for="SubjectCode" ng-show="(AddNewSubjectForm.SubjectCode.$dirty || Submitted) && AddNewSubjectForm.SubjectCode.$error.required">Mã môn không được để trống</label>
+                    <label for="SubjectCode" ng-show="(AddNewSubjectForm.SubjectCode.$dirty || Submitted) && AddNewSubjectForm.SubjectCode.$error.required">Mã Môn Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="SecretCode" ng-model="AddNewSubjectForm.SecretCode" type="text" required autofocus>
+                    <input id="SecretCode" name="SecretCode" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.SecretCode" type="text" required autofocus>
                     <label for="SecretCode">Mã Bí Mật</label>
-                    <label for="SubjectCode" ng-show="(AddNewSubjectForm.SecretCode.$dirty || Submitted) && AddNewSubjectForm.SecretCode.$error.required">Mã bí mật không được để trống</label>
+                    <label for="SecretCode" ng-show="(AddNewSubjectForm.SecretCode.$dirty || Submitted) && AddNewSubjectForm.SecretCode.$error.required">Mã Bí Mật Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="NoOfEasyQuestion" ng-model="AddNewSubjectForm.NoOfEasyQuestion" type="number" required autofocus>
+                    <input id="NoOfEasyQuestion" name="NoOfEasyQuestion" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.NoOfEasyQuestion" type="number" required autofocus>
                     <label for="NoOfEasyQuestion">Số Lượng Câu Hỏi Dễ</label>
-                    <label for="NoOfEasyQuestion" ng-show="(AddNewSubjectForm.NoOfEasyQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfEasyQuestion.$error.required">Số lượng câu hỏi dễ không được để trống</label>
+                    <label for="NoOfEasyQuestion" ng-show="(AddNewSubjectForm.NoOfEasyQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfEasyQuestion.$error.required">Số Lượng Câu Hỏi Dễ Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="NoOfMediumQuestion" ng-model="AddNewSubjectForm.NoOfMediumQuestion" type="number" required autofocus>
+                    <input id="NoOfMediumQuestion" name="NoOfMediumQuestion" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.NoOfMediumQuestion" type="number" required autofocus>
                     <label for="NoOfMediumQuestion">Số Lượng Câu Hỏi Trung Bình</label>
-                    <label for="NoOfMediumQuestion" ng-show="(AddNewSubjectForm.NoOfMediumQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfMediumQuestion.$error.required">Số lượng câu hỏi trung bình không được để trống</label>
+                    <label for="NoOfMediumQuestion" ng-show="(AddNewSubjectForm.NoOfMediumQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfMediumQuestion.$error.required">Số Lượng Câu Hỏi Trung Bình Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="NoOfHardQuestion" ng-model="AddNewSubjectForm.NoOfHardQuestion" type="number" required autofocus>
+                    <input id="NoOfHardQuestion" name="NoOfHardQuestion" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.NoOfHardQuestion" type="number" required autofocus>
                     <label for="NoOfHardQuestion">Số Lượng Câu Hỏi Khó</label>
-                    <label for="NoOfMediumQuestion" ng-show="(AddNewSubjectForm.NoOfHardQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfHardQuestion.$error.required">Số lượng câu hỏi khó không được để trống</label>
+                    <label for="NoOfMediumQuestion" ng-show="(AddNewSubjectForm.NoOfHardQuestion.$dirty || Submitted) && AddNewSubjectForm.NoOfHardQuestion.$error.required">Số Lượng Câu Hỏi Khó Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input datetime-picker date-format="yyyy-MM-dd HH:mm:ss" year="2014" month="12" day="31" hour="23" minute="59" id="test-date" ng-model="AddNewSubjectForm.TestDate" required autofocus>
-                    <label for="test-date">Ngày kiểm tra</label>
-                    <label for="test-date" ng-show="(AddNewSubjectForm.TestDate.$dirty || Submitted) && AddNewSubjectForm.TestDate.$error.required">Ngày kiểm tra không được để trống</label>
+                    <input type="text" id="test-date" name="TestDate" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.TestDate" required autofocus>
+                    <label for="test-date">Ngày Kiểm Tra</label>
+                    <label for="test-date" ng-show="(AddNewSubjectForm.TestDate.$dirty || Submitted) && AddNewSubjectForm.TestDate.$error.required">Ngày Kiểm Tra Không Được Để Trống</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input datetime-picker date-format="yyyy-MM-dd HH:mm:ss" year="2014" month="12" day="31" hour="23" minute="59" id="finish-time-date" ng-model="AddNewSubjectForm.FinishTime" required autofocus>
-                    <label for="finish-time-date">Giờ kết thúc</label>
-                    <label for="finish-time-date" ng-show="(AddNewSubjectForm.FinishTime.$dirty || Submitted) && AddNewSubjectForm.FinishTime.$error.required">Giờ kết thúc không được để trống</label>
+                    <input type="text" id="finish-time-date" name="FinishTime" ng-class="Submitted?'ng-dirty':''" ng-model="SubjectData.FinishTime" required autofocus>
+                    <label for="finish-time-date">Giờ Kết Thúc</label>
+                    <label for="finish-time-date" ng-show="(AddNewSubjectForm.FinishTime.$dirty || Submitted) && AddNewSubjectForm.FinishTime.$error.required">Giờ Kết Thúc Không Được Để Trống</label>
                 </div>
             </div>
+            <button type="submit" class="waves-effect waves-light btn">
+                Tạo Mới
+            </button>
         </form>
     </div>
 </main>
