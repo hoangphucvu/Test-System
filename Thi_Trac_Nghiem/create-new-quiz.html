@@ -22,30 +22,32 @@
         </div>
         <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
         <div class="menu-list">
-          <ul id="menu-content" class="menu-content collapse out">
+          <ul class="collapsible" data-collapsible="expandable">
             <li>
-              <a href="#">
-                <i class="fa fa-dashboard fa-lg"></i> Dashboard
-              </a>
+              <div class="collapsible-header management">
+                <i class="fa fa-dashboard fa-lg pad9"></i>Dashboard
+              </div>
             </li>
-            <ul class="accordion active">
-              <li class="management">
-                <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý đề thi
+          </ul>
+          <ul class="collapsible" data-collapsible="expandable">
+            <li>
+              <div class="collapsible-header management">
+                <i class="fa fa-pencil pad9" aria-hidden="true"></i>Quản lý đề thi
                 <span class="arrow"></span>
-              </li>
-            </ul>
-            <div class="panel">
-             <ul class="sub-menu collapse" id="new">
-              <li> <a href="upload-page.html">Upload </a></li>
-              <li> <a href="create-new-quiz.html">Tạo mới </a></li>
-              <li> Chỉnh sửa</li>
-            </ul>
-          </div>
-        </ul>
+              </div>
+              <div class="collapsible-body sub-menu">
+                <ul>
+                  <li> <a href="upload-page.html">Upload </a></li>
+                  <li> <a href="create-new-quiz.html">Tạo mới </a></li>
+                  <li> Chỉnh sửa</li>
+                </ul> 
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 <!-- end side navbar -->
 <main>
   <div id="question-form">
@@ -106,15 +108,11 @@
 <script src="js/materialize.min.js"></script>
 
 <script>
-  var acc = document.getElementsByClassName("accordion");
-  var i;
-
-  for (i = 0; i < acc.length; i++) {
-    acc[i].onclick = function(){
-      this.classList.toggle("active");
-      this.nextElementSibling.classList.toggle("show");
-    }
-  }
+  $(document).ready(function(){
+    $('.collapsible').collapsible({
+accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+});
+  });
 </script>
 
 

@@ -207,8 +207,8 @@ nav{
 }
 .nav-side-menu li {
   padding-left: 0px;
-  border-left: 3px solid #2e353d;
-  border-bottom: 1px solid #23282e;
+/*   border-left: 3px solid #2e353d; */
+/*   border-bottom: 1px solid #23282e; */
 }
 .nav-side-menu li a {
   text-decoration: none;
@@ -250,24 +250,12 @@ nav{
     display: block;
   }
 }
-.nav-side-menu .menu-list .accordion {
-  background-color: #2E353D;
-  color: #e1ffff;
-  cursor: pointer;
-  padding: 0px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 13px;
-}
-
 .nav-side-menu .menu-list .management .active{
   border-left: 3px solid #d19b3d;
   background-color: #4f5b69;
 }
 .nav-side-menu .menu-list  .management:hover {
-  border-left: 3px solid #d19b3d;
+/*   border-left: 3px solid #d19b3d; */
   background-color: #4f5b69;
   transition: all 1s ease;
 }
@@ -277,18 +265,32 @@ nav{
   float: right;
   margin-left: 5px;
 }
-div.panel {
-  max-height: 0;
-  overflow: hidden;
-  transition: 0.5s ease-in-out;
-  opacity: 0;
+.collapsible, .collapsible-body{
+  border: none !important;
 }
-div.panel.show {
-  opacity: 1;
-  max-height: 500px;
+.collapsible{
+  background-color: black;
 }
-.pad10{
-  padding: 10px !important;
+.pad9 {
+    padding: 9px !important;
+}
+.collapsible-header i {
+    width: 2rem;
+    font-size: 1rem;
+    line-height: 1.8rem;
+    display: block;
+    float: left;
+    text-align: center;
+    margin-right: 0rem !important;
+}
+.collapsible-header {
+    display: block;
+    cursor: pointer;
+    min-height: 3rem;
+    line-height: 3rem;
+    padding: 0 0;
+    background-color: #2e353d;
+    border-bottom: 1px solid #23282e;
 }
 .page-footer{
   background-color: #3E444C !important;

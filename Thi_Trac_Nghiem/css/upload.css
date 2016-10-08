@@ -1,0 +1,38 @@
+#upload-form .input-field .custom-top-icon.active{
+	font-size: 1.3rem;
+}
+#upload-form button{
+	background-color:#2E353D ;
+}
+#upload-form{
+	padding-left: 225px;
+	padding-right: 225px;
+	padding-top: 100px;
+}
+#upload-form .btn{
+	background-color:rgb(11, 12, 13);
+}
+#upload-form .btn:hover{
+	background-color:rgba(11, 12, 13, 0.82);
+}
+#upload-form .file-field .btn, .file-field .btn-large {
+    float: left;
+    height: 2.5rem !important;
+    line-height: 2.5rem !important;
+}
+@media only screen and (max-width: 1080px){
+	#upload-form{
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+@media only screen and (min-width: 993px){
+	.row .col.l8 {
+		width: 69.666667% !important;
+	}
+}
+@media only screen and (min-width: 601px){
+	.row .col.m8 {
+		width: 69.666667% !important;
+	}
+}    
