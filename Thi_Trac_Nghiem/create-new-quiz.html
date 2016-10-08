@@ -7,8 +7,8 @@
   <title> Quiz Management</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="css/materialize.min.css">
-  <link rel="stylesheet" href="css/dashBoard.css">
-  <link rel="stylesheet" href="css/create-new-quiz.css">
+  <link rel="stylesheet" href="css/index.css">
+
   <link rel="stylesheet" href="css/font-awesome.min.css">
 
 </head>
@@ -29,7 +29,7 @@
               </a>
             </li>
             <ul class="accordion active">
-              <li>
+              <li class="management">
                 <i class="fa fa-pencil pad10" aria-hidden="true"></i>Quản lý đề thi
                 <span class="arrow"></span>
               </li>
@@ -48,18 +48,17 @@
 </header>
 <!-- end side navbar -->
 <main>
-  <div class="question-form">
-
+  <div id="question-form">
     <div class="question">
       <div class="row">
-      <div class="col l6 m6 s6">
-          <form>
-            <textarea class="input-form"> Nhập câu hỏi </textarea>
+        <div class="col l6 m6 s6">
+          <form class="input-field">
+            <textarea id="textarea1" class="materialize-textarea input-form" placeholder="Nhập câu hỏi"></textarea>
           </form>
         </div>
         <div class="col l6 m6 s6">
-          <textarea class="number-of-question pad10"> Nhập số lượng câu hỏi </textarea>
-          <button class="btn waves-effect waves-light" type="submit" name="action">OK
+          <input class="number-of-question pad10" type="text" placeholder="Nhập số lượng câu hỏi">
+          <button class="btn waves-effect waves-light" type="submit" name="ok">OK
           </button>
         </div>
       </div>
@@ -67,25 +66,25 @@
     <div class="answer">
       <div class="row">
         <div class="col l3 m3 s3">
-          <form >
-            <textarea class="answer-form pad10"> Đáp án a </textarea>
+          <form class="input-field">
+            <textarea id="textarea1" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"></textarea>
           </form>
         </div>
         <div class="col l3 m3 s3">
-          <form >
-            <textarea class="answer-form pad10"> Đáp án b </textarea>
+          <form class="input-field">
+            <textarea id="textarea1" class="materialize-textarea answer-form pad10" placeholder="Đáp án b"></textarea>
           </form>
         </div>
       </div>
       <div class="row">
         <div class="col l3 m3 s3">
-          <form >
-            <textarea class="answer-form pad10"> Đáp án c </textarea>
-          </form>
+          <form class="input-field">
+            <textarea id="textarea1" class="materialize-textarea answer-form pad10" placeholder="Đáp án c"></textarea>
+          </form >
         </div>
         <div class="col l3 m3 s3">
-          <form >
-            <textarea class="answer-form pad10"> Đáp án d </textarea>
+          <form class="input-field">
+            <textarea id="textarea1" class="materialize-textarea answer-form pad10" placeholder="Đáp án d"></textarea>
           </form>
         </div>
       </div>
