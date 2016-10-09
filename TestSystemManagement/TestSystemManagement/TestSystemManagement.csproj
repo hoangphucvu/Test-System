@@ -100,12 +100,20 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -207,6 +215,7 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
+    <Content Include="Scripts\app\NewSubjectController.js" />
     <Content Include="Scripts\Lib-Js\angular-mocks.js" />
     <Content Include="Scripts\Lib-Js\angular-route.js" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js" />
@@ -280,9 +289,9 @@
       <Project>{67b26af6-7d45-4fcb-9b3b-987374acd35d}</Project>
       <Name>TestSystemManagement.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestSystemManagement.Infrastructure\TestSystemManagement.Infrastructure.csproj">
-      <Project>{c794a84a-673f-4887-8b94-4bc914bc52f6}</Project>
-      <Name>TestSystemManagement.Infrastructure</Name>
+    <ProjectReference Include="..\TestSystemManagement.Repository\TestSystemManagement.Repository.csproj">
+      <Project>{ce692173-91cb-49c0-928e-59ff99afd85e}</Project>
+      <Name>TestSystemManagement.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

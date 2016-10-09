@@ -1,7 +1,7 @@
 using Microsoft.Practices.Unity;
 using System;
-using TestSystemManagement.Infrastructure;
-using TestSystemManagement.Infrastructure.Repository;
+using TestSystemManagement.Repository.Interfaces;
+using TestSystemManagement.Repository.Repository;
 
 namespace TestSystemManagement
 {

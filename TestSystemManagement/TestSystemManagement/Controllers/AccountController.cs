@@ -1,18 +1,17 @@
 ﻿using System.Web.Mvc;
-using TestSystem.Models;
 using TestSystemManagement.Core;
-using TestSystemManagement.Infrastructure;
+using TestSystemManagement.Repository.Interfaces;
 
 namespace TestSystemManagement.Controllers
 {
     public class AccountController : Controller
     {
-        private IUsersRepository repo;
-        private Logger log = new Logger();
+        private readonly IUsersRepository _repo;
+        private readonly Logger _loggger = new Logger();
 
         public AccountController(IUsersRepository repo)
         {
-            this.repo = repo;
+            this._repo = repo;
         }
 
         #region Login-Logout
@@ -29,11 +28,11 @@ namespace TestSystemManagement.Controllers
         [HttpPost]
         public JsonResult Login(string userName, string passWord)
         {
-            var currentUser = repo.Login(userName, passWord);
+            var currentUser = _repo.Login(userName, passWord);
             if (currentUser != null)
             {
                 Session[Constant.UserSession] = currentUser;
-                log.WriteAuthLog(userName, "login");
+                _loggger.WriteAuthLog(userName, "login");
                 var result = new { data = true, name = currentUser.Username };
                 return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
