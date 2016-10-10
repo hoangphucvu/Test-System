@@ -29,12 +29,13 @@
             $scope.Submitted = true;
             if ($scope.IsFormValid) {
                 NewSubjectService.NewSubject($scope.SubjectData).then(function (result) {
-                    if (result.data === 200) {
+                    console.log(result);
+                    if (result.data === 'success') {
                         alert('Thêm môn thành công');
                     }
-                    //else {
-                    //    alert('Vui lòng kiểm tra dữ liệu');
-                    //}
+                    else {
+                        alert('Vui lòng kiểm tra dữ liệu');
+                    }
                 });
             }
         };
@@ -44,7 +45,7 @@
         var newSubjectService = {};
         newSubjectService.NewSubject = function (result) {
             return $http({
-                url: 'http://localhost:2151/api/Subject/NewSubject',
+                url: 'http://localhost:2151/api/Subject',
                 method: 'POST',
                 data: JSON.stringify(result),
                 header: { 'content-type': 'application/json' }
