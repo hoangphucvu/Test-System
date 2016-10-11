@@ -55,9 +55,11 @@
                     <label for="finish-time-date" ng-show="(AddNewSubjectForm.FinishTime.$dirty || Submitted) && AddNewSubjectForm.FinishTime.$error.required">Giờ Kết Thúc Không Được Để Trống</label>
                 </div>
             </div>
-            <button type="submit" class="waves-effect waves-light btn">
-                Tạo Mới
+            <button type="submit" class="waves-effect waves-light btn" ng-hide="HideAddSubjectBtn">
+                Thêm Môn
             </button>
+
+            <img src="/Content/img/hourglass.gif" ng-show="Loading" />
         </form>
     </div>
 </main>

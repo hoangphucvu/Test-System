@@ -92,9 +92,11 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\D
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.Practices.Unity.Mvc.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.dll
+D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.Cors.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\EntityFramework.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Net.Http.Formatting.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.WebHost.dll
+D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Cors.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\TestSystemManagement.pdb
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Newtonsoft.Json.xml
@@ -109,5 +111,3 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\D
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\obj\Debug\TestSystemManagement.Tests.csprojResolveAssemblyReference.cache
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\obj\Debug\TestSystemManagement.Tests.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\obj\Debug\TestSystemManagement.Tests.pdb
-D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.Cors.dll
-D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Cors.dll

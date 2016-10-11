@@ -61,5 +61,6 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\bin\Mi
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\bin\Microsoft.AI.WindowsServer.xml
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\bin\Microsoft.ApplicationInsights.xml
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\obj\Debug\TestSystemManagement.Core.csprojResolveAssemblyReference.cache
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\obj\Debug\TestSystemManagement.Core.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Core\obj\Debug\TestSystemManagement.Core.pdb

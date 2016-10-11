@@ -279,6 +279,7 @@
     <Content Include="bin\WebActivatorEx.dll" />
     <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\Css-Lib\font-awesome.min.css" />
+    <Content Include="Content\img\hourglass.gif" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\avatar.png" />
     <Content Include="Content\img\loading.gif" />
