@@ -4,8 +4,8 @@
     angular
         .module('TestManagementSystem')
         .config(config)
-        .controller('IndexController', IndexController)
-        .controller('NewQuizController', NewQuizController);
+        .controller('IndexController', IndexController);
+
     function config($locationProvider, $routeProvider) {
         $routeProvider
         .when('/',
@@ -21,12 +21,12 @@
         .when('/admin/quiz/import-quiz',
         {
             templateUrl: '/Template/UploadQuestion.html',
-            controller: 'ImportQuizController'
+            controller: 'ImportQuestionController'
         })
         .when('/admin/quiz/new-quiz',
         {
             templateUrl: '/Template/NewQuiz.html',
-            controller: 'NewQuizController'
+            controller: 'QuizController'
         })
         .otherwise({
             templateUrl: '/Template/Index.html',
@@ -39,43 +39,10 @@
     }
 
     IndexController.$inject = ['$scope', '$http'];
-    NewQuizController.$inject = ['$scope'];
 
     function IndexController($scope, $http) {
         $scope.Logout = function () {
             window.location = "/Account/Login";
         };
-    }
-
-    function NewQuizController($scope) {
-        $scope.Message = "NewQuizController";
-        $scope.number = 1;
-        var i = 1;
-        $scope.GenerateQuestion = function (totalQuestion) {
-            var total = TryParseInt(totalQuestion, null);
-            if (typeof (total) === 'number') {
-                for (i = 1; i <= total; i++) {
-                    $scope.number = i;
-                    var parentElement = angular.element(document.querySelector('#cloneArea'));
-                    var childElement = angular.element(document.querySelector('#cloneContent'));
-                    parentElement.append(childElement.clone());
-                }
-            } else {
-                alert('Vui lòng nhập số thích hợp');
-                return false;
-            }
-        };
-    }
-
-    function TryParseInt(str, defaultValue) {
-        var convertValue = defaultValue;
-        if (str !== null) {
-            if (str.length > 0) {
-                if (!isNaN(str)) {
-                    convertValue = parseInt(str);
-                }
-            }
-        }
-        return convertValue;
     }
 })();
