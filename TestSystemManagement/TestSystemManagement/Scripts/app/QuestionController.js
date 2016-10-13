@@ -95,7 +95,6 @@
             $scope.ImportQuestionForm.$setPristine();
             $scope.Submitted = false;
         }
-
     }
 
     function ImportQuestionService($http, $q) {
@@ -106,7 +105,7 @@
             formData.append('file', file);
             var url = null;
             if (extensionType === '.txt') {
-                url = 'http://localhost:2151/api/TestDetail/UploadTextFile';
+                url = 'http://localhost:2151/TestDetail/UploadTextFile';
             }
 
             var defer = $q.defer();
@@ -124,7 +123,6 @@
         }
         return importQeustionService;
     }
-
 
     function TryParseInt(str, defaultValue) {
         var convertValue = defaultValue;
