@@ -15,8 +15,7 @@ namespace TestSystemManagement.Core
         public DateTime TestDate { get; set; }
 
         public double Total { get; set; }
-        public Users User { get; set; }
-        public ICollection<TestDetail> TestDetail { get; set; }
-        public ICollection<TestMap> TestMap { get; set; }
+        public string TestDetailId { get; set; }
+        public string TestMapId { get; set; }
     }
 }

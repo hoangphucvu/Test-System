@@ -15,8 +15,8 @@ namespace TestSystemManagement.Core
 
         public int AccessLevel { get; set; }
 
-        public ICollection<TestDetail> TestDetail { get; set; }
-        public ICollection<Result> Result { get; set; }
-        public ICollection<TestMap> TestMap { get; set; }
+        public string TestDetailId { get; set; }
+        public string ResultId { get; set; }
+        public string TestMapId { get; set; }
     }
 }

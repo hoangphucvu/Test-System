@@ -13,7 +13,7 @@ namespace TestSystemManagement.Repository.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201610091540237_TestSystemManagementMigration"; }
+            get { return "201610141445350_TestSystemManagementMigration"; }
         }
         
         string IMigrationMetadata.Source

@@ -24,6 +24,6 @@ namespace TestSystemManagement.Core
 
         public DateTime FinishTime { get; set; }
 
-        public ICollection<TestChildSubject> TestChildSubject { get; set; }
+        public string TestChildSubjectId { get; set; }
     }
 }

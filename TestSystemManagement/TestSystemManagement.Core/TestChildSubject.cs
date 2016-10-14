@@ -13,7 +13,7 @@ namespace TestSystemManagement.Core
 
         public string TestChildSubjectName { get; set; }
 
-        public TestSubject TestSubject { get; set; }
-        public ICollection<TestDetail> TestDetail { get; set; }
+        public string TestSubjectId { get; set; }
+        public string TestDetailId { get; set; }
     }
 }

@@ -210,12 +210,12 @@
     <Compile Include="Interfaces\ISubjectRepository.cs" />
     <Compile Include="Interfaces\ITestDetailRepository.cs" />
     <Compile Include="Interfaces\IUsersRepository.cs" />
-    <Compile Include="Repository\TestDetailRepository.cs" />
-    <Compile Include="Migrations\201610091540237_TestSystemManagementMigration.cs" />
-    <Compile Include="Migrations\201610091540237_TestSystemManagementMigration.Designer.cs">
-      <DependentUpon>201610091540237_TestSystemManagementMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201610141445350_TestSystemManagementMigration.cs" />
+    <Compile Include="Migrations\201610141445350_TestSystemManagementMigration.Designer.cs">
+      <DependentUpon>201610141445350_TestSystemManagementMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repository\TestDetailRepository.cs" />
     <Compile Include="Models\TestSystemManagementContext.cs" />
     <Compile Include="Models\TestSystemManagementEntities.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -362,8 +362,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610091540237_TestSystemManagementMigration.resx">
-      <DependentUpon>201610091540237_TestSystemManagementMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201610141445350_TestSystemManagementMigration.resx">
+      <DependentUpon>201610141445350_TestSystemManagementMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

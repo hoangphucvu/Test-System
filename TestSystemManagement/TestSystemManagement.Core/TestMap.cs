@@ -10,8 +10,7 @@ namespace TestSystemManagement.Core
 
         public string SubjectCode { get; set; }
 
-        public Users User { get; set; }
-        public ICollection<TestDetail> TestDetail { get; set; }
-        public Result Result { get; set; }
+        public string TestDetailId { get; set; }
+        public string ResultId { get; set; }
     }
 }

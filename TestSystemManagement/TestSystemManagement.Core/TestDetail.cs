@@ -23,8 +23,8 @@ namespace TestSystemManagement.Core
 
         public double Point { get; set; }
 
-        public TestChildSubject TestChildSubject { get; set; }
-        public Users User { get; set; }
-        public ICollection<Result> Result { get; set; }
+        public string TestChildSubjectId { get; set; }
+        public string UserId { get; set; }
+        public string ResultId { get; set; }
     }
 }
