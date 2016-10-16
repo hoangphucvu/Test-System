@@ -75,6 +75,10 @@
                         //$scope.Message = "Upload thành công";
                         ClearForm();
                         Materialize.toast('Upload thành công', 4000);
+                    } else {
+                        $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
+                        $scope.HideUploadBtn = false;
+                        $scope.Loading = false;
                     }
                 }, function (err) {
                     $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
