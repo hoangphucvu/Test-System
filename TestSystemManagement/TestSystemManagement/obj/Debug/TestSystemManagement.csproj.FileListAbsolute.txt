@@ -99,4 +99,3 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSys
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.csprojResolveAssemblyReference.cache
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.pdb
-D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml

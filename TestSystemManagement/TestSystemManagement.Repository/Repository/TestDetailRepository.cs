@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.IO;
-using System.Web;
 using System.Web.Mvc;
 using TestSystemManagement.Repository.Interfaces;
 using TestSystemManagement.Repository.Models;
 
 namespace TestSystemManagement.Repository.Repository
 {
+    [AllowCrossSite]
     public class TestDetailRepository : ITestDetailRepository
     {
         private readonly TestSystemManagementEntities _context = new TestSystemManagementEntities();

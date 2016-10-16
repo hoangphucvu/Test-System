@@ -17,7 +17,7 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Core.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Core.pdb
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csprojResolveAssemblyReference.cache
-D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.dll
-D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.pdb
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.Migrations.TestSystemManagementMigration.resources
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.GenerateResource.Cache
+D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.dll
+D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.pdb

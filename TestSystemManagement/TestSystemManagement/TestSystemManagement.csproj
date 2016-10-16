@@ -292,6 +292,7 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
+    <Content Include="Scripts\app\NewSubjectController.js" />
     <Content Include="Scripts\app\SubjectController.js" />
     <Content Include="Scripts\app\QuestionController.js" />
     <Content Include="Scripts\Lib-Js\angular-mocks.js" />

@@ -37,7 +37,7 @@
         $scope.IsFormValid = false;
         $scope.Submitted = false;
         $scope.fileUpload = null;
-
+        $scope.Message = null;
         $scope.CheckFile = function (element) {
             $scope.$apply(function ($scope) {
                 $scope.fileUpload = element.files[0];
@@ -54,7 +54,7 @@
                     $scope.IsFileValid = true;
                     extensionType = strsubstring;
                 } else {
-                    $scope.fileMessage = 'Should be .txt, .docx or .xxls';
+                    $scope.fileMessage = 'FIle phải có định dạng .txt, .docx or .xlxs';
                 }
             });
         };
@@ -69,18 +69,19 @@
             if ($scope.IsFileValid && $scope.IsFormValid) {
                 $scope.HideUploadBtn = true;
                 $scope.Loading = true;
-                ImportQuestionService.UploadQuestion($scope.fileUpload, extensionType).then(function (data) {
-                    alert(data.Message);
-                    ClearForm();
-                    $scope.HideUploadBtn = false;
-                    $scope.Loading = false;
-                    alert(data.Message);
+                ImportQuestionService.UploadQuestion($scope.fileUpload, extensionType).then(function (result) {
+                    console.log(result);
+                    if (result === true) {
+                        //$scope.Message = "Upload thành công";
+                        ClearForm();
+                        Materialize.toast('Upload thành công', 4000);
+                    }
                 }, function (err) {
-                    console.log('Error');
+                    $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
                 });
             }
             else {
-                $scope.Message = "All the fields are required.";
+                $scope.Message = "Vui lòng chọn file";
                 $scope.HideUploadBtn = false;
                 $scope.Loading = false;
             }
@@ -94,6 +95,9 @@
             //clear all data in form
             $scope.ImportQuestionForm.$setPristine();
             $scope.Submitted = false;
+            $scope.Message = null;
+            $scope.HideUploadBtn = false;
+            $scope.Loading = false;
         }
     }
 
