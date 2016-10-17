@@ -31,5 +31,27 @@ namespace TestSystemManagement.Repository.Controllers
             }
             return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        [HttpPost]
+        public JsonResult UploadExcelFile()
+        {
+            string message;
+            if (Request.Files != null)
+            {
+                var file = Request.Files[0];
+                string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                try
+                {
+                    file.SaveAs(Path.Combine(Server.MapPath("~/App_Data"), fileName));
+                    var path = Server.MapPath("~/App_Data/" + fileName);
+                    _repository.UploadExcelFile(path);
+                }
+                catch (Exception ex)
+                {
+                    return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                }
+            }
+            return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
     }
 }

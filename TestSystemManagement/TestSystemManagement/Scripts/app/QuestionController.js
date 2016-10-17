@@ -49,12 +49,12 @@
                 if (strsubstring === '.docx' ||
                     strsubstring === '.doc' ||
                     strsubstring === '.xls' ||
-                    strsubstring === '.xlxs' ||
+                    strsubstring === '.xlsx' ||
                     strsubstring === '.txt') {
                     $scope.IsFileValid = true;
                     extensionType = strsubstring;
                 } else {
-                    $scope.fileMessage = 'FIle phải có định dạng .txt, .docx or .xlxs';
+                    $scope.fileMessage = 'FIle phải có định dạng .txt, .docx or .xlsx';
                 }
             });
         };
@@ -114,6 +114,10 @@
             var url = null;
             if (extensionType === '.txt') {
                 url = 'http://localhost:2151/TestDetail/UploadTextFile';
+            }
+
+            if (extensionType === '.xlsx') {
+                url = 'http://localhost:2151/TestDetail/UploadExcelFile';
             }
 
             var defer = $q.defer();

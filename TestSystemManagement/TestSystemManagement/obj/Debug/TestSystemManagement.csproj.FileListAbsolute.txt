@@ -99,3 +99,27 @@ D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSys
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.csprojResolveAssemblyReference.cache
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.dll
 D:\Source Code\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\ApplicationInsights.config
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\csc.exe
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\vbc.exe
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\VBCSCompiler.exe
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.dll.config
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Core.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Repository.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\EntityFramework.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Core.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Repository.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.csprojResolveAssemblyReference.cache
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.pdb

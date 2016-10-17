@@ -13,8 +13,8 @@ namespace TestSystemManagement.Repository.Interfaces
     {
         JsonResult UploadTextFile(string file);
 
-        JsonResult UploadWordFile();
+        JsonResult UploadWordFile(string file);
 
-        JsonResult UploadExcelFile();
+        JsonResult UploadExcelFile(string file);
     }
 }
