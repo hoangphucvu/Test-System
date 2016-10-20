@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web.Mvc;
 using TestSystemManagement.Core;
 using TestSystemManagement.Repository.Interfaces;
@@ -68,7 +69,32 @@ namespace TestSystemManagement.Repository.Repository
 
         public JsonResult UploadWordFile(string file)
         {
-            throw new NotImplementedException();
+            Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();
+            object miss = System.Reflection.Missing.Value;
+            object path = file;
+            object readOnly = true;
+            Microsoft.Office.Interop.Word.Document docs = word.Documents.Open(ref path, ref miss, ref readOnly, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss);
+            string totaltext = "";
+
+            string tableName = "TestDetails";
+            //provide the file delimiter such as comma,pipe
+            string filedelimiter = ",";
+            SqlConnection SQLConnection = new SqlConnection();
+            SQLConnection.ConnectionString = "Data Source=.; persist security info=True; " +
+                                             "Initial Catalog=TestSystemManagementDB;" +
+                                             "Integrated Security=SSPI";
+
+            SQLConnection.Open();
+            for (int i = 0; i < docs.Paragraphs.Count; i++)
+            {
+                totaltext += " \r\n " + docs.Paragraphs[i + 1].Range.Text.ToString();
+                string query = "Insert into " + tableName +
+                          " Values ('" + totaltext.Replace(filedelimiter, "','") + "')";
+                SqlCommand command = new SqlCommand(query, SQLConnection);
+                command.ExecuteNonQuery();
+            }
+            SQLConnection.Close();
+            return new JsonResult { Data = new { Message = "ok" } };
         }
     }
 }

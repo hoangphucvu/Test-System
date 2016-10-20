@@ -120,6 +120,10 @@
                 url = 'http://localhost:2151/TestDetail/UploadExcelFile';
             }
 
+            if (extensionType === '.docx') {
+                url = 'http://localhost:2151/TestDetail/UploadWordFile';
+            }
+
             var defer = $q.defer();
             $http.post(url, formData, {
                 headers: { 'Content-type': undefined },

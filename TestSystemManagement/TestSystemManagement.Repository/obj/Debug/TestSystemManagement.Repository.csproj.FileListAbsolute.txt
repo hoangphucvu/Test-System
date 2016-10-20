@@ -44,3 +44,5 @@ D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\o
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.GenerateResource.Cache
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\DocX.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.ResolveComReference.cache
