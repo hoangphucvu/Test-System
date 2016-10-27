@@ -1,72 +1,60 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System;
-using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.Mvc;
 using TestSystemManagement.Repository.Interfaces;
-using TestSystemManagement.Repository.Models;
 
 namespace TestSystemManagement.Repository.Repository
 {
     [AllowCrossSite]
     public class TestDetailRepository : ITestDetailRepository
     {
-        private readonly TestSystemManagementEntities db = new TestSystemManagementEntities();
-
         public JsonResult UploadExcelFile(string file)
         {
-            string connectionString =
-                string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {0};Extended Properties = Excel 8.0",
-                    file);
-            string sqlConnectionString = @"Data Source=.; persist security info=True; " +
-                                     "Initial Catalog=TestSystemManagementDB;" +
-                                     "Integrated Security=SSPI";
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            try
+            if (file != null)
             {
-                OleDbCommand command = new OleDbCommand("Select * from [Sheet1$]", connection);
-                connection.Open();
-                DbDataReader dr = command.ExecuteReader();
-
-                SqlBulkCopy bulkCopy = new SqlBulkCopy(sqlConnectionString);
-                bulkCopy.DestinationTableName = "TestDetails";
-                bulkCopy.WriteToServer(dr);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
+                string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {file};Extended Properties = Excel 8.0";
+                var sqlConnectionString = Config.Config.ConnectionString;
+                OleDbConnection connection = new OleDbConnection(connectionString);
+                try
+                {
+                    var command = new OleDbCommand("Select * from [Sheet1$]", connection);
+                    connection.Open();
+                    DbDataReader dr = command.ExecuteReader();
+                    var bulkCopy = new SqlBulkCopy(sqlConnectionString) { DestinationTableName = Config.Config.TableDetails };
+                    if (dr != null) bulkCopy.WriteToServer(dr);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+                return new JsonResult { Data = true };
             }
 
-            return new JsonResult { Data = new { Message = "ok" } };
+            return new JsonResult { Data = false };
         }
 
         public JsonResult UploadTextFile(string file)
         {
-            string tableName = "TestDetails";
             //provide the file delimiter such as comma,pipe
-            string filedelimiter = ",";
-            SqlConnection SQLConnection = new SqlConnection();
-            SQLConnection.ConnectionString = "Data Source=.; persist security info=True; " +
-                                             "Initial Catalog=TestSystemManagementDB;" +
-                                             "Integrated Security=SSPI";
-            System.IO.StreamReader sourceFileReader = new StreamReader(file);
-            string line = "";
-
+            const string filedelimiter = ",";
+            var sqlConnection = new SqlConnection { ConnectionString = Config.Config.ConnectionString };
+            var sourceFileReader = new StreamReader(file);
             try
             {
-                SQLConnection.Open();
+                sqlConnection.Open();
+                string line;
                 while ((line = sourceFileReader.ReadLine()) != null)
                 {
-                    string query = "Insert into " + tableName +
-                               " Values ('" + line.Replace(filedelimiter, "','") + "')";
-                    SqlCommand command = new SqlCommand(query, SQLConnection);
+                    var query = $"Insert into {Config.Config.TableDetails} Values ('{line.Replace(filedelimiter, "','")}')";
+                    var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                 }
             }
@@ -77,42 +65,34 @@ namespace TestSystemManagement.Repository.Repository
             finally
             {
                 sourceFileReader.Close();
-                SQLConnection.Close();
+                sqlConnection.Close();
             }
-            return new JsonResult { Data = new { Message = "ok" } };
+            return new JsonResult { Data = true };
         }
 
         public JsonResult UploadWordFile(string file)
         {
-            Application word = new Application();
-            Document docs = new Document();
-
+            var word = new Application();
             object fileName = file;
+            const string filedelimiter = ",";
             // Define an object to pass to the API for missing parameters
-            object missing = System.Type.Missing;
-            docs = word.Documents.Open(ref fileName,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing);
+            var missing = Type.Missing;
+            var docs = word.Documents.Open(ref fileName,
+                ref missing, ref missing, ref missing, ref missing,
+                ref missing, ref missing, ref missing, ref missing,
+                ref missing, ref missing, ref missing, ref missing,
+                ref missing, ref missing, ref missing);
 
-            string tableName = "TestDetails";
-            string totaltext = "";
-            string filedelimiter = ",";
-            SqlConnection SQLConnection = new SqlConnection();
-            SQLConnection.ConnectionString = "Data Source=.; persist security info=True; " +
-                                             "Initial Catalog=TestSystemManagementDB;" +
-                                             "Integrated Security=SSPI";
+            var sqlConnection = new SqlConnection { ConnectionString = Config.Config.ConnectionString };
             try
             {
-                SQLConnection.Open();
-                for (int i = 0; i <= docs.Paragraphs.Count - 1; i++)
+                sqlConnection.Open();
+                for (var i = 0; i < docs.Paragraphs.Count - 1; i++)
                 {
-                    totaltext = docs.Paragraphs[i + 1].Range.Text;
-                    string query = "Insert into " + tableName +
-                              "(Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer,TypeOfQuestion,Point,TestChildSubjectId,UserId,ResultId) Values ('"
-                              + totaltext.Replace(filedelimiter, "','") + "')";
-                    SqlCommand command = new SqlCommand(query, SQLConnection);
+                    var totaltext = docs.Paragraphs[i + 1].Range.Text;
+                    //const string columnNames = "Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer,TypeOfQuestion,Point,TestChildSubjectId,UserId,ResultId";
+                    var query = $"Insert into {Config.Config.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
+                    var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                 }
             }
@@ -122,12 +102,12 @@ namespace TestSystemManagement.Repository.Repository
             }
             finally
             {
-                ((_Document)docs).Close();
-                ((_Application)word).Quit();
-                SQLConnection.Close();
+                docs.Close();
+                word.Quit();
+                sqlConnection.Close();
             }
 
-            return new JsonResult { Data = new { Message = "ok" } };
+            return new JsonResult { Data = true };
         }
     }
 }

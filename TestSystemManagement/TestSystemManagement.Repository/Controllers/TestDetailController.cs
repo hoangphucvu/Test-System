@@ -8,65 +8,29 @@ namespace TestSystemManagement.Repository.Controllers
     [AllowCrossSite]
     public class TestDetailController : Controller
     {
-        private TestDetailRepository _repository = new TestDetailRepository();
+        private readonly TestDetailRepository _repository = new TestDetailRepository();
 
         [HttpPost]
-        public JsonResult UploadTextFile()
+        public JsonResult UploadFile()
         {
-            string message;
-            if (Request.Files != null)
+            if (Request.Files == null)
+                return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            var file = Request.Files[0];
+            if (file != null)
             {
-                var file = Request.Files[0];
-                string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
+                var extension = Path.GetExtension(file.FileName);
+                var fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
                 try
                 {
                     file.SaveAs(Path.Combine(Server.MapPath("~/App_Data"), fileName));
                     var path = Server.MapPath("~/App_Data/" + fileName);
-                    _repository.UploadTextFile(path);
-                }
-                catch (Exception ex)
-                {
-                    return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
-            }
-            return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-        [HttpPost]
-        public JsonResult UploadExcelFile()
-        {
-            string message;
-            if (Request.Files != null)
-            {
-                var file = Request.Files[0];
-                string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                try
-                {
-                    file.SaveAs(Path.Combine(Server.MapPath("~/App_Data"), fileName));
-                    var path = Server.MapPath("~/App_Data/" + fileName);
-                    _repository.UploadExcelFile(path);
-                }
-                catch (Exception ex)
-                {
-                    return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
-            }
-            return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
-
-        [HttpPost]
-        public JsonResult UploadWordFile()
-        {
-            string message;
-            if (Request.Files != null)
-            {
-                var file = Request.Files[0];
-                string fileName = Guid.NewGuid() + Path.GetExtension(file.FileName);
-                try
-                {
-                    file.SaveAs(Path.Combine(Server.MapPath("~/App_Data"), fileName));
-                    var path = Server.MapPath("~/App_Data/" + fileName);
-                    _repository.UploadWordFile(path);
+                    if (extension == ".docx")
+                        _repository.UploadWordFile(path);
+                    if (extension == ".txt")
+                        _repository.UploadTextFile(path);
+                    if (extension == ".xlsx")
+                        _repository.UploadTextFile(path);
                 }
                 catch (Exception ex)
                 {

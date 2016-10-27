@@ -111,19 +111,7 @@
             var formData = new FormData();
             //append key value pair then submit to server
             formData.append('file', file);
-            var url = null;
-            if (extensionType === '.txt') {
-                url = 'http://localhost:2151/TestDetail/UploadTextFile';
-            }
-
-            if (extensionType === '.xlsx') {
-                url = 'http://localhost:2151/TestDetail/UploadExcelFile';
-            }
-
-            if (extensionType === '.docx') {
-                url = 'http://localhost:2151/TestDetail/UploadWordFile';
-            }
-
+            var url = 'http://localhost:2151/TestDetail/UploadFile';
             var defer = $q.defer();
             $http.post(url, formData, {
                 headers: { 'Content-type': undefined },
