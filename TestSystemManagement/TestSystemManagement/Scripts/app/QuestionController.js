@@ -5,18 +5,30 @@
     .module('TestManagementSystem')
     .controller('QuizController', QuizController)
     .controller('ImportQuestionController', ImportQuestionController)
-    .factory('ImportQuestionService', ImportQuestionService);
+    .factory('ImportQuestionService', ImportQuestionService)
+    .factory('ImportTextQuestionService', ImportTextQuestionService);
 
-    QuizController.$inject = ['$scope'];
+    QuizController.$inject = ['$scope', 'ImportTextQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
 
     var extensionType = null;
 
-    function QuizController($scope) {
+    function QuizController($scope, ImportTextQuestionService) {
+        $scope.ImportTextData = {
+            Question: '',
+            AnswerA: '',
+            AnswerB: '',
+            AnswerC: '',
+            AnswerD: '',
+            CorrectAnswer: '',
+            TypeOfQuestion: '',
+            Point: ''
+        }
+
         $scope.GenerateQuestion = function (totalQuestion) {
             var total = TryParseInt(totalQuestion, null);
             if (typeof (total) === 'number') {
-                for (i = 1; i <= total; i++) {
+                for (i = 1; i <= total + 1; i++) {
                     $scope.number = i;
                     var parentElement = angular.element(document.querySelector('#cloneArea'));
                     var childElement = angular.element(document.querySelector('#cloneContent'));
@@ -28,6 +40,18 @@
                 return false;
             }
         };
+
+        $scope.ImportTextQuiz = function () {
+            ImportTextQuestionService.UploadTextQuestion($scope.ImportTextData)
+                .then(function (result) {
+                    if (result.data === true) {
+                        Materialize.toast('Upload thành công', 4000);
+                    }
+                    if (result.data === false) {
+                        Materialize.toast('Upload không thành công', 4000);
+                    }
+                });
+        }
     }
 
     function ImportQuestionController($scope, ImportQuestionService) {
@@ -105,8 +129,25 @@
         }
     }
 
+    function ImportTextQuestionService($http) {
+        var importTextQuestionService = {};
+        importTextQuestionService.UploadTextQuestion = function (result) {
+            var  url= 'http://localhost:2151/TestDetail/ImportTextQuestion';
+            $http.post(url,
+                JSON.stringify(result),
+                {
+                    headers: {
+                        'Content-type': undefined
+                    },
+                    transformRequest: angular.identity
+                });
+        }
+        return importTextQuestionService;
+    }
+
     function ImportQuestionService($http, $q) {
-        var importQeustionService = {};
+        var importQeustionService = {
+        };
         importQeustionService.UploadQuestion = function (file, extensionType) {
             var formData = new FormData();
             //append key value pair then submit to server
@@ -114,7 +155,9 @@
             var url = 'http://localhost:2151/TestDetail/UploadFile';
             var defer = $q.defer();
             $http.post(url, formData, {
-                headers: { 'Content-type': undefined },
+                headers: {
+                    'Content-type': undefined
+                },
                 transformRequest: angular.identity
             }).
             success(function (data) {

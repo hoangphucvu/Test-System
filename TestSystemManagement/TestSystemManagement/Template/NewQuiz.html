@@ -1,4 +1,4 @@
-﻿<main ng-controller="NewQuizController">
+﻿<main ng-controller="QuizController">
     <div id="question-form">
         <div class="question" id="genQuestion">
             <div class="row">
@@ -10,35 +10,52 @@
                 </div>
             </div>
         </div>
-        <div class="answer" id="cloneArea">
-            <div class="row" id="cloneContent">
-                <div class="col l6 m6 s6">
-                    <form class="input-field">
-                        <textarea id="question-{{number}}" class="materialize-textarea input-form" placeholder="Nhập câu hỏi"></textarea>
-                    </form>
-                </div>
-                <div class="col l3 m3 s3">
-                    <form class="input-field">
-                        <textarea id="answerA-{{number}}" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"></textarea>
-                    </form>
-                </div>
-                <div class="col l3 m3 s3">
-                    <form class="input-field">
-                        <textarea id="answerB-{{number}}" class="materialize-textarea answer-form pad10" placeholder="Đáp án b"></textarea>
-                    </form>
-                </div>
-                <div class="col l3 m3 s3">
-                    <form class="input-field">
-                        <textarea id="answerC-{{number}}" class="materialize-textarea answer-form pad10" placeholder="Đáp án c"></textarea>
-                    </form>
-                </div>
-                <div class="col l3 m3 s3">
-                    <form class="input-field">
-                        <textarea id="answerD-{{number}}" class="materialize-textarea answer-form pad10" placeholder="Đáp án d"></textarea>
-                    </form>
+        <form id="NewQuizForm" ng-submit="ImportTextQuiz()">
+            <div class="answer" id="cloneArea">
+                <div class="row" id="cloneContent">
+                    <div class="col l6 m6 s6">
+                        <div class="input-field">
+                            <textarea id="question" ng-model="scope.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="answerA" ng-model="scope.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="answerB" ng-model="scope.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="answerC" ng-model="scope.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="answerD" ng-model="scope.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="correctAnswer" ng-model="scope.CorrectAnswer" class="materialize-textarea answer-form pad10" placeholder="Đáp án đúng"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="typeofquestion" ng-model="scope.TypeOfQuestion" class="materialize-textarea answer-form pad10" placeholder="Loại câu hỏi"></textarea>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="point" ng-model="scope.Point" class="materialize-textarea answer-form pad10" placeholder="Điểm"></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <button ng-submit="AddQuestion()" class="waves-effect waves-light btn">Thêm Đề Thi</button>
+            <button type="submit" class="waves-effect waves-light btn">Thêm Đề Thi</button>
+        </form>
     </div>
 </main>

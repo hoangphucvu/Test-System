@@ -5,14 +5,30 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.Mvc;
+using TestSystemManagement.Core;
 using TestSystemManagement.Repository.Config;
 using TestSystemManagement.Repository.Interfaces;
+using TestSystemManagement.Repository.Models;
 
 namespace TestSystemManagement.Repository.Repository
 {
     [AllowCrossSite]
     public class TestDetailRepository : ITestDetailRepository
     {
+        private TestSystemManagementEntities _db = new TestSystemManagementEntities();
+
+        public JsonResult ImportTextQuestion(TestDetail data)
+        {
+            if (data != null)
+            {
+                _db.TestDetails.Add(data);
+                _db.SaveChanges();
+                return new JsonResult { Data = true };
+            }
+
+            return new JsonResult { Data = false };
+        }
+
         public JsonResult UploadExcelFile(string file)
         {
             if (file != null)
@@ -91,11 +107,8 @@ namespace TestSystemManagement.Repository.Repository
                 for (var i = 0; i < docs.Paragraphs.Count - 1; i++)
                 {
                     var totaltext = docs.Paragraphs[i + 1].Range.Text;
-<<<<<<< HEAD
-=======
                     //const string columnNames = "Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer,TypeOfQuestion,Point,TestChildSubjectId,UserId,ResultId";
->>>>>>> 7a25fc74d25a7a58356e5ccb1d42b1068b026a27
-                    var query = $"Insert into {Config.Helper.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
+                    var query = $"Insert into {Helper.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
                     var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                 }

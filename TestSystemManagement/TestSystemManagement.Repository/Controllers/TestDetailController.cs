@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Web.Mvc;
+using TestSystemManagement.Core;
 using TestSystemManagement.Repository.Repository;
 
 namespace TestSystemManagement.Repository.Controllers
@@ -30,7 +31,7 @@ namespace TestSystemManagement.Repository.Controllers
                     if (extension == ".txt")
                         _repository.UploadTextFile(path);
                     if (extension == ".xlsx")
-                        _repository.UploadTextFile(path);
+                        _repository.UploadExcelFile(path);
                 }
                 catch (Exception ex)
                 {
@@ -38,6 +39,17 @@ namespace TestSystemManagement.Repository.Controllers
                 }
             }
             return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+        }
+
+        [HttpPost]
+        public JsonResult ImportTextQuestion(TestDetail testDetail)
+        {
+            if (testDetail != null)
+            {
+                _repository.ImportTextQuestion(testDetail);
+                return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+            return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
     }
 }
