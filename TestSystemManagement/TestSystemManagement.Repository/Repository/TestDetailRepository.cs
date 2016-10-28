@@ -91,6 +91,10 @@ namespace TestSystemManagement.Repository.Repository
                 for (var i = 0; i < docs.Paragraphs.Count - 1; i++)
                 {
                     var totaltext = docs.Paragraphs[i + 1].Range.Text;
+<<<<<<< HEAD
+=======
+                    //const string columnNames = "Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer,TypeOfQuestion,Point,TestChildSubjectId,UserId,ResultId";
+>>>>>>> 7a25fc74d25a7a58356e5ccb1d42b1068b026a27
                     var query = $"Insert into {Config.Helper.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
                     var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
