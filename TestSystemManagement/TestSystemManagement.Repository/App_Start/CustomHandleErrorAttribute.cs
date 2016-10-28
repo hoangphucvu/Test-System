@@ -7,7 +7,7 @@ namespace TestSystemManagement.Repository
 {
     public class CustomHandleErrorAttribute : HandleErrorAttribute
     {
-        private Logger log = new Logger();
+        private readonly Logger log = new Logger();
 
         public override void OnException(ExceptionContext filterContext)
         {
@@ -34,8 +34,8 @@ namespace TestSystemManagement.Repository
                 return;
             }
 
-            string controllerName = (string)filterContext.RouteData.Values["controller"];
-            string actionName = (string)filterContext.RouteData.Values["action"];
+            var controllerName = (string)filterContext.RouteData.Values["controller"];
+            var actionName = (string)filterContext.RouteData.Values["action"];
             var model = new HandleErrorInfo(filterContext.Exception, controllerName, actionName);
 
             filterContext.Result = new ViewResult

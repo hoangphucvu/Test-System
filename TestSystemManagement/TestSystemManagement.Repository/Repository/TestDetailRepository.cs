@@ -5,6 +5,7 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web.Mvc;
+using TestSystemManagement.Repository.Config;
 using TestSystemManagement.Repository.Interfaces;
 
 namespace TestSystemManagement.Repository.Repository
@@ -17,14 +18,14 @@ namespace TestSystemManagement.Repository.Repository
             if (file != null)
             {
                 string connectionString = $"Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {file};Extended Properties = Excel 8.0";
-                var sqlConnectionString = Config.Config.ConnectionString;
+                var sqlConnectionString = Helper.ConnectionString;
                 OleDbConnection connection = new OleDbConnection(connectionString);
                 try
                 {
                     var command = new OleDbCommand("Select * from [Sheet1$]", connection);
                     connection.Open();
                     DbDataReader dr = command.ExecuteReader();
-                    var bulkCopy = new SqlBulkCopy(sqlConnectionString) { DestinationTableName = Config.Config.TableDetails };
+                    var bulkCopy = new SqlBulkCopy(sqlConnectionString) { DestinationTableName = Helper.TableDetails };
                     if (dr != null) bulkCopy.WriteToServer(dr);
                 }
                 catch (Exception ex)
@@ -45,7 +46,7 @@ namespace TestSystemManagement.Repository.Repository
         {
             //provide the file delimiter such as comma,pipe
             const string filedelimiter = ",";
-            var sqlConnection = new SqlConnection { ConnectionString = Config.Config.ConnectionString };
+            var sqlConnection = new SqlConnection { ConnectionString = Helper.ConnectionString };
             var sourceFileReader = new StreamReader(file);
             try
             {
@@ -53,7 +54,7 @@ namespace TestSystemManagement.Repository.Repository
                 string line;
                 while ((line = sourceFileReader.ReadLine()) != null)
                 {
-                    var query = $"Insert into {Config.Config.TableDetails} Values ('{line.Replace(filedelimiter, "','")}')";
+                    var query = $"Insert into {Helper.TableDetails} Values ('{line.Replace(filedelimiter, "','")}')";
                     var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                 }
@@ -83,15 +84,14 @@ namespace TestSystemManagement.Repository.Repository
                 ref missing, ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing);
 
-            var sqlConnection = new SqlConnection { ConnectionString = Config.Config.ConnectionString };
+            var sqlConnection = new SqlConnection { ConnectionString = Helper.ConnectionString };
             try
             {
                 sqlConnection.Open();
                 for (var i = 0; i < docs.Paragraphs.Count - 1; i++)
                 {
                     var totaltext = docs.Paragraphs[i + 1].Range.Text;
-                    //const string columnNames = "Question,AnswerA,AnswerB,AnswerC,AnswerD,CorrectAnswer,TypeOfQuestion,Point,TestChildSubjectId,UserId,ResultId";
-                    var query = $"Insert into {Config.Config.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
+                    var query = $"Insert into {Config.Helper.TableDetails} Values ('{totaltext.Replace(filedelimiter, "','")}')";
                     var command = new SqlCommand(query, sqlConnection);
                     command.ExecuteNonQuery();
                 }
