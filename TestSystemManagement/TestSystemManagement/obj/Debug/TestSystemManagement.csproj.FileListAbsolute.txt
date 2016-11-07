@@ -117,7 +117,6 @@ D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSyst
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.pdb
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Core.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Repository.dll
-D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\EntityFramework.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Core.pdb
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\TestSystemManagement.Repository.pdb
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\obj\Debug\TestSystemManagement.csprojResolveAssemblyReference.cache

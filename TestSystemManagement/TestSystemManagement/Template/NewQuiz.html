@@ -10,47 +10,47 @@
                 </div>
             </div>
         </div>
-        <form id="NewQuizForm" ng-submit="ImportTextQuiz()">
+        <form id="NewQuizForm" novalidate ng-submit="ImportTextQuiz()">
             <div class="answer" id="cloneArea">
                 <div class="row" id="cloneContent">
                     <div class="col l6 m6 s6">
                         <div class="input-field">
-                            <textarea id="question" ng-model="scope.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi"></textarea>
+                            <textarea id="question" ng-model="ImportTextData.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="answerA" ng-model="scope.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"></textarea>
+                            <textarea id="answerA" ng-model="ImportTextData.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="answerB" ng-model="scope.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b"></textarea>
+                            <textarea id="answerB" ng-model="ImportTextData.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="answerC" ng-model="scope.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c"></textarea>
+                            <textarea id="answerC" ng-model="ImportTextData.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="answerD" ng-model="scope.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d"></textarea>
+                            <textarea id="answerD" ng-model="ImportTextData.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="correctAnswer" ng-model="scope.CorrectAnswer" class="materialize-textarea answer-form pad10" placeholder="Đáp án đúng"></textarea>
+                            <textarea id="correctAnswer" ng-model="ImportTextData.CorrectAnswer" class="materialize-textarea answer-form pad10" placeholder="Đáp án đúng"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="typeofquestion" ng-model="scope.TypeOfQuestion" class="materialize-textarea answer-form pad10" placeholder="Loại câu hỏi"></textarea>
+                            <textarea id="typeofquestion" ng-model="ImportTextData.TypeOfQuestion" class="materialize-textarea answer-form pad10" placeholder="Loại câu hỏi"></textarea>
                         </div>
                     </div>
                     <div class="col l3 m3 s3">
                         <div class="input-field">
-                            <textarea id="point" ng-model="scope.Point" class="materialize-textarea answer-form pad10" placeholder="Điểm"></textarea>
+                            <textarea id="point" ng-model="ImportTextData.Point" class="materialize-textarea answer-form pad10" placeholder="Điểm"></textarea>
                         </div>
                     </div>
                 </div>

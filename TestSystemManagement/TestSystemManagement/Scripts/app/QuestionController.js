@@ -28,7 +28,7 @@
         $scope.GenerateQuestion = function (totalQuestion) {
             var total = TryParseInt(totalQuestion, null);
             if (typeof (total) === 'number') {
-                for (i = 1; i <= total + 1; i++) {
+                for (i = 1; i <= total ; i++) {
                     $scope.number = i;
                     var parentElement = angular.element(document.querySelector('#cloneArea'));
                     var childElement = angular.element(document.querySelector('#cloneContent'));
@@ -132,7 +132,7 @@
     function ImportTextQuestionService($http) {
         var importTextQuestionService = {};
         importTextQuestionService.UploadTextQuestion = function (result) {
-            var  url= 'http://localhost:2151/TestDetail/ImportTextQuestion';
+            var url = 'http://localhost:2151/TestDetail/ImportTextQuestion';
             $http.post(url,
                 JSON.stringify(result),
                 {
