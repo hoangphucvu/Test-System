@@ -37,12 +37,12 @@ D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\b
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Repository.dll.config
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Repository.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Repository.pdb
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\DocX.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Core.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\TestSystemManagement.Core.pdb
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csprojResolveAssemblyReference.cache
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.ResolveComReference.cache
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.Migrations.TestSystemManagementMigration.resources
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.GenerateResource.Cache
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.pdb
-D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\bin\DocX.dll
-D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Repository\obj\Debug\TestSystemManagement.Repository.csproj.ResolveComReference.cache

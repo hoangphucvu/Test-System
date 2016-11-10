@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-    .module('TestManagementSystem')
-    .controller('QuizController', QuizController)
-    .controller('ImportQuestionController', ImportQuestionController)
-    .factory('ImportQuestionService', ImportQuestionService)
-    .factory('ImportTextQuestionService', ImportTextQuestionService);
+        .module('TestManagementSystem')
+        .controller('QuizController', QuizController)
+        .controller('ImportQuestionController', ImportQuestionController)
+        .factory('ImportQuestionService', ImportQuestionService)
+        .factory('ImportTextQuestionService', ImportTextQuestionService);
 
     QuizController.$inject = ['$scope', 'ImportTextQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
@@ -14,6 +14,8 @@
     var extensionType = null;
 
     function QuizController($scope, ImportTextQuestionService) {
+        $scope.QuizFormSubmitted = false;
+        $scope.IsQuizFormFormValid = false;
         $scope.ImportTextData = {
             Question: '',
             AnswerA: '',
@@ -23,27 +25,32 @@
             CorrectAnswer: '',
             TypeOfQuestion: '',
             Point: ''
-        }
+        };
 
+        $scope.$watch('NewTextForm.$valid', function (newValue) {
+            $scope.IsQuizFormFormValid = true;
+        });
         $scope.GenerateQuestion = function (totalQuestion) {
             var total = TryParseInt(totalQuestion, null);
             if (typeof (total) === 'number') {
-                for (i = 1; i <= total ; i++) {
+                for (i = 1; i <= total; i++) {
                     $scope.number = i;
                     var parentElement = angular.element(document.querySelector('#cloneArea'));
                     var childElement = angular.element(document.querySelector('#cloneContent'));
                     parentElement.append(childElement.clone());
                 }
-            }
-            else {
+            } else {
                 alert('Vui lòng nhập số thích hợp');
                 return false;
             }
         };
 
         $scope.ImportTextQuiz = function () {
-            ImportTextQuestionService.UploadTextQuestion($scope.ImportTextData)
-                .then(function (result) {
+            $scope.QuizFormSubmitted = true;
+            var data = $("#newTextForm").serialize();
+            if ($scope.IsQuizFormFormValid) {
+                ImportTextQuestionService.NewTextQuestion($scope.ImportTextData).then(function (result) {
+                    console.log(result);
                     if (result.data === true) {
                         Materialize.toast('Upload thành công', 4000);
                     }
@@ -51,7 +58,23 @@
                         Materialize.toast('Upload không thành công', 4000);
                     }
                 });
-        }
+            }
+        };
+    }
+
+    function ImportTextQuestionService($http) {
+        var importTextQuestionService = {};
+        importTextQuestionService.NewTextQuestion = function (result) {
+            return $http({
+                url: 'http://localhost:2151/api/TestDetails',
+                method: 'POST',
+                data: JSON.stringify(result),
+                header: {
+                    'content-type': 'application/json'
+                }
+            });
+        };
+        return importTextQuestionService;
     }
 
     function ImportQuestionController($scope, ImportQuestionService) {
@@ -107,47 +130,29 @@
                 }, function (err) {
                     $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
                 });
-            }
-            else {
+            } else {
                 $scope.Message = "Vui lòng chọn file";
                 $scope.HideUploadBtn = false;
                 $scope.Loading = false;
             }
-        }
-
-        function ClearForm() {
-            angular.forEach(angular.element("input[type='file']"),
-                function (inputElement) {
-                    angular.element(inputElement).val(null);
-                });
-            //clear all data in form
-            $scope.ImportQuestionForm.$setPristine();
-            $scope.Submitted = false;
-            $scope.Message = null;
-            $scope.HideUploadBtn = false;
-            $scope.Loading = false;
-        }
+        };
     }
 
-    function ImportTextQuestionService($http) {
-        var importTextQuestionService = {};
-        importTextQuestionService.UploadTextQuestion = function (result) {
-            var url = 'http://localhost:2151/TestDetail/ImportTextQuestion';
-            $http.post(url,
-                JSON.stringify(result),
-                {
-                    headers: {
-                        'Content-type': undefined
-                    },
-                    transformRequest: angular.identity
-                });
-        }
-        return importTextQuestionService;
+    function ClearForm() {
+        angular.forEach(angular.element("input[type='file']"),
+            function (inputElement) {
+                angular.element(inputElement).val(null);
+            });
+        //clear all data in form
+        $scope.ImportQuestionForm.$setPristine();
+        $scope.Submitted = false;
+        $scope.Message = null;
+        $scope.HideUploadBtn = false;
+        $scope.Loading = false;
     }
 
     function ImportQuestionService($http, $q) {
-        var importQeustionService = {
-        };
+        var importQeustionService = {};
         importQeustionService.UploadQuestion = function (file, extensionType) {
             var formData = new FormData();
             //append key value pair then submit to server
@@ -167,7 +172,7 @@
                 defer.reject("File Upload Failed!");
             });
             return defer.promise;
-        }
+        };
         return importQeustionService;
     }
 

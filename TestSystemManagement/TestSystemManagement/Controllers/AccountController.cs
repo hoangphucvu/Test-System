@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using TestSystemManagement.Core;
 using TestSystemManagement.Repository.Interfaces;
+using TestSystemManagement.Repository.Models;
 
 namespace TestSystemManagement.Controllers
 {

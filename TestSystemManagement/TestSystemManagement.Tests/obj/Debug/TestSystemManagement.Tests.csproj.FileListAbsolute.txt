@@ -142,11 +142,11 @@ D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\De
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.Practices.Unity.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\TestSystemManagement.Repository.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\TestSystemManagement.Core.dll
+D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\EntityFramework.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.Practices.Unity.Mvc.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.Cors.dll
-D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\EntityFramework.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Net.Http.Formatting.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Http.WebHost.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement.Tests\bin\Debug\System.Web.Cors.dll

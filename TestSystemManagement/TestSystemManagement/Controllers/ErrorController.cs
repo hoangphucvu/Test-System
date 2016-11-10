@@ -18,10 +18,5 @@ namespace TestSystemManagement.Controllers
         {
             return View();
         }
-
-        public ActionResult CreateError()
-        {
-            throw new Exception("For testing purpose");
-        }
     }
 }
