@@ -40,16 +40,5 @@ namespace TestSystemManagement.Repository.Controllers
             }
             return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
-
-        [HttpPost]
-        public JsonResult ImportTextQuestion(TestDetail testDetail)
-        {
-            if (testDetail != null)
-            {
-                _repository.ImportTextQuestion(testDetail);
-                return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-            return new JsonResult { Data = false, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-        }
     }
 }

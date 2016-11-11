@@ -1,69 +1,69 @@
 ﻿<main ng-controller="QuizController">
-<div id="question-form">
-    <div class="question" id="genQuestion">
-        <div class="row">
-            <div class="col l6 m6 s6">
-                <input class="number-of-question pad10" type="text" ng-model="totalQuestion" placeholder="Nhập số lượng câu hỏi">
-                <button class="btn waves-effect waves-light" type="button" name="action" ng-click="GenerateQuestion(totalQuestion)">
-                Tạo câu hỏi
-                </button>
-            </div>
-        </div>
-    </div>
-    <form id="NewTextForm" novalidate ng-submit="ImportTextQuiz()">
-        <div class="answer" id="cloneArea">
-            <div class="row" id="cloneContent">
+    <div id="question-form">
+        <div class="question" id="genQuestion">
+            <div class="row">
                 <div class="col l6 m6 s6">
-                    <div class="input-field">
-                        <textarea id="Question" name="Question" ng-model="ImportTextData.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="Question" ng-show="(NewTextForm.Question.$dirty || Submitted) && NewTextForm.Question.$error.required">Câu hỏi Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="AnswerA" name="AnswerA" ng-model="ImportTextData.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a"  ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="AnswerA" ng-show="(NewTextForm.AnswerA.$dirty || Submitted) && NewTextForm.AnswerA.$error.required">Đáp án A Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="AnswerB" name="AnswerB" ng-model="ImportTextData.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="AnswerB" ng-show="(NewTextForm.AnswerB.$dirty || Submitted) && NewTextForm.AnswerB.$error.required">Đáp án B Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="AnswerC" name="AnswerC" ng-model="ImportTextData.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="AnswerC" ng-show="(NewTextForm.AnswerC.$dirty || Submitted) && NewTextForm.AnswerC.$error.required">Đáp án C Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="AnswerD" name="AnswerD" ng-model="ImportTextData.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="AnswerD" ng-show="(NewTextForm.AnswerD.$dirty || Submitted) && NewTextForm.AnswerD.$error.required">Đáp án D Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="CorrectAnswer" name="CorrectAnswer" ng-model="ImportTextData.CorrectAnswer" class="materialize-textarea answer-form pad10" placeholder="Đáp án đúng" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="CorrectAnswer" ng-show="(NewTextForm.CorrectAnswer.$dirty || Submitted) && NewTextForm.CorrectAnswer.$error.required">Đáp án đúng Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="TypeOfQuestion" name="TypeOfQuestion" ng-model="ImportTextData.TypeOfQuestion" class="materialize-textarea answer-form pad10" placeholder="Loại câu hỏi" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="TypeOfQuestion" ng-show="(NewTextForm.TypeOfQuestion.$dirty || Submitted) && NewTextForm.TypeOfQuestion.$error.required">Loại câu hỏi Không Được Để Trống</label>
-                    </div>
-                </div>
-                <div class="col l3 m3 s3">
-                    <div class="input-field">
-                        <textarea id="Point" name="Point" ng-model="ImportTextData.Point" class="materialize-textarea answer-form pad10" placeholder="Điểm" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
-                        <label for="Point" ng-show="(NewTextForm.Point.$dirty || Submitted) && NewTextForm.Point.$error.required">Điểm Không Được Để Trống</label>
-                    </div>
+                    <input class="number-of-question pad10" type="text" ng-model="totalQuestion" placeholder="Nhập số lượng câu hỏi">
+                    <button class="btn waves-effect waves-light" type="button" name="action" ng-click="GenerateQuestion(totalQuestion)">
+                        Tạo câu hỏi
+                    </button>
                 </div>
             </div>
         </div>
-        <button type="submit" class="waves-effect waves-light btn">Thêm Đề Thi</button>
-    </form>
-</div>
+        <form id="newTextForm" novalidate ng-submit="ImportTextQuiz()">
+            <div class="answer" id="cloneArea">
+                <div class="row" id="cloneContent">
+                    <div class="col l6 m6 s6">
+                        <div class="input-field">
+                            <textarea id="Question" name="Question" ng-model="ImportTextData.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="Question" ng-show="(NewTextForm.Question.$dirty || Submitted) && NewTextForm.Question.$error.required">Câu hỏi Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="AnswerA" name="AnswerA" ng-model="ImportTextData.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="AnswerA" ng-show="(NewTextForm.AnswerA.$dirty || Submitted) && NewTextForm.AnswerA.$error.required">Đáp án A Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="AnswerB" name="AnswerB" ng-model="ImportTextData.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="AnswerB" ng-show="(NewTextForm.AnswerB.$dirty || Submitted) && NewTextForm.AnswerB.$error.required">Đáp án B Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="AnswerC" name="AnswerC" ng-model="ImportTextData.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="AnswerC" ng-show="(NewTextForm.AnswerC.$dirty || Submitted) && NewTextForm.AnswerC.$error.required">Đáp án C Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="AnswerD" name="AnswerD" ng-model="ImportTextData.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="AnswerD" ng-show="(NewTextForm.AnswerD.$dirty || Submitted) && NewTextForm.AnswerD.$error.required">Đáp án D Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="CorrectAnswer" name="CorrectAnswer" ng-model="ImportTextData.CorrectAnswer" class="materialize-textarea answer-form pad10" placeholder="Đáp án đúng" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="CorrectAnswer" ng-show="(NewTextForm.CorrectAnswer.$dirty || Submitted) && NewTextForm.CorrectAnswer.$error.required">Đáp án đúng Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="TypeOfQuestion" name="TypeOfQuestion" ng-model="ImportTextData.TypeOfQuestion" class="materialize-textarea answer-form pad10" placeholder="Loại câu hỏi" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="TypeOfQuestion" ng-show="(NewTextForm.TypeOfQuestion.$dirty || Submitted) && NewTextForm.TypeOfQuestion.$error.required">Loại câu hỏi Không Được Để Trống</label>
+                        </div>
+                    </div>
+                    <div class="col l3 m3 s3">
+                        <div class="input-field">
+                            <textarea id="Point" name="Point" ng-model="ImportTextData.Point" class="materialize-textarea answer-form pad10" placeholder="Điểm" ng-class="Submitted?'ng-dirty':''" required autofocus></textarea>
+                            <label for="Point" ng-show="(NewTextForm.Point.$dirty || Submitted) && NewTextForm.Point.$error.required">Điểm Không Được Để Trống</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="waves-effect waves-light btn">Thêm Đề Thi</button>
+        </form>
+    </div>
 </main>

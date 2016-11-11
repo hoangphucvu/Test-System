@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Interop.Word;
 using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
@@ -17,11 +18,23 @@ namespace TestSystemManagement.Repository.Repository
     {
         private TestSystemManagementEntities _db = new TestSystemManagementEntities();
 
-        public JsonResult ImportTextQuestion(TestDetail data)
+        public JsonResult ImportTextQuestion(List<TestDetail> data)
         {
+            TestDetail testDetail = new TestDetail();
             if (data != null)
             {
-                _db.TestDetails.Add(data);
+                foreach (var item in data)
+                {
+                    testDetail.Question = item.Question;
+                    testDetail.AnswerA = item.AnswerA;
+                    testDetail.AnswerB = item.AnswerB;
+                    testDetail.AnswerC = item.AnswerC;
+                    testDetail.AnswerD = item.AnswerD;
+                    testDetail.CorrectAnswer = item.CorrectAnswer;
+                    testDetail.Point = item.Point;
+                    _db.TestDetails.Add(item);
+                }
+
                 _db.SaveChanges();
                 return new JsonResult { Data = true };
             }

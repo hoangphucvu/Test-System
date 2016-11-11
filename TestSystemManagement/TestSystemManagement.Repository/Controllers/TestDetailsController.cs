@@ -15,7 +15,7 @@ namespace TestSystemManagement.Repository.Controllers
 
         [HttpPost]
         // POST api/<controller>
-        public IHttpActionResult Post([FromBody]TestDetail testDetail)
+        public IHttpActionResult Post(List<TestDetail> testDetail)
         {
             if (testDetail == null)
             {

@@ -47,16 +47,15 @@
 
         $scope.ImportTextQuiz = function () {
             $scope.QuizFormSubmitted = true;
-            var data = $("#newTextForm").serialize();
+            var data = $("#newTextForm").serializeArray();
+            console.log(data);
             if ($scope.IsQuizFormFormValid) {
-                ImportTextQuestionService.NewTextQuestion($scope.ImportTextData).then(function (result) {
+                ImportTextQuestionService.NewTextQuestion(data).then(function (result) {
                     console.log(result);
-                    if (result.data === true) {
+                    if (result.status === 200) {
                         Materialize.toast('Upload thành công', 4000);
                     }
-                    if (result.data === false) {
-                        Materialize.toast('Upload không thành công', 4000);
-                    }
+                    Materialize.toast('Upload không thành công', 4000);
                 });
             }
         };
