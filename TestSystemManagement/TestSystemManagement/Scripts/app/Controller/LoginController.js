@@ -46,19 +46,6 @@
         };
     }
 
-    function LoginService($http) {
-        var factoryService = {};
-        factoryService.GetLogin = function (result) {
-            return $http({
-                url: '/Account/Login',
-                method: 'POST',
-                data: JSON.stringify(result),
-                header: { 'content-type': 'application/json' }
-            });
-        };
-        return factoryService;
-    }
-
     function UserInfoService($scope) {
         var userInfo = {};
         userInfo.name = $scope.LoginData.Username;

@@ -18,24 +18,33 @@ namespace TestSystemManagement.Repository.Repository
     {
         private TestSystemManagementEntities _db = new TestSystemManagementEntities();
 
-        public JsonResult ImportTextQuestion(List<TestDetail> data)
+        public JsonResult ImportTextQuestion(object[] testDetail)
         {
-            TestDetail testDetail = new TestDetail();
-            if (data != null)
+            TestDetail testDetailData = new TestDetail();
+            int i = 0;
+            if (testDetail != null)
             {
-                foreach (var item in data)
+                while (i < testDetail.Length)
                 {
-                    testDetail.Question = item.Question;
-                    testDetail.AnswerA = item.AnswerA;
-                    testDetail.AnswerB = item.AnswerB;
-                    testDetail.AnswerC = item.AnswerC;
-                    testDetail.AnswerD = item.AnswerD;
-                    testDetail.CorrectAnswer = item.CorrectAnswer;
-                    testDetail.Point = item.Point;
-                    _db.TestDetails.Add(item);
+                    testDetailData.Question = testDetail[i].ToString();
+                    i++;
+                    testDetailData.AnswerA = testDetail[i].ToString();
+                    i++;
+                    testDetailData.AnswerB = testDetail[i].ToString();
+                    i++;
+                    testDetailData.AnswerC = testDetail[i].ToString();
+                    i++;
+                    testDetailData.AnswerD = testDetail[i].ToString();
+                    i++;
+                    testDetailData.CorrectAnswer = testDetail[i].ToString();
+                    i++;
+                    testDetailData.TypeOfQuestion = ((IConvertible)testDetail[i]).ToInt32(null);
+                    i++;
+                    testDetailData.Point = ((IConvertible)testDetail[i]).ToDouble(null);
+                    i++;
+                    _db.TestDetails.Add(testDetailData);
+                    _db.SaveChanges();
                 }
-
-                _db.SaveChanges();
                 return new JsonResult { Data = true };
             }
 

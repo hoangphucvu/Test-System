@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.Vbe.Interop;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Reflection;
 using System.Web.Http;
 using TestSystemManagement.Core;
+using TestSystemManagement.Repository.Models;
 using TestSystemManagement.Repository.Repository;
 
 namespace TestSystemManagement.Repository.Controllers
@@ -15,7 +18,7 @@ namespace TestSystemManagement.Repository.Controllers
 
         [HttpPost]
         // POST api/<controller>
-        public IHttpActionResult Post(List<TestDetail> testDetail)
+        public IHttpActionResult Post(object[] testDetail)
         {
             if (testDetail == null)
             {
@@ -25,6 +28,7 @@ namespace TestSystemManagement.Repository.Controllers
             {
                 _repo.ImportTextQuestion(testDetail);
             }
+
             return Ok("success");
         }
     }

@@ -293,17 +293,20 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
-    <Content Include="Scripts\app\NewSubjectController.js" />
-    <Content Include="Scripts\app\SubjectController.js" />
-    <Content Include="Scripts\app\QuestionController.js" />
+    <Content Include="Scripts\app\Controller\NewSubjectController.js" />
+    <Content Include="Scripts\app\Controller\SubjectController.js" />
+    <Content Include="Scripts\app\Controller\QuestionController.js" />
+    <Content Include="Scripts\app\Services\LoginServices.js" />
+    <Content Include="Scripts\app\Services\QuestionServices.js" />
+    <Content Include="Scripts\app\Services\SubjectServices.js" />
     <Content Include="Scripts\Lib-Js\angular-mocks.js" />
     <Content Include="Scripts\Lib-Js\angular-route.js" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js" />
     <Content Include="Scripts\Lib-Js\angular.js" />
     <Content Include="Scripts\Lib-Js\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\IndexController.js" />
-    <Content Include="Scripts\app\LoginController.js" />
+    <Content Include="Scripts\app\Controller\IndexController.js" />
+    <Content Include="Scripts\app\Controller\LoginController.js" />
     <Content Include="Scripts\Lib-Js\jquery-1.10.2.min.js" />
     <Content Include="Scripts\Lib-Js\materialize.min.js" />
     <Content Include="Scripts\app\site.js" />
@@ -369,6 +372,7 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js.map" />
     <Content Include="Scripts\Lib-Js\angular.min.js.map" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">
