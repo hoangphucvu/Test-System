@@ -3,10 +3,10 @@
 
     angular.module('TestManagementSystem', [
         // Angular modules
-        'ngRoute'
+        'ngRoute',
 
         // Custom modules
-
+        'routeApp'
         // 3rd Party Modules
     ]);
 })();
