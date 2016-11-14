@@ -1,4 +1,4 @@
-﻿module.exports = function (grunt) {
+﻿module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -35,11 +35,11 @@
             }
         },
         jshint: {
-            all: ['Gruntfile.js', '!Scripts/app/**/*.min.js']
+            all: ['Gruntfile.js', 'Scripts/app/**/*.js', '!Scripts/app/**/*.min.js']
         },
         watch: {
             scripts: {
-                files: ['!Scripts/app/**/*.min.js'],
+                files: ['Scripts/app/**/*.js', '!Scripts/app/**/*.min.js'],
                 tasks: ['jshint', 'clean', 'concat:dev', 'uglify:dev']
             }
         },
