@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('routeApp')
-        .config('routes', routes);
+        .module('routeApp', 'ngRoute')
+        .config(config);
 
     config.$inject = ['$locationProvider', '$routeProvider'];
 
