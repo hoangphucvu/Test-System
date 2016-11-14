@@ -49,7 +49,7 @@
             $scope.QuizFormSubmitted = true;
             var data = $("#newTextForm").serializeArray();
             //var result = {};
-            var result = data.map(function (a) { return a.value });
+            var result = data.map(function (formData) { return formData.value; });
             //$.each(data,
             //    function() {
             //        result[this.name] = this.value;

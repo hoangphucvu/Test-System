@@ -98,6 +98,11 @@
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -173,9 +178,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -293,6 +295,7 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
+    <Content Include="Scripts\app\Config\routes.js" />
     <Content Include="Scripts\app\Controller\NewSubjectController.js" />
     <Content Include="Scripts\app\Controller\SubjectController.js" />
     <Content Include="Scripts\app\Controller\QuestionController.js" />
@@ -372,7 +375,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js.map" />
     <Content Include="Scripts\Lib-Js\angular.min.js.map" />
-    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">

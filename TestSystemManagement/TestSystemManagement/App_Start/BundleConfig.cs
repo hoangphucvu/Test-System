@@ -20,9 +20,7 @@ namespace TestSystemManagement
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(
                        "~/Scripts/Lib-Js/jquery-1.10.2.min.js",
-                       "~/Scripts/Lib-Js/materialize.min.js",
-                       "~/Scripts/Lib-Js/moment.min.js",
-                       "~/Scripts/Lib-Js/bootstrap-material-datetimepicker.js"
+                       "~/Scripts/Lib-Js/materialize.min.js"
                        ));
             bundles.Add(new ScriptBundle("~/bundles/angular-lib").Include(
                       "~/Scripts/Lib-Js/angular.js",

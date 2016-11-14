@@ -8,10 +8,10 @@
 </head>
 <body ng-app="TestManagementSystem">
     @RenderBody()
+    <script src="~/Scripts/Lib-Js/angular-app.min.js"></script>
+    <script src="~/Scripts/app/app.min.js"></script>
     @Scripts.Render("~/bundles/material")
-    @Scripts.Render("~/bundles/angular-lib")
     @Scripts.Render("~/site-js")
-    <script src="~/Scripts/app/app.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
