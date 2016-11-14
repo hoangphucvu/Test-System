@@ -2,10 +2,8 @@
     'use strict';
 
     angular
-        .module('TestManagementSystem')
-        .controller('LoginController', LoginController)
-        .factory('LoginService', LoginService)
-        .factory('UserInfoService', UserInfoService);
+        .module('TestSystemManagement')
+        .controller('LoginController', LoginController);
 
     LoginController.$inject = ['$scope', '$location', 'LoginService'];
 
@@ -44,11 +42,5 @@
                 });
             }
         };
-    }
-
-    function UserInfoService($scope) {
-        var userInfo = {};
-        userInfo.name = $scope.LoginData.Username;
-        return userInfo;
     }
 })();

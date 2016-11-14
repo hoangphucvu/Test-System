@@ -1,14 +1,14 @@
-﻿(function() {
+﻿(function () {
     'use strict';
 
     angular
-        .module('TestManagementSystem')
+        .module('TestSystemManagement')
         .controller('IndexController', IndexController);
 
     IndexController.$inject = ['$scope', '$http'];
 
     function IndexController($scope, $http) {
-        $scope.Logout = function() {
+        $scope.Logout = function () {
             window.location = "/Account/Login";
         };
     }

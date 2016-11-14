@@ -2,8 +2,8 @@
     'use strict';
 
     angular
-        .module('TestManagementSystem')
-        .factory('SubjectServices', NewSubjectService);
+        .module('TestSystemManagement')
+        .factory('NewSubjectService', NewSubjectService);
 
     NewSubjectService.$inject = ['$http'];
 
@@ -14,7 +14,9 @@
                 url: 'http://localhost:2151/api/Subject',
                 method: 'POST',
                 data: JSON.stringify(result),
-                header: { 'content-type': 'application/json' }
+                header: {
+                    'content-type': 'application/json'
+                }
             });
         };
         return newSubjectService;

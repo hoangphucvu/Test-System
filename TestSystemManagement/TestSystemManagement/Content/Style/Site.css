@@ -488,12 +488,12 @@ footer.page-footer .footer-copyright {
 /* End upload quiz */
 
 /* The starting CSS styles for the enter animation */
-ng-view.ng-enter {
-  transition:0.5s linear all;
-  opacity:0;
+#contentView.ng-enter {
+    transition: 0.5s linear all;
+    opacity: 0;
 }
 
-/* The finishing CSS styles for the enter animation */
-ng-view.ng-enter.ng-enter-active {
-  opacity:1;
-}
+    /* The finishing CSS styles for the enter animation */
+    #contentView.ng-enter.ng-enter-active {
+        opacity: 1;
+    }

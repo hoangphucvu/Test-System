@@ -2,11 +2,9 @@
     'use strict';
 
     angular
-        .module('TestManagementSystem')
+        .module('TestSystemManagement')
         .controller('QuizController', QuizController)
-        .controller('ImportQuestionController', ImportQuestionController)
-        .factory('ImportQuestionService', ImportQuestionService)
-        .factory('ImportTextQuestionService', ImportTextQuestionService);
+        .controller('ImportQuestionController', ImportQuestionController);
 
     QuizController.$inject = ['$scope', 'ImportTextQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
@@ -47,21 +45,16 @@
 
         $scope.ImportTextQuiz = function () {
             $scope.QuizFormSubmitted = true;
-            var data = $("#newTextForm").serializeArray();
-            //var result = {};
-            var result = data.map(function (formData) { return formData.value; });
-            //$.each(data,
-            //    function() {
-            //        result[this.name] = this.value;
-            //    });
-            console.log(result);
+            var data = $("#newTextForm").serialize();
             if ($scope.IsQuizFormFormValid) {
-                ImportTextQuestionService.NewTextQuestion(result).then(function (result) {
+                ImportTextQuestionService.NewTextQuestion($scope.ImportTextData).then(function (result) {
                     console.log(result);
-                    if (result.status === 200) {
+                    if (result.data === true) {
                         Materialize.toast('Upload thành công', 4000);
                     }
-                    Materialize.toast('Upload không thành công', 4000);
+                    if (result.data === false) {
+                        Materialize.toast('Upload không thành công', 4000);
+                    }
                 });
             }
         };

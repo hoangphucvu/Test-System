@@ -2,10 +2,10 @@
     'use strict';
 
     angular
-        .module('app')
-        .factory('LoginServices', LoginServices);
+        .module('TestSystemManagement')
+        .factory('LoginService', LoginService);
 
-    LoginServices.$inject = ['$http'];
+    LoginService.$inject = ['$http'];
 
     function LoginService($http) {
         var factoryService = {};
@@ -14,7 +14,9 @@
                 url: '/Account/Login',
                 method: 'POST',
                 data: JSON.stringify(result),
-                header: { 'content-type': 'application/json' }
+                header: {
+                    'content-type': 'application/json'
+                }
             });
         };
         return factoryService;

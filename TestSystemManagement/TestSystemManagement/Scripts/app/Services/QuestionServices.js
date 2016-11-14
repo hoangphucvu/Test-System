@@ -2,11 +2,11 @@
     'use strict';
 
     angular
-        .module('TestManagementSystem')
+        .module('TestSystemManagement')
         .factory('ImportQuestionService', ImportQuestionService)
         .factory('ImportTextQuestionService', ImportTextQuestionService);
 
-    ImportQuestionService.$inject = ['$http', ' $q'];
+    ImportQuestionService.$inject = ['$http', '$q'];
     ImportTextQuestionService.$inject = ['$http'];
 
     function ImportTextQuestionService($http) {
@@ -23,6 +23,7 @@
         };
         return importTextQuestionService;
     }
+
     function ImportQuestionService($http, $q) {
         var importQeustionService = {};
         importQeustionService.UploadQuestion = function (file, extensionType) {

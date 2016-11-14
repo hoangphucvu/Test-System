@@ -2,9 +2,8 @@
     'use strict';
 
     angular
-        .module('TestManagementSystem')
-        .controller('NewSubjectController', NewSubjectController)
-        .factory('NewSubjectService', NewSubjectService);
+        .module('TestSystemManagement')
+        .controller('NewSubjectController', NewSubjectController);
 
     NewSubjectController.inject = ['$scope', '$http', 'NewSubjectService'];
 
@@ -46,6 +45,4 @@
             }
         };
     }
-
-    
 })();

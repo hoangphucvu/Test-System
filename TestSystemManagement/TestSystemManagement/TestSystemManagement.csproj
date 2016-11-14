@@ -208,6 +208,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Gruntfile.js" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -295,17 +296,16 @@
     </Content>
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
+    <Content Include="Scripts\app\app.min.js" />
     <Content Include="Scripts\app\Config\routes.js" />
-    <Content Include="Scripts\app\Controller\NewSubjectController.js" />
     <Content Include="Scripts\app\Controller\SubjectController.js" />
     <Content Include="Scripts\app\Controller\QuestionController.js" />
     <Content Include="Scripts\app\Services\LoginServices.js" />
     <Content Include="Scripts\app\Services\QuestionServices.js" />
     <Content Include="Scripts\app\Services\SubjectServices.js" />
-    <Content Include="Scripts\Lib-Js\angular-mocks.js" />
-    <Content Include="Scripts\Lib-Js\angular-route.js" />
+    <Content Include="Scripts\Lib-Js\angular-animate.min.js" />
+    <Content Include="Scripts\Lib-Js\angular-app.min.js" />
     <Content Include="Scripts\Lib-Js\angular-route.min.js" />
-    <Content Include="Scripts\Lib-Js\angular.js" />
     <Content Include="Scripts\Lib-Js\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controller\IndexController.js" />
@@ -335,7 +335,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -372,9 +371,8 @@
     <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
     <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
     <Content Include="bin\TestSystemManagement.dll.config" />
+    <Content Include="package.json" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\Lib-Js\angular-route.min.js.map" />
-    <Content Include="Scripts\Lib-Js\angular.min.js.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TestSystemManagement.Core\TestSystemManagement.Core.csproj">
