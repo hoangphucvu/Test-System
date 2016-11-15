@@ -45,14 +45,16 @@
 
         $scope.ImportTextQuiz = function () {
             $scope.QuizFormSubmitted = true;
-            var data = $("#newTextForm").serialize();
+            var data = $("#newTextForm").serializeArray();
+            console.log(data);
+            var formdata = data.map(function (a) { return a.value; });
             if ($scope.IsQuizFormFormValid) {
-                ImportTextQuestionService.NewTextQuestion($scope.ImportTextData).then(function (result) {
+                ImportTextQuestionService.NewTextQuestion(formdata).then(function (result) {
                     console.log(result);
-                    if (result.data === true) {
+                    if (result.data === 'success') {
                         Materialize.toast('Upload thành công', 4000);
                     }
-                    if (result.data === false) {
+                    else {
                         Materialize.toast('Upload không thành công', 4000);
                     }
                 });
@@ -103,8 +105,10 @@
                     console.log(result);
                     if (result === true) {
                         //$scope.Message = "Upload thành công";
-                        ClearForm();
+                        //ClearForm();
                         Materialize.toast('Upload thành công', 4000);
+                        $scope.HideUploadBtn = false;
+                        $scope.Loading = false;
                     } else {
                         $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
                         $scope.HideUploadBtn = false;
@@ -121,7 +125,7 @@
         };
     }
 
-    function ClearForm() {
+    function ClearForm($scope) {
         angular.forEach(angular.element("input[type='file']"),
             function (inputElement) {
                 angular.element(inputElement).val(null);

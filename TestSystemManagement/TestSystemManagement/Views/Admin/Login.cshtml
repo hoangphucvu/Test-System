@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+}
+<link href="~/Content/login.css" rel="stylesheet" />
+<div class="wrapped" ng-controller="LoginController">
+    <div class="container">
+        <div class="row">
+            <div class="col s3">
+            </div>
+            <div class="col s6">
+                <div class="card card-login">
+                    <div class="head text-center">
+                        <p class="text-divider">{{title}}</p>
+                        <div class="ico">
+                            <i class="fa fa-file-text fa-2x padding20" aria-hidden="true"></i>
+                            <i class="fa fa-file-word-o fa-2x padding20" aria-hidden="true"></i>
+                            <i class="fa fa-file-code-o fa-2x padding20" aria-hidden="true"></i>
+                        </div>
+                        <p class="text-divider">{{Message}}</p>
+                    </div>
+                    <div class="content">
+                        <form class="form-inline" name="LoginForm" novalidate ng-submit="Login()">
+                            <div class="form-group">
+                                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                                <div class="input-field">
+                                    <input type="text" ng-model="LoginData.Username" name="username" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                    <label for="username">Tài khoản</label>
+                                    <label for="username" ng-show="(LoginForm.username.$dirty || Submitted) && LoginForm.username.$error.required">Tài khoản không được để trống</label>
+                                </div>
+                            </div>
+                            <div class="form-group clear">
+                                <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                                <div class="input-field">
+                                    <input type="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                    <label for="password">Mật khẩu</label>
+                                    <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required">Mật khẩu không được để trống</label>
+                                </div>
+                            </div>
+                            <div class="footer text-center">
+                                <button type="submit" class="waves-effect waves-light btn" ng-click="checkValid()" ng-hide="HideLoginBtn">
+                                    Đăng nhập
+                                </button>
+                                <div ng-show="ShowLoading">
+                                    <img src="~/Content/img/loading.gif" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col s3">
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+<script src="~/Scripts/app/Controller/LoginController.js"></script>
+}
