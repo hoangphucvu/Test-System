@@ -109,26 +109,6 @@ html {
     margin: 10px 0 10px 0;
 }
 
-#card [type="checkbox"].filled-in:not(:checked) + label:after {
-    height: 15px !important;
-    width: 15px !important;
-}
-
-#card [type="checkbox"] + label {
-    padding-left: 30px !important;
-    line-height: 17px !important;
-}
-
-#card [type="checkbox"].filled-in:checked + label:after {
-    width: 15px !important;
-    height: 15px !important;
-}
-
-#card [type="checkbox"].filled-in:checked + label:before {
-    width: 6px !important;
-    height: 10px !important;
-}
-
 #footer-login .copyright {
     padding-left: 20px;
     padding-right: 20px;
@@ -497,3 +477,15 @@ footer.page-footer .footer-copyright {
     #contentView.ng-enter.ng-enter-active {
         opacity: 1;
     }
+
+select {
+    display: block;
+    border: 1px solid #000000;
+}
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    position: absolute;
+    left: -18px;
+    top: 15px;
+    opacity: 1;
+}

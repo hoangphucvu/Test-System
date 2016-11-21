@@ -14,20 +14,13 @@
             templateUrl: '/Template/Index.html',
             controller: 'IndexController'
         })
-        .when('/admin/subject/new-subject',
+        .when('/admin/subject',
         {
-            templateUrl: '/Template/NewSubject.html',
-            controller: 'NewSubjectController'
+            templateUrl: '/Template/Subject.html'
         })
-        .when('/admin/quiz/import-quiz',
+        .when('/admin/question',
         {
-            templateUrl: '/Template/UploadQuestion.html',
-            controller: 'ImportQuestionController'
-        })
-        .when('/admin/quiz/new-quiz',
-        {
-            templateUrl: '/Template/NewQuiz.html',
-            controller: 'QuizController'
+            templateUrl: '/Template/Question.html'
         })
         .otherwise({
             templateUrl: '/Template/Index.html',

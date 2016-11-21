@@ -20,31 +20,18 @@
                 <ul class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header management">
-                            <i class="fa fa-pencil pad9" aria-hidden="true"></i>Quản Lý Môn Thi
-                            <span class="arrow"></span>
-                        </div>
-                        <div class="collapsible-body sub-menu">
-                            <ul>
-                                <li> <a href="/admin/subject/new-subject">Tạo Mới Môn Thi </a></li>
-                                <li> <a href="/admin/subject/update-subject">Cập Nhật Môn Thi </a> </li>
-                                <li> <a href="/admin/subject/delete-subject"> Xóa Môn Thi</a></li>
-                            </ul>
+                            <i class="fa fa-pencil pad9" aria-hidden="true"></i><a href="/admin/subject/">
+                                Quản Lý Môn Thi
+                            </a>
                         </div>
                     </li>
                 </ul>
                 <ul class="collapsible" data-collapsible="expandable">
                     <li>
                         <div class="collapsible-header management">
-                            <i class="fa fa-pencil pad9" aria-hidden="true"></i>Quản Lý Đề Thi
-                            <span class="arrow"></span>
-                        </div>
-                        <div class="collapsible-body sub-menu">
-                            <ul>
-                                <li> <a href="/admin/quiz/import-quiz">Upload Đề Thi </a></li>
-                                <li> <a href="/admin/quiz/new-quiz">Tạo Mới Đề Thi </a> </li>
-                                <li> <a href="/admin/quiz/edit-quiz"> Chỉnh Sửa Đề Thi</a></li>
-                                <li> <a href="/admin/quiz/delete-quiz">Xoá Đề Thi</a></li>
-                            </ul>
+                            <i class="fa fa-pencil pad9" aria-hidden="true"></i><a href="/admin/question/">
+                                Quản Lý Câu Hỏi
+                            </a>
                         </div>
                     </li>
                 </ul>
@@ -60,7 +47,6 @@
     </div>
 </header>
 <div ng-view id="contentView"></div>
-
 @section scripts{
     <script src="../../Scripts/app/Controller/IndexController.js"></script>
     <script src="../../Scripts/app/Controller/SubjectController.js"></script>

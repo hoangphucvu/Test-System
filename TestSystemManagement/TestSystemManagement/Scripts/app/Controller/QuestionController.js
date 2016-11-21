@@ -26,15 +26,17 @@
         };
 
         $scope.$watch('NewTextForm.$valid', function (newValue) {
-            $scope.IsQuizFormFormValid = true;
+            $scope.IsQuizFormFormValid = newValue;
         });
+
         $scope.GenerateQuestion = function (totalQuestion) {
             var total = TryParseInt(totalQuestion, null);
+            var i = 1;
             if (typeof (total) === 'number') {
-                for (i = 1; i <= total; i++) {
+                for (i; i <= total; i++) {
                     $scope.number = i;
                     var parentElement = angular.element(document.querySelector('#cloneArea'));
-                    var childElement = angular.element(document.querySelector('#cloneContent'));
+                    var childElement = angular.element(document.querySelector('.cloneContent'));
                     parentElement.append(childElement.clone());
                 }
             } else {
@@ -45,20 +47,37 @@
 
         $scope.ImportTextQuiz = function () {
             $scope.QuizFormSubmitted = true;
-            var data = $("#newTextForm").serializeArray();
-            console.log(data);
-            var formdata = data.map(function (a) { return a.value; });
-            if ($scope.IsQuizFormFormValid) {
-                ImportTextQuestionService.NewTextQuestion(formdata).then(function (result) {
-                    console.log(result);
+            var checkboxData = [];
+            var list = [];
+            $.each($("input[name='CorrectAnswer']:checked"),
+                function () {
+                    checkboxData.push($(this).val());
+                });
+            $('.cloneContent').each(function (i, e) {
+                var data = {
+                    Question: $("#Question").val(),
+                    AnswerA: $("#AnswerA").val(),
+                    AnswerB: $("#AnswerB").val(),
+                    AnswerC: $("#AnswerC").val(),
+                    AnswerD: $("#AnswerD").val(),
+                    CorrectAnswer: checkboxData,
+                    TypeOfQuestion: $("#TypeOfQuestion option:selected").val()
+                };
+                list.push(data);
+            });
+
+            var jsonData = JSON.stringify(list);
+            //console.log(jsonData);
+            ImportTextQuestionService.NewTextQuestion(jsonData).then(function (result) {
+                console.log(result);
+                if ($scope.IsQuizFormFormValid) {
                     if (result.data === 'success') {
                         Materialize.toast('Upload thành công', 4000);
-                    }
-                    else {
+                    } else {
                         Materialize.toast('Upload không thành công', 4000);
                     }
-                });
-            }
+                }
+            });
         };
     }
 

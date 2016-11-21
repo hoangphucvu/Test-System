@@ -1,4 +1,4 @@
-﻿(function () {
+﻿(function() {
     'use strict';
 
     angular
@@ -11,7 +11,7 @@
 
     function ImportTextQuestionService($http) {
         var importTextQuestionService = {};
-        importTextQuestionService.NewTextQuestion = function (result) {
+        importTextQuestionService.NewTextQuestion = function(result) {
             return $http({
                 url: 'http://localhost:2151/api/TestDetails',
                 method: 'POST',
@@ -26,7 +26,7 @@
 
     function ImportQuestionService($http, $q) {
         var importQeustionService = {};
-        importQeustionService.UploadQuestion = function (file, extensionType) {
+        importQeustionService.UploadQuestion = function(file, extensionType) {
             var formData = new FormData();
             //append key value pair then submit to server
             formData.append('file', file);
@@ -38,10 +38,10 @@
                 },
                 transformRequest: angular.identity
             }).
-            success(function (data) {
+            success(function(data) {
                 defer.resolve(data);
             }).
-            error(function () {
+            error(function() {
                 defer.reject("File Upload Failed!");
             });
             return defer.promise;

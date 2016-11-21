@@ -18,35 +18,28 @@ namespace TestSystemManagement.Repository.Repository
     {
         private TestSystemManagementEntities _db = new TestSystemManagementEntities();
 
-        public JsonResult ImportTextQuestion(object[] testDetail)
+        public JsonResult ImportTextQuestion(string testDetail)
         {
-            TestDetail testDetailData = new TestDetail();
-            int i = 0;
-            if (testDetail != null)
-            {
-                while (i < testDetail.Length)
-                {
-                    testDetailData.Question = testDetail[i].ToString();
-                    i++;
-                    testDetailData.AnswerA = testDetail[i].ToString();
-                    i++;
-                    testDetailData.AnswerB = testDetail[i].ToString();
-                    i++;
-                    testDetailData.AnswerC = testDetail[i].ToString();
-                    i++;
-                    testDetailData.AnswerD = testDetail[i].ToString();
-                    i++;
-                    testDetailData.CorrectAnswer = testDetail[i].ToString();
-                    i++;
-                    testDetailData.TypeOfQuestion = ((IConvertible)testDetail[i]).ToInt32(null);
-                    i++;
-                    testDetailData.Point = ((IConvertible)testDetail[i]).ToDouble(null);
-                    i++;
-                    _db.TestDetails.Add(testDetailData);
-                    _db.SaveChanges();
-                }
-                return new JsonResult { Data = true };
-            }
+            //TestDetail testDetailData = new TestDetail();
+            //int i = 0;
+            //if (testDetail != null)
+            //{
+            //    //foreach (var data in testDetail)
+            //    //{
+            //    testDetailData.Question = testDetail.Question;
+            //    testDetailData.AnswerA = testDetail.AnswerA;
+            //    testDetailData.AnswerB = testDetail.AnswerB;
+            //    testDetailData.AnswerC = testDetail.AnswerC;
+            //    testDetailData.AnswerD = testDetail.AnswerD;
+            //    testDetailData.CorrectAnswer = testDetail.CorrectAnswer;
+            //    testDetailData.TypeOfQuestion = testDetail.TypeOfQuestion;
+            //    testDetailData.Point = 0.25f;
+
+            //    _db.TestDetails.Add(testDetailData);
+            //    _db.SaveChanges();
+            //    //}
+            //    return new JsonResult { Data = true };
+            //}
 
             return new JsonResult { Data = false };
         }

@@ -18,6 +18,6 @@ namespace TestSystemManagement.Repository.Interfaces
 
         JsonResult UploadExcelFile(string file);
 
-        JsonResult ImportTextQuestion(object[] testDetail);
+        JsonResult ImportTextQuestion(string testDetail);
     }
 }
