@@ -15,7 +15,7 @@ namespace TestSystemManagement
                       ));
 
             bundles.Add(new ScriptBundle("~/site-js").Include(
-                      "~/Scripts/app/site.js"
+                      "~/Scripts/Lib-Js/tinymce/js/tinymce/tinymce.min.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(

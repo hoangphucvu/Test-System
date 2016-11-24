@@ -8,10 +8,12 @@
 </head>
 <body ng-app="TestSystemManagement">
     @RenderBody()
-    @Scripts.Render("~/bundles/material")
+
     <script src="~/Scripts/Lib-Js/angular-app.min.js"></script>
     <script src="~/Scripts/app/app.min.js"></script>
-    @Scripts.Render("~/site-js")
+    @Scripts.Render("~/bundles/material")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Lib-Js/ckfinder/ckfinder.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Lib-Js/ckeditor/ckeditor.js")"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>
