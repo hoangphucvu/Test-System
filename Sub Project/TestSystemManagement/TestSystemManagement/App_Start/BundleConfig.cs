@@ -15,17 +15,15 @@ namespace TestSystemManagement
                       ));
 
             bundles.Add(new ScriptBundle("~/site-js").Include(
-                      "~/Scripts/Lib-Js/tinymce/js/tinymce/tinymce.min.js"
+                      "~/Scripts/scripts.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(
                        "~/Scripts/Lib-Js/jquery-1.10.2.min.js",
                        "~/Scripts/Lib-Js/materialize.min.js"
                        ));
-            bundles.Add(new ScriptBundle("~/bundles/angular-lib").Include(
-                      "~/Scripts/Lib-Js/angular.js",
-                      "~/Scripts/Lib-Js/angular-route.js",
-                      "~/Scripts/Lib-Js/angular-animate.min.js"
+            bundles.Add(new ScriptBundle("~/bundles/angular-app").IncludeDirectory(
+                      "~/Scripts/app", "*.js", true
                       ));
 
             BundleTable.EnableOptimizations = true;

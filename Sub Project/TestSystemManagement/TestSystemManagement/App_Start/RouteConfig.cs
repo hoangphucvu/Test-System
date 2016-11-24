@@ -12,12 +12,12 @@ namespace TestSystemManagement
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            //routes.MapMvcAttributeRoutes();
-            routes.MapRoute(
-                name: "SPA",
-                url: "Admin/{*all}",
-                defaults: new { controller = "Admin", action = "Index" }
-            );
+            routes.MapMvcAttributeRoutes();
+            //routes.MapRoute(
+            //    name: "SPA",
+            //    url: "Admin/{*all}",
+            //    defaults: new { controller = "Admin", action = "Index" }
+            //);
 
             routes.MapRoute(
                 name: "Default",

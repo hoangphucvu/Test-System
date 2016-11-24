@@ -3,9 +3,9 @@
 
     angular.module('TestSystemManagement', [
         // Angular modules
-        'ngAnimate',
+        //'ngAnimate',
         // Custom modules
-        'routeApp'
+        //'routeApp'
         // 3rd Party Modules
     ]);
 })();

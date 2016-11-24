@@ -102,3 +102,16 @@
         </form>
     </div>
 </main>
+<script>
+        (function () {
+            var editor = CKEDITOR.instances['data'];
+            if (editor) {
+                editor.destroy(true);
+            };
+            CKEDITOR.replace('data',
+            {
+                enterMode: CKEDITOR.ENTER_BR
+            });
+            CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
+        });
+</script>

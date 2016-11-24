@@ -46,7 +46,7 @@
   <ItemGroup>
     <Reference Include="CKFinder, Version=2.4.1.2663, Culture=neutral, PublicKeyToken=579e7adc719a1423, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Download\ckfinder_aspnet_2.4.1\ckfinder\bin\Release\CKFinder.dll</HintPath>
+      <HintPath>Scripts\Lib-Js\ckfinder\bin\Release\CKFinder.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -245,12 +245,9 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Gruntfile.js" />
     <Content Include="Log\AccessLog.txt" />
     <Content Include="Log\ExceptionLog.txt" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\app.min.js" />
-    <Content Include="Scripts\app\Config\routes.js" />
     <Content Include="Scripts\app\Controller\IndexController.js" />
     <Content Include="Scripts\app\Controller\LoginController.js" />
     <Content Include="Scripts\app\Controller\QuestionController.js" />
@@ -299,9 +296,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\Lib-Js\angular-animate.min.js" />
-    <Content Include="Scripts\Lib-Js\angular-app.min.js" />
-    <Content Include="Scripts\Lib-Js\angular-route.min.js" />
     <Content Include="Scripts\Lib-Js\angular.min.js" />
     <Content Include="Scripts\Lib-Js\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\Lib-Js\ckeditor\CHANGES.html" />
@@ -1243,6 +1237,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\scripts.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Template\Index.html" />
     <Content Include="Template\Question.html" />
@@ -1259,17 +1254,18 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Error\HttpError500.cshtml" />
     <Content Include="Views\Error\PageNotFound.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Scripts\Lib-Js\ckeditor\.htaccess" />
     <Content Include="Scripts\Lib-Js\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Scripts\Lib-Js\ckfinder\userfiles\.htaccess" />
-    <Content Include="Scripts\Lib-Js\ckeditor\.htaccess" />
+    <None Include="Views\Admin\QuestionManage.cshtml" />
+    <Content Include="Views\Admin\CourseManage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="node_modules\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

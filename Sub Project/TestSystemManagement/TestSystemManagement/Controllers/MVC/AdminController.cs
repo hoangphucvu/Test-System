@@ -13,5 +13,15 @@ namespace TestSystemManagement.Controllers.MVC
         {
             return View();
         }
+
+        public ActionResult QuestionManage()
+        {
+            return View();
+        }
+
+        public ActionResult CourseManage()
+        {
+            return View();
+        }
     }
 }

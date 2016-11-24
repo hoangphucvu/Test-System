@@ -53,21 +53,20 @@
                 function () {
                     checkboxData.push($(this).val());
                 });
-            $('.cloneContent').each(function (i, e) {
-                var data = {
-                    Question: $("#Question").val(),
-                    AnswerA: $("#AnswerA").val(),
-                    AnswerB: $("#AnswerB").val(),
-                    AnswerC: $("#AnswerC").val(),
-                    AnswerD: $("#AnswerD").val(),
-                    CorrectAnswer: checkboxData,
-                    TypeOfQuestion: $("#TypeOfQuestion option:selected").val()
-                };
-                list.push(data);
-            });
+
+            var data = {
+                Question: CKEDITOR.instances['Question'].getData(),
+                AnswerA: CKEDITOR.instances['AnswerA'].getData(),
+                AnswerB: CKEDITOR.instances['AnswerB'].getData(),
+                AnswerC: CKEDITOR.instances['AnswerC'].getData(),
+                AnswerD: CKEDITOR.instances['AnswerD'].getData(),
+                CorrectAnswer: checkboxData,
+                TypeOfQuestion: $("#TypeOfQuestion option:selected").val()
+            };
+            list.push(data);
 
             var jsonData = JSON.stringify(list);
-            //console.log(jsonData);
+            console.log(checkboxData);
             ImportTextQuestionService.NewTextQuestion(jsonData).then(function (result) {
                 console.log(result);
                 if ($scope.IsQuizFormFormValid) {

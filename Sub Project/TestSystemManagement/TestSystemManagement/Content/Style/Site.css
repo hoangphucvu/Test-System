@@ -489,3 +489,7 @@ select {
     top: 15px;
     opacity: 1;
 }
+
+.question-detail {
+    margin: 0 50px 0 50px;
+}

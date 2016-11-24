@@ -1,54 +1,69 @@
 ﻿@{
-    ViewBag.Title = "Đăng nhập";
+    Layout = null;
 }
-<div class="wrapped" ng-controller="LoginController">
-    <div class="container">
-        <div class="row">
-            <div class="col s3">
-            </div>
-            <div class="col s6">
-                <div id="card" class="card-login">
-                    <div class="head text-center">
-                        <p class="text-divider">{{title}}</p>
-                        <div class="ico">
-                            <i class="fa fa-file-text fa-2x padding20" aria-hidden="true"></i>
-                            <i class="fa fa-file-word-o fa-2x padding20" aria-hidden="true"></i>
-                            <i class="fa fa-file-code-o fa-2x padding20" aria-hidden="true"></i>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    @Styles.Render("~/web-css")
+</head>
+<body ng-app="TestSystemManagement">
+    <div class="wrapped" ng-controller="LoginController">
+        <div class="container">
+            <div class="row">
+                <div class="col s3">
+                </div>
+                <div class="col s6">
+                    <div id="card" class="card-login">
+                        <div class="head text-center">
+                            <p class="text-divider">{{title}}</p>
+                            <div class="ico">
+                                <i class="fa fa-file-text fa-2x padding20" aria-hidden="true"></i>
+                                <i class="fa fa-file-word-o fa-2x padding20" aria-hidden="true"></i>
+                                <i class="fa fa-file-code-o fa-2x padding20" aria-hidden="true"></i>
+                            </div>
+                            <p class="text-divider">{{Message}}</p>
                         </div>
-                        <p class="text-divider">{{Message}}</p>
-                    </div>
-                    <div class="content">
-                        <form class="form-inline" name="LoginForm" novalidate ng-submit="Login()">
-                            <div class="form-group">
-                                <i class="fa fa-user fa-2x" aria-hidden="true"></i>
-                                <div class="input-field">
-                                    <input autocomplete="new-password" type="text" id="username" ng-model="LoginData.Username" name="username" ng-class="Submitted?'ng-dirty':''" required autofocus>
-                                    <label for="username">Tài khoản</label>
-                                    <label for="username" ng-show="(LoginForm.username.$dirty || Submitted) && LoginForm.username.$error.required">Tài khoản không được để trống</label>
+                        <div class="content">
+                            <form class="form-inline" name="LoginForm" novalidate ng-submit="Login()">
+                                <div class="form-group">
+                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                                    <div class="input-field">
+                                        <input autocomplete="new-password" type="text" id="username" ng-model="LoginData.Username" name="username" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                        <label for="username">Tài khoản</label>
+                                        <label for="username" ng-show="(LoginForm.username.$dirty || Submitted) && LoginForm.username.$error.required">Tài khoản không được để trống</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group clear">
-                                <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
-                                <div class="input-field">
-                                    <input autocomplete="new-password" type="password" id="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus>
-                                    <label for="password">Mật khẩu</label>
-                                    <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required">Mật khẩu không được để trống</label>
+                                <div class="form-group clear">
+                                    <i class="fa fa-lock fa-2x" aria-hidden="true"></i>
+                                    <div class="input-field">
+                                        <input autocomplete="new-password" type="password" id="password" ng-model="LoginData.Password" name="password" ng-class="Submitted?'ng-dirty':''" required autofocus>
+                                        <label for="password">Mật khẩu</label>
+                                        <label for="password" ng-show="(LoginForm.password.$dirty || Submitted) && LoginForm.password.$error.required">Mật khẩu không được để trống</label>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="footer text-center">
-                                <button type="submit" class="waves-effect waves-light btn" ng-hide="HideLoginBtn">
-                                    Đăng nhập
-                                </button>
-                                <div ng-show="ShowLoading">
-                                    <img src="~/Content/img/loading.gif" />
+                                <div class="footer text-center">
+                                    <button type="submit" class="waves-effect waves-light btn" ng-hide="HideLoginBtn">
+                                        Đăng nhập
+                                    </button>
+                                    <div ng-show="ShowLoading">
+                                        <img src="~/Content/img/loading.gif" />
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col s3">
+                <div class="col s3">
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <script src="~/Scripts/Lib-Js/angular.min.js"></script>
+    @Scripts.Render("~/bundles/angular-app")
+    @Scripts.Render("~/bundles/material")
+</body>
+</html>
