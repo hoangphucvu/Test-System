@@ -1,0 +1,169 @@
+﻿@{
+    ViewBag.Title = "QuestionManage";
+}
+
+<main ng-controller="ImportQuestionController">
+    <div id="upload-form">
+        <div class="container form-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Upload Câu Hỏi</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form ng-submit="ImportQuestion()" novalidate name="ImportQuestionForm">
+                            <div class="file-field input-field">
+                                <div class="fileUpload btn btn-primary">
+                                    <span>Vui lòng chọn file upload</span>
+                                    <input type="file" class="upload" onchange="angular.element(this).scope().CheckFile(this)" required ng-class="Submitted?'ng-dirty':''">
+                                    <span class="has-error" ng-show="(ImportQuestionForm.file.$dirty || Submitted) && ImportQuestionForm.file.$error.required">Vui Lòng Chọn File</span>
+                                </div>
+                                <button class="btn btn-primary" type="submit" ng-hide="HideUploadBtn">
+                                    Upload
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                </button>
+                                <img src="/Content/img/hourglass.gif" ng-show="Loading" />
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="row">
+                        {{fileMessage}}
+                        {{Message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<main ng-controller="QuizController">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Quản Lý Câu Hỏi</h3>
+        </div>
+        <div class="panel-body">
+            <div id="question-form">
+                <form id="NewTextForm" name="NewTextForm" novalidate ng-submit="ImportTextQuiz()">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm đề thi">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Tìm kiếm đề thi</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-lg-6 -->
+                    </div>
+                    <br /><br />
+                    <div class="answer" id="cloneArea">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-field">
+                                    <span>Câu Hỏi</span>
+                                    <br />
+                                    <textarea id="Question" name="Question" ng-model="ImportTextData.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
+                                </div>
+                                <label for="Question" ng-show="(NewTextForm.Question.$dirty || QuizFormSubmitted) && NewTextForm.Question.$error.required">Câu hỏi Không Được Để Trống</label>
+                            </div>
+                            <div class="col-md-6" style="margin-top: 20px">
+                                <input id="TestChildSubjectId" name="TestChildSubjectId" ng-model="ImportTextData.TestChildSubjectId" class="form-control" placeholder="Nhập mã môn" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus>
+                                <br />
+                                <select id="TypeOfQuestion" class="form-control" name="TypeOfQuestion" ng-model="ImportTextData.TypeOfQuestion" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus>
+                                    <option value="" disabled selected>Loại Câu Hỏi</option>
+                                    <option value="1">Câu hỏi dễ</option>
+                                    <option value="2">Câu hỏi trung bình</option>
+                                    <option value="3">Câu hỏi khó</option>
+                                </select>
+                                <br />
+                                <label for="TypeOfQuestion" ng-show="(NewTextForm.TypeOfQuestion.$dirty || QuizFormSubmitted) && NewTextForm.TypeOfQuestion.$error.required">Loại câu hỏi Không Được Để Trống</label>
+                            </div>
+                        </div>
+                        <br /><br />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-field question-detail">
+                                    <span>Đáp án A</span>
+                                    <br />
+                                    <input type="checkbox" class="filled-in CorrectAnswer" value="A" name="CorrectAnswer" />
+                                    <textarea id="AnswerA" name="AnswerA" ng-model="ImportTextData.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
+                                </div>
+                                <br /><br />
+                                <label for="AnswerA" ng-show="(NewTextForm.AnswerA.$dirty || QuizFormSubmitted) && NewTextForm.AnswerA.$error.required">Đáp án A Không Được Để Trống</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-field question-detail">
+                                    <span>Đáp án B</span>
+                                    <br />
+                                    <input type="checkbox" class="filled-in CorrectAnswer" value="B" name="CorrectAnswer" />
+                                    <textarea id="AnswerB" name="AnswerB" ng-model="ImportTextData.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
+                                </div>
+                                <br /><br />
+                                <label for="AnswerB" ng-show="(NewTextForm.AnswerB.$dirty || QuizFormSubmitted) && NewTextForm.AnswerB.$error.required">Đáp án B Không Được Để Trống</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-field question-detail">
+                                    <span>Đáp án C</span>
+                                    <br />
+                                    <input type="checkbox" class="filled-in CorrectAnswer" value="C" name="CorrectAnswer" />
+                                    <textarea id="AnswerC" name="AnswerC" ng-model="ImportTextData.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
+                                </div>
+                                <br /><br />
+                                <label for="AnswerC" ng-show="(NewTextForm.AnswerC.$dirty || QuizFormSubmitted) && NewTextForm.AnswerC.$error.required">Đáp án C Không Được Để Trống</label>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-field question-detail">
+                                    <span>Đáp án D</span>
+                                    <br />
+                                    <input type="checkbox" class="filled-in CorrectAnswer" value="D" name="CorrectAnswer" />
+                                    <textarea id="AnswerD" name="AnswerD" ng-model="ImportTextData.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
+                                </div>
+                                <br /><br />
+                                <label for="AnswerD" ng-show="(NewTextForm.AnswerD.$dirty || QuizFormSubmitted) && NewTextForm.AnswerD.$error.required">Đáp án D Không Được Để Trống</label>
+                            </div>
+                        </div>
+                    </div><br />
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Thêm Câu Hỏi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script src="~/Scripts/app/Controller/QuestionController.js"></script>
+    <script>
+        CKEDITOR.replace('Question',
+        {
+            enterMode: CKEDITOR.ENTER_BR,
+            width: 500,
+            height: 200
+        });
+        CKEDITOR.replace('AnswerA',
+        {
+            enterMode: CKEDITOR.ENTER_BR,
+            width: 400,
+            height: 100
+        });
+        CKEDITOR.replace('AnswerB',
+        {
+            enterMode: CKEDITOR.ENTER_BR,
+            width: 400,
+            height: 100
+        });
+        CKEDITOR.replace('AnswerC',
+        {
+            enterMode: CKEDITOR.ENTER_BR,
+            width: 400,
+            height: 100
+        });
+        CKEDITOR.replace('AnswerD',
+        {
+            enterMode: CKEDITOR.ENTER_BR,
+            width: 400,
+            height: 100
+        });
+        CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
+    </script>
+}

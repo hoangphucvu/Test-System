@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TestSystemManagement.Core;
+using TestSystemManagement.Models;
 
-namespace TestSystemManagement.App_Start
+namespace TestSystemManagement
 {
     public class CustomHandleErrorAttribute : HandleErrorAttribute
     {

@@ -13,18 +13,22 @@ namespace TestSystemManagement
                      "~/Content/Css-Lib/font-awesome.min.css",
                      "~/Content/Style/site.css"
                       ));
-
+            bundles.Add(new StyleBundle("~/bootstrap").Include(
+                     "~/Content/bootstrap.css",
+                     "~/Content/bootstrap-theme.css",
+                     "~/Content/Css-Lib/font-awesome.min.css",
+                     "~/Content/Style/site.css"
+                      ));
             bundles.Add(new ScriptBundle("~/site-js").Include(
-                      "~/Scripts/app/site.js"
+                      "~/Scripts/scripts.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/material").Include(
                        "~/Scripts/Lib-Js/jquery-1.10.2.min.js",
                        "~/Scripts/Lib-Js/materialize.min.js"
                        ));
-            bundles.Add(new ScriptBundle("~/bundles/angular-lib").Include(
-                      "~/Scripts/Lib-Js/angular.js",
-                      "~/Scripts/Lib-Js/angular-route.js"
+            bundles.Add(new ScriptBundle("~/bundles/angular-app").IncludeDirectory(
+                      "~/Scripts/app", "*.js", true
                       ));
 
             BundleTable.EnableOptimizations = true;

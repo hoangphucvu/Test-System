@@ -124,16 +124,43 @@ html {
     padding: 20px;
 }
 /* End Index Page */
-
-/* Dashboard template css */
-@media only screen and (min-width: 771px) {
-    main, footer {
-        padding-left: 255px;
-    }
+#cotain-partial {
+    padding: 100px;
+    margin-left: -15%;
 }
 
-nav {
-    background-color: rgba(46, 53, 61, 0.92) !important;
+.contain-wrapper {
+    padding: 5%;
+}
+
+.question-detail {
+    margin: 0 50px 0 50px;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.form-content {
+    width: 400px;
+}
+
+textarea {
+    resize: none;
 }
 
 .nav-side-menu {
@@ -144,10 +171,9 @@ nav {
     background-color: #2e353d;
     position: fixed;
     top: 0px;
-    width: 255px;
+    width: 300px;
     height: 100%;
     color: #e1ffff;
-    z-index: 999;
 }
 
     .nav-side-menu .brand {
@@ -157,17 +183,6 @@ nav {
         text-align: center;
         font-size: 14px;
     }
-
-        .nav-side-menu .brand img {
-            width: 65px;
-            border-radius: 100%;
-            margin: 10px;
-        }
-
-        .nav-side-menu .brand p {
-            margin-top: -37px;
-            margin-bottom: 0;
-        }
 
     .nav-side-menu .toggle-btn {
         display: none;
@@ -180,6 +195,19 @@ nav {
         margin: 0px;
         line-height: 35px;
         cursor: pointer;
+        /*
+    .collapsed{
+       .arrow:before{
+                 font-family: FontAwesome;
+                 content: "\f053";
+                 display: inline-block;
+                 padding-left:10px;
+                 padding-right: 10px;
+                 vertical-align: middle;
+                 float:right;
+            }
+     }
+*/
     }
 
         .nav-side-menu ul :not(collapsed) .arrow:before,
@@ -191,6 +219,12 @@ nav {
             padding-right: 10px;
             vertical-align: middle;
             float: right;
+        }
+
+        .nav-side-menu ul .active,
+        .nav-side-menu li .active {
+            border-left: 3px solid #d19b3d;
+            background-color: #4f5b69;
         }
 
         .nav-side-menu ul .sub-menu li.active,
@@ -229,8 +263,8 @@ nav {
 
     .nav-side-menu li {
         padding-left: 0px;
-        /*   border-left: 3px solid #2e353d; */
-        /*   border-bottom: 1px solid #23282e; */
+        border-left: 3px solid #2e353d;
+        border-bottom: 1px solid #23282e;
     }
 
         .nav-side-menu li a {
@@ -243,6 +277,16 @@ nav {
                 width: 20px;
                 padding-right: 20px;
             }
+
+        .nav-side-menu li:hover {
+            border-left: 3px solid #d19b3d;
+            background-color: #4f5b69;
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+            transition: all 1s ease;
+        }
 
 @media (max-width: 767px) {
     .nav-side-menu {
@@ -279,213 +323,7 @@ nav {
     }
 }
 
-.nav-side-menu .menu-list .management .active {
-    border-left: 3px solid #d19b3d;
-    background-color: #4f5b69;
-}
-
-.nav-side-menu .menu-list .management:hover {
-    /*   border-left: 3px solid #d19b3d; */
-    background-color: #4f5b69;
-    transition: all 1s ease;
-}
-
-.nav-side-menu .menu-list .management:after {
-    font-size: 13px;
-    color: #777;
-    float: right;
-    margin-left: 5px;
-}
-
-.collapsible, .collapsible-body {
-    border: none !important;
-}
-
-.collapsible {
-    background-color: black;
-}
-
-.pad9 {
-    padding: 9px !important;
-}
-
-.collapsible-header i {
-    width: 2rem;
-    font-size: 1rem;
-    line-height: 1.8rem;
-    display: block;
-    float: left;
-    text-align: center;
-    margin-right: 0rem !important;
-}
-
-.collapsible-header {
-    display: block;
-    cursor: pointer;
-    min-height: 3rem;
-    line-height: 3rem;
-    padding: 0 0;
-    background-color: #2e353d;
-    border-bottom: 1px solid #23282e;
-}
-
-.page-footer {
-    background-color: #3E444C !important;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
-
-footer.page-footer .footer-copyright {
-    line-height: 35px !important;
-}
-
-@media only screen and (max-width: 767px) {
-    main {
-        padding-left: 0;
-    }
-
-    .page-footer {
-        bottom: -100px;
-    }
-}
-/* End Dashboard Template css */
-
-/* Create new quiz css */
-#question-form .input-form {
-    width: 100%;
-    padding: 12px 20px;
-    font-size: 16px;
-}
-
-#question-form textarea.materialize-textarea {
-    min-height: 10rem !important;
-}
-
-    #question-form textarea.materialize-textarea.answer-form {
-        min-height: 3rem !important;
-    }
-
-#question-form .input-field label {
-    top: 1rem !important;
-    left: 1rem;
-}
-
-#question-form .input-form, #question-form .answer-form, #question-form .number-of-question {
-    box-sizing: border-box;
-    border: 1px solid #3D434A;
-    border-radius: 4px;
-    background-color: rgba(62, 68, 76, 0);
-    resize: none;
-}
-
-#question-form .number-of-question {
-    width: 40%;
-    margin-right: 20px;
-    margin-top: 15px;
-}
-
-#question-form button {
-    bottom: 3px;
-    background-color: #2E353D;
-}
-
-#question-form button, #upload-form button:hover {
-    background-color: #5A7B78;
-}
-
-#question-form {
-    padding-top: 100px;
-    padding-bottom: 50px;
-    padding-left: 55px;
-}
-
-    #question-form .input-form:focus, #question-form .number-of-question:focus, #question-form .answer-form:focus {
-        border-color: #66afe9;
-        outline: 0;
-        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
-        transition: all 0.4s;
-    }
-
-@media only screen and (min-width: 993px) {
-    .container {
-        width: 55%;
-    }
-}
-
-#genQuestion {
-    margin: auto;
-}
-/* End New quiz css */
-
-/* Upload quiz */
-#upload-form .input-field .custom-top-icon.active {
-    font-size: 1.3rem;
-}
-
-#upload-form button {
-    background-color: #2E353D;
-}
-
-#upload-form {
-    padding-top: 100px;
-}
-
-    #upload-form .btn {
-        background-color: rgb(11, 12, 13);
-    }
-
-        #upload-form .btn:hover {
-            background-color: rgba(11, 12, 13, 0.82);
-        }
-
-    #upload-form .file-field .btn, .file-field .btn-large {
-        float: left;
-        height: 2.5rem !important;
-        line-height: 2.5rem !important;
-    }
-
-@media only screen and (max-width: 1080px) {
-    #upload-form {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
-
-@media only screen and (min-width: 993px) {
-    .row .col.l8 {
-        width: 69.666667% !important;
-    }
-}
-
-@media only screen and (min-width: 601px) {
-    .row .col.m8 {
-        width: 69.666667% !important;
-    }
-}
-
-/* End upload quiz */
-
-/* The starting CSS styles for the enter animation */
-#contentView.ng-enter {
-    transition: 0.5s linear all;
-    opacity: 0;
-}
-
-    /* The finishing CSS styles for the enter animation */
-    #contentView.ng-enter.ng-enter-active {
-        opacity: 1;
-    }
-
-select {
-    display: block;
-    border: 1px solid #000000;
-}
-
-[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-    position: absolute;
-    left: -18px;
-    top: 15px;
-    opacity: 1;
+body {
+    margin: 0px;
+    padding: 0px;
 }

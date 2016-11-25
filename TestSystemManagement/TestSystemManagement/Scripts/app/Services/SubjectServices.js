@@ -11,7 +11,7 @@
         var newSubjectService = {};
         newSubjectService.NewSubject = function (result) {
             return $http({
-                url: 'http://localhost:2151/api/Subject',
+                url: '/api/Subject',
                 method: 'POST',
                 data: JSON.stringify(result),
                 header: {
