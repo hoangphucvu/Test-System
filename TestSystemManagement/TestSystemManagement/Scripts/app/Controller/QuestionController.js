@@ -21,7 +21,7 @@
             AnswerC: '',
             AnswerD: '',
             CorrectAnswer: '',
-            TestChildSubjectId:'',
+            TestChildSubjectId: '',
             TypeOfQuestion: '',
             Point: ''
         };
@@ -72,7 +72,7 @@
             ImportTextQuestionService.NewTextQuestion(jsonData).then(function (result) {
                 console.log(result);
                 if ($scope.IsQuizFormFormValid) {
-                    if (result.data === 'success') {
+                    if (result.status === 200) {
                         Materialize.toast('Upload thành công', 4000);
                     } else {
                         Materialize.toast('Upload không thành công', 4000);

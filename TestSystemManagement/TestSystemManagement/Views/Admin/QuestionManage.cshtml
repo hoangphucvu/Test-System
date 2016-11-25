@@ -58,15 +58,15 @@
                     <br /><br />
                     <div class="answer" id="cloneArea">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-7">
                                 <div class="input-field">
                                     <span>Câu Hỏi</span>
                                     <br />
                                     <textarea id="Question" name="Question" ng-model="ImportTextData.Question" class="materialize-textarea input-form" placeholder="Nhập câu hỏi" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
                                 </div>
-                                <label for="Question" ng-show="(NewTextForm.Question.$dirty || QuizFormSubmitted) && NewTextForm.Question.$error.required">Câu hỏi Không Được Để Trống</label>
+                                @*<label for="Question" ng-show="(NewTextForm.Question.$dirty || QuizFormSubmitted) && NewTextForm.Question.$error.required">Câu hỏi Không Được Để Trống</label>*@
                             </div>
-                            <div class="col-md-6" style="margin-top: 20px">
+                            <div class="col-md-4" style="margin-top: 20px">
                                 <input id="TestChildSubjectId" name="TestChildSubjectId" ng-model="ImportTextData.TestChildSubjectId" class="form-control" placeholder="Nhập mã môn" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus>
                                 <br />
                                 <select id="TypeOfQuestion" class="form-control" name="TypeOfQuestion" ng-model="ImportTextData.TypeOfQuestion" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus>
@@ -76,7 +76,7 @@
                                     <option value="3">Câu hỏi khó</option>
                                 </select>
                                 <br />
-                                <label for="TypeOfQuestion" ng-show="(NewTextForm.TypeOfQuestion.$dirty || QuizFormSubmitted) && NewTextForm.TypeOfQuestion.$error.required">Loại câu hỏi Không Được Để Trống</label>
+                                @*<label for="TypeOfQuestion" ng-show="(NewTextForm.TypeOfQuestion.$dirty || QuizFormSubmitted) && NewTextForm.TypeOfQuestion.$error.required">Loại câu hỏi Không Được Để Trống</label>*@
                             </div>
                         </div>
                         <br /><br />
@@ -89,7 +89,7 @@
                                     <textarea id="AnswerA" name="AnswerA" ng-model="ImportTextData.AnswerA" class="materialize-textarea answer-form pad10" placeholder="Đáp án a" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
                                 </div>
                                 <br /><br />
-                                <label for="AnswerA" ng-show="(NewTextForm.AnswerA.$dirty || QuizFormSubmitted) && NewTextForm.AnswerA.$error.required">Đáp án A Không Được Để Trống</label>
+                                @*<label for="AnswerA" ng-show="(NewTextForm.AnswerA.$dirty || QuizFormSubmitted) && NewTextForm.AnswerA.$error.required">Đáp án A Không Được Để Trống</label>*@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-field question-detail">
@@ -99,7 +99,7 @@
                                     <textarea id="AnswerB" name="AnswerB" ng-model="ImportTextData.AnswerB" class="materialize-textarea answer-form pad10" placeholder="Đáp án b" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
                                 </div>
                                 <br /><br />
-                                <label for="AnswerB" ng-show="(NewTextForm.AnswerB.$dirty || QuizFormSubmitted) && NewTextForm.AnswerB.$error.required">Đáp án B Không Được Để Trống</label>
+                                @*<label for="AnswerB" ng-show="(NewTextForm.AnswerB.$dirty || QuizFormSubmitted) && NewTextForm.AnswerB.$error.required">Đáp án B Không Được Để Trống</label>*@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-field question-detail">
@@ -109,7 +109,7 @@
                                     <textarea id="AnswerC" name="AnswerC" ng-model="ImportTextData.AnswerC" class="materialize-textarea answer-form pad10" placeholder="Đáp án c" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
                                 </div>
                                 <br /><br />
-                                <label for="AnswerC" ng-show="(NewTextForm.AnswerC.$dirty || QuizFormSubmitted) && NewTextForm.AnswerC.$error.required">Đáp án C Không Được Để Trống</label>
+                                @*<label for="AnswerC" ng-show="(NewTextForm.AnswerC.$dirty || QuizFormSubmitted) && NewTextForm.AnswerC.$error.required">Đáp án C Không Được Để Trống</label>*@
                             </div>
                             <div class="col-md-6">
                                 <div class="input-field question-detail">
@@ -119,7 +119,7 @@
                                     <textarea id="AnswerD" name="AnswerD" ng-model="ImportTextData.AnswerD" class="materialize-textarea answer-form pad10" placeholder="Đáp án d" ng-class="QuizFormSubmitted?'ng-dirty':''" required autofocus></textarea>
                                 </div>
                                 <br /><br />
-                                <label for="AnswerD" ng-show="(NewTextForm.AnswerD.$dirty || QuizFormSubmitted) && NewTextForm.AnswerD.$error.required">Đáp án D Không Được Để Trống</label>
+                                @*<label for="AnswerD" ng-show="(NewTextForm.AnswerD.$dirty || QuizFormSubmitted) && NewTextForm.AnswerD.$error.required">Đáp án D Không Được Để Trống</label>*@
                             </div>
                         </div>
                     </div><br />
