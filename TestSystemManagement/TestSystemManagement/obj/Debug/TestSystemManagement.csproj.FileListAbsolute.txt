@@ -318,3 +318,5 @@ D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\GemBox.D
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\GemBox.Document.xml
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\CKFinder.dll
 D:\SourceCode\Test-System\TestSystemManagement\TestSystemManagement\bin\CKFinder.pdb
+D:\Source Code\Study\Test-System\TestSystemManagement\TestSystemManagement\bin\DocumentFormat.OpenXml.dll
+D:\Source Code\Study\Test-System\TestSystemManagement\TestSystemManagement\bin\System.IO.Packaging.dll
