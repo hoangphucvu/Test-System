@@ -4,10 +4,3 @@ answer b
 answer c
 answer d
 a,b,c,d
-
-Question 2
-answer a
-answer b
-answer c
-answer d
-a,b,c,d

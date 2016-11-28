@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Web.Mvc;
 using TestSystemManagement.Config;
@@ -80,37 +81,39 @@ namespace TestSystemManagement.Repository
 
         public JsonResult UploadTextFile(string file)
         {
-            var data = File.ReadAllLines(file);
-            foreach (var docs in data)
+            TestDetail testDetail = new TestDetail();
+            try
             {
-                var text = docs.TrimEnd();
-                System.Diagnostics.Debug.Write(text);
+                var data = File.ReadAllLines(file);
+                //var resultString = string.Join(".", data);
+                //var stringSplit = resultString.Split('.');
+                for (int i = 0; i < data.Length; i++)
+                {
+                    if (data[i].Trim() != string.Empty)
+                    {
+                        testDetail.Question = data[i];
+                        i++;
+                        testDetail.AnswerA = data[i];
+                        i++;
+                        testDetail.AnswerB = data[i];
+                        i++;
+                        testDetail.AnswerC = data[i];
+                        i++;
+                        testDetail.AnswerD = data[i];
+                        i++;
+                        testDetail.CorrectAnswer = data[i];
+                        testDetail.Point = 0.25;
+                        _db.TestDetails.Add(testDetail);
+                        _db.SaveChanges();
+                        i++;
+                    }
+                }
             }
-            //provide the file delimiter such as comma,pipe
-            const string filedelimiter = "!";
-            //var sqlConnection = new SqlConnection { ConnectionString = Helper.ConnectionString };
-            //var sourceFileReader = new StreamReader(file);
-            //try
-            //{
-            //    sqlConnection.Open();
-            //    string line;
+            catch (Exception exception)
+            {
+                return new JsonResult { Data = false };
+            }
 
-            //    while ((line = sourceFileReader.ReadLine()) != null)
-            //    {
-            //        var query = $"Insert into {Helper.TableDetails} Values ('{line.Replace(filedelimiter, "','")}')";
-            //        var command = new SqlCommand(query, sqlConnection);
-            //        command.ExecuteNonQuery();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
-            //finally
-            //{
-            //    sourceFileReader.Close();
-            //    sqlConnection.Close();
-            //}
             return new JsonResult { Data = true };
         }
 
@@ -129,7 +132,7 @@ namespace TestSystemManagement.Repository
                     ref missing, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing);
 
-            String read = string.Empty;
+            string read = string.Empty;
             List<string> data = new List<string>();
             for (int i = 0; i < doc.Paragraphs.Count; i++)
             {
