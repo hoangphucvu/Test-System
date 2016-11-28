@@ -79,7 +79,7 @@ namespace TestSystemManagement.Repository
 
         public JsonResult UploadTextFile(string file)
         {
-            var data = File.ReadAllLines("D:\\Data\\import.txt");
+            var data = File.ReadAllLines(file);
             foreach (var docs in data)
             {
                 var text = docs.TrimEnd();
