@@ -85,8 +85,6 @@ namespace TestSystemManagement.Repository
             try
             {
                 var data = File.ReadAllLines(file);
-                //var resultString = string.Join(".", data);
-                //var stringSplit = resultString.Split('.');
                 for (int i = 0; i < data.Length; i++)
                 {
                     if (data[i].Trim() != string.Empty)
@@ -120,27 +118,89 @@ namespace TestSystemManagement.Repository
         public JsonResult UploadWordFile(string file)
         {
             //Creating the instance of Word Application
-            Application word = new Application();
-            Document doc = new Document();
+            //Application word = new Application();
+            //Document doc = new Document();
 
-            object fileName = file;
-            // Define an object to pass to the API for missing parameters
-            object missing = System.Type.Missing;
-            doc = word.Documents.Open(ref fileName,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing, ref missing,
-                    ref missing, ref missing, ref missing);
+            //object fileName = file;
+            //// Define an object to pass to the API for missing parameters
+            //object missing = System.Type.Missing;
+            //doc = word.Documents.Open(ref fileName,
+            //        ref missing, ref missing, ref missing, ref missing,
+            //        ref missing, ref missing, ref missing, ref missing,
+            //        ref missing, ref missing, ref missing, ref missing,
+            //        ref missing, ref missing, ref missing);
 
-            string read = string.Empty;
-            List<string> data = new List<string>();
-            for (int i = 0; i < doc.Paragraphs.Count; i++)
+            //TestDetail testDetail = new TestDetail();
+            //for (int i = 0; i < doc.Paragraphs.Count; i++)
+            //{
+            //    string textValue = doc.Paragraphs[i + 1].Range.Text.Trim();
+            //    if (textValue != string.Empty)
+            //    {
+            //        testDetail.Question = textValue;
+            //        i++;
+            //        testDetail.AnswerA = textValue;
+            //        i++;
+            //        testDetail.AnswerB = textValue;
+            //        i++;
+            //        testDetail.AnswerC = textValue;
+            //        i++;
+            //        testDetail.AnswerD = textValue;
+            //        i++;
+            //        testDetail.CorrectAnswer = textValue;
+            //        testDetail.Point = 0.25;
+            //        _db.TestDetails.Add(testDetail);
+            //        _db.SaveChanges();
+            //        i++;
+            //    }
+            //}
+            object filename = file;
+
+            //Initiating Application Class
+
+            Application app = new Application();
+
+            Microsoft.Office.Interop.Word.Document doc = new Microsoft.Office.Interop.Word.Document();
+            TestDetail testDetail = new TestDetail();
+            object readOnly = false;
+
+            object isVisible = true;
+
+            object missing = System.Reflection.Missing.Value;
+
+            //Reating the word document and adding it to textbox
+            try
+
             {
-                string temp = doc.Paragraphs[i + 1].Range.Text.Trim();
-                if (temp != string.Empty)
-                    data.Add(temp);
+                doc = app.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing, ref missing, ref isVisible);
+                var stringData = doc.Content.Text;
+                var arrayData = stringData.Split('\r');
+                for (int i = 0; i < arrayData.Length; i++)
+                {
+                    if (arrayData[i] != string.Empty)
+                    {
+                        testDetail.Question = arrayData[i];
+                        i++;
+                        testDetail.AnswerA = arrayData[i];
+                        i++;
+                        testDetail.AnswerB = arrayData[i];
+                        i++;
+                        testDetail.AnswerC = arrayData[i];
+                        i++;
+                        testDetail.AnswerD = arrayData[i];
+                        i++;
+                        testDetail.CorrectAnswer = arrayData[i];
+                        testDetail.Point = 0.25;
+                        _db.TestDetails.Add(testDetail);
+                        _db.SaveChanges();
+                        i++;
+                    }
+                }
             }
-
+            catch (Exception ex)
+            {
+                return new JsonResult { Data = false };
+            }
             return new JsonResult { Data = true };
         }
     }
