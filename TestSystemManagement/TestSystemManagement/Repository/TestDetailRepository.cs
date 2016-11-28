@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Office.Interop.Word;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Data.Common;
 using System.Data.OleDb;
 using System.Data.SqlClient;
@@ -9,7 +11,6 @@ using System.Web.Mvc;
 using TestSystemManagement.Config;
 using TestSystemManagement.Interfaces;
 using TestSystemManagement.Models;
-using Word = Microsoft.Office.Interop.Word;
 
 namespace TestSystemManagement.Repository
 {
@@ -116,12 +117,27 @@ namespace TestSystemManagement.Repository
         public JsonResult UploadWordFile(string file)
         {
             //Creating the instance of Word Application
-            var data = File.ReadAllLines("D:\\Data\\import.docx");
-            foreach (var docs in data)
+            Application word = new Application();
+            Document doc = new Document();
+
+            object fileName = file;
+            // Define an object to pass to the API for missing parameters
+            object missing = System.Type.Missing;
+            doc = word.Documents.Open(ref fileName,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing, ref missing,
+                    ref missing, ref missing, ref missing);
+
+            String read = string.Empty;
+            List<string> data = new List<string>();
+            for (int i = 0; i < doc.Paragraphs.Count; i++)
             {
-                var text = docs.TrimEnd();
-                System.Diagnostics.Debug.Write(text);
+                string temp = doc.Paragraphs[i + 1].Range.Text.Trim();
+                if (temp != string.Empty)
+                    data.Add(temp);
             }
+
             return new JsonResult { Data = true };
         }
     }
