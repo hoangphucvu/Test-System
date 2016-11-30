@@ -22,7 +22,7 @@ namespace TestSystemManagement.Repository
         public JsonResult ImportTextQuestion(string testDetail)
         {
             dynamic data = JsonConvert.DeserializeObject(testDetail);
-            TestDetail testDetails = new TestDetail();
+            var testDetails = new TestDetail();
             try
             {
                 foreach (var item in data)
@@ -48,6 +48,16 @@ namespace TestSystemManagement.Repository
             return new JsonResult { Data = true };
         }
 
+        public JsonResult QuestionSearch(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var result = _db.TestDetails.Where(x => x.TestChildSubjectId.Equals(id)).ToList();
+                return new JsonResult { Data = result };
+            }
+            return new JsonResult { Data = false };
+        }
+
         public JsonResult UploadExcelFile(string file)
         {
             if (file != null)
@@ -56,7 +66,7 @@ namespace TestSystemManagement.Repository
                 connectionString.AppendFormat(
                     "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {0};Extended Properties = Excel 8.0", file);
                 var sqlConnectionString = Helper.ConnectionString;
-                OleDbConnection connection = new OleDbConnection(connectionString.ToString());
+                var connection = new OleDbConnection(connectionString.ToString());
                 try
                 {
                     var command = new OleDbCommand("Select * from [Sheet1$]", connection);
@@ -81,7 +91,7 @@ namespace TestSystemManagement.Repository
 
         public JsonResult UploadTextFile(string file)
         {
-            TestDetail testDetail = new TestDetail();
+            var testDetail = new TestDetail();
             try
             {
                 var data = File.ReadAllLines(file);
@@ -117,61 +127,17 @@ namespace TestSystemManagement.Repository
 
         public JsonResult UploadWordFile(string file)
         {
-            //Creating the instance of Word Application
-            //Application word = new Application();
-            //Document doc = new Document();
-
-            //object fileName = file;
-            //// Define an object to pass to the API for missing parameters
-            //object missing = System.Type.Missing;
-            //doc = word.Documents.Open(ref fileName,
-            //        ref missing, ref missing, ref missing, ref missing,
-            //        ref missing, ref missing, ref missing, ref missing,
-            //        ref missing, ref missing, ref missing, ref missing,
-            //        ref missing, ref missing, ref missing);
-
-            //TestDetail testDetail = new TestDetail();
-            //for (int i = 0; i < doc.Paragraphs.Count; i++)
-            //{
-            //    string textValue = doc.Paragraphs[i + 1].Range.Text.Trim();
-            //    if (textValue != string.Empty)
-            //    {
-            //        testDetail.Question = textValue;
-            //        i++;
-            //        testDetail.AnswerA = textValue;
-            //        i++;
-            //        testDetail.AnswerB = textValue;
-            //        i++;
-            //        testDetail.AnswerC = textValue;
-            //        i++;
-            //        testDetail.AnswerD = textValue;
-            //        i++;
-            //        testDetail.CorrectAnswer = textValue;
-            //        testDetail.Point = 0.25;
-            //        _db.TestDetails.Add(testDetail);
-            //        _db.SaveChanges();
-            //        i++;
-            //    }
-            //}
-            object filename = file;
-
-            //Initiating Application Class
-
-            Application app = new Application();
-
-            Microsoft.Office.Interop.Word.Document doc = new Microsoft.Office.Interop.Word.Document();
-            TestDetail testDetail = new TestDetail();
+            var app = new Application();
+            var testDetail = new TestDetail();
             object readOnly = false;
-
             object isVisible = true;
-
+            object filename = file;
             object missing = System.Reflection.Missing.Value;
 
-            //Reating the word document and adding it to textbox
             try
 
             {
-                doc = app.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing,
+                var doc = app.Documents.Open(ref filename, ref missing, ref readOnly, ref missing, ref missing, ref missing,
                     ref missing, ref missing, ref missing, ref missing, ref missing, ref isVisible);
                 var stringData = doc.Content.Text;
                 var arrayData = stringData.Split('\r');

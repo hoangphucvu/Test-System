@@ -43,18 +43,36 @@
             <h3 class="panel-title">Quản Lý Câu Hỏi</h3>
         </div>
         <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" ng-model="TestChildSubjectId" placeholder="Tìm kiếm đề thi">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" ng-click="searchQuestion()" type="button">Tìm kiếm đề thi</button>
+                        </span>
+                    </div><!-- /input-group -->
+                </div><!-- /.col-lg-6 -->
+                <div class="col-md-12" style="margin-top: 10px" ng-show="showSearchTable">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Mã Môn</th>
+                                <th>Câu hỏi</th>
+                                <th>Cập Nhật/Xóa</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="data in searchData">
+                                <td>{{data.TestChildSubjectId}}</td>
+                                <td><div data-ng-bind-html="data.Question"></div></td>
+                                <td><button class="btn btn-primary" ng-click="UpdateQuestion(data.Id)">Cập nhật</button> / <button class="btn btn-danger" ng-click="DeleteQuestion(data.Id)">Xóa</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div id="question-form">
                 <form id="NewTextForm" name="NewTextForm" novalidate ng-submit="ImportTextQuiz()">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Tìm kiếm đề thi">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">Tìm kiếm đề thi</button>
-                                </span>
-                            </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                    </div>
                     <br /><br />
                     <div class="answer" id="cloneArea">
                         <div class="row">

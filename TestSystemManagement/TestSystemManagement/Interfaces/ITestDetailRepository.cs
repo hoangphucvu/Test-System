@@ -11,5 +11,7 @@ namespace TestSystemManagement.Interfaces
         JsonResult UploadExcelFile(string file);
 
         JsonResult ImportTextQuestion(string testDetail);
+
+        JsonResult QuestionSearch(string id);
     }
 }

@@ -27,6 +27,10 @@ namespace TestSystemManagement
                        "~/Scripts/Lib-Js/jquery-1.10.2.min.js",
                        "~/Scripts/Lib-Js/materialize.min.js"
                        ));
+            bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+                        "~/Scripts/Lib-Js/angular.min.js",
+                         "~/Scripts/Lib-Js/angular-sanitize.min.js"
+                      ));
             bundles.Add(new ScriptBundle("~/bundles/angular-app").IncludeDirectory(
                       "~/Scripts/app", "*.js", true
                       ));

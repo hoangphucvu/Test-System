@@ -6,12 +6,12 @@
         .controller('QuizController', QuizController)
         .controller('ImportQuestionController', ImportQuestionController);
 
-    QuizController.$inject = ['$scope', 'ImportTextQuestionService'];
+    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
 
     var extensionType = null;
 
-    function QuizController($scope, ImportTextQuestionService) {
+    function QuizController($scope, ImportTextQuestionService, SearchQuestionService) {
         $scope.QuizFormSubmitted = false;
         $scope.IsQuizFormFormValid = false;
         $scope.ImportTextData = {
@@ -80,6 +80,17 @@
                 }
             });
         };
+
+        $scope.searchQuestion = function () {
+            $scope.showSearchTable = false;
+            var testChildSubjectId = $scope.TestChildSubjectId;
+            SearchQuestionService.FindQuestion(testChildSubjectId)
+                .then(function (result) {
+                    console.log(result.data.Data);
+                    $scope.searchData = result.data.Data;
+                    $scope.showSearchTable = true;
+                });
+        }
     }
 
     function ImportQuestionController($scope, ImportQuestionService) {

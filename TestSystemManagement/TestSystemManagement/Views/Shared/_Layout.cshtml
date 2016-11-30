@@ -44,7 +44,7 @@
         <div class="col-md-10" id="cotain-partial">@RenderBody()</div>
     </div>
 
-    <script src="~/Scripts/Lib-Js/angular.min.js"></script>
+    @Scripts.Render("~/bundles/angular")
     @Scripts.Render("~/bundles/angular-app")
     @Scripts.Render("~/bundles/material")
     <script type="text/javascript" src="@Url.Content("~/Scripts/Lib-Js/ckfinder/ckfinder.js")"></script>
