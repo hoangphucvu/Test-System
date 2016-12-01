@@ -60,11 +60,11 @@
 
     function UpdateQuestionService($http) {
         var updateQuestionService = {};
-        updateQuestionService.UpdateQuestion = function (jsonData, id) {
+        updateQuestionService.UpdateQuestion = function (id, value) {
             return $http({
                 url: '/api/QuestionDetail/' + id,
                 method: 'PUT',
-                data: jsonData,
+                data: value,
                 header: {
                     'content-type': 'application/json'
                 }

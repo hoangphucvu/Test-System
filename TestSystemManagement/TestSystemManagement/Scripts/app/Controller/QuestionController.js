@@ -49,7 +49,7 @@
             }
         };
 
-        $scope.UpdateTextQuiz = function () {
+        $scope.UpdateTextQuiz = function (id) {
             $scope.QuizFormSubmitted = true;
 
             var checkboxData = [];
@@ -71,9 +71,9 @@
             };
             list.push(data);
 
-            var jsonData = JSON.stringify(list);
-            console.log(checkboxData);
-            UpdateQuestionService.UpdateQuestion(jsonData, $scope.QuestionUpdateId).then(function (result) {
+            var value = JSON.stringify(list);
+            console.log(value);
+            UpdateQuestionService.UpdateQuestion(id,value).then(function (result) {
                 if (result.data === "success") {
                     alert("Thêm thành công");
                 }
