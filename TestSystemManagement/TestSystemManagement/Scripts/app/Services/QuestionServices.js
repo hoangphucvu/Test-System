@@ -64,7 +64,7 @@
             return $http({
                 url: '/api/QuestionDetail/' + id,
                 method: 'PUT',
-                data: value,
+                data: JSON.stringify(value),
                 header: {
                     'content-type': 'application/json'
                 }

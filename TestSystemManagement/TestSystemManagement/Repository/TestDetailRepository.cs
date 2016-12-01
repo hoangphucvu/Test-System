@@ -70,7 +70,7 @@ namespace TestSystemManagement.Repository
                     _db.SaveChanges();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new JsonResult { Data = false };
             }

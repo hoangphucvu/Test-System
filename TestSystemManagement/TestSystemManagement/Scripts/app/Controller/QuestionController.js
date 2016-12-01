@@ -73,13 +73,14 @@
 
             var value = JSON.stringify(list);
             console.log(value);
-            UpdateQuestionService.UpdateQuestion(id,value).then(function (result) {
-                if (result.data === "success") {
-                    alert("Thêm thành công");
-                }
-                else alert("Có lỗi xảy ra vui lòng thử lại");
-                $scope.ShowUpdateForm = false;
-                $scope.HideAddForm = false;
+            UpdateQuestionService.UpdateQuestion(id, value).then(function (result) {
+                console.log(result);
+                //if (result.data === "success") {
+                //    alert("Thêm thành công");
+                //}
+                //else alert("Có lỗi xảy ra vui lòng thử lại");
+                //$scope.ShowUpdateForm = false;
+                //$scope.HideAddForm = false;
             });
         };
 
