@@ -99,9 +99,9 @@
             DeleteQuestionService.DeleteTextQuestion(id).then(function (result) {
                 if (result.data === "success") {
                     alert("Xóa thành công");
+                    $scope.searchQuestion();
                 }
                 else alert("Có lỗi xảy ra vui lòng thử lại");
-                $(this).parent().parent().remove();
             });
         }
     }
