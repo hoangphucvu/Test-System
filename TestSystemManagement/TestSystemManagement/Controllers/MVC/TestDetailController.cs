@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Web.Mvc;
+using TestSystemManagement.Models;
 using TestSystemManagement.Repository;
 
 namespace TestSystemManagement.Controllers.MVC
@@ -8,6 +10,7 @@ namespace TestSystemManagement.Controllers.MVC
     public class TestDetailController : Controller
     {
         private readonly TestDetailRepository _repository = new TestDetailRepository();
+        private readonly TestSystemManagementEntities _db = new TestSystemManagementEntities();
 
         [HttpPost]
         public JsonResult UploadFile()

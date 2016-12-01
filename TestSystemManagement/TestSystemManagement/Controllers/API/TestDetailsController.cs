@@ -10,6 +10,7 @@ namespace TestSystemManagement.Controllers.API
     {
         private readonly TestDetailRepository _repo = new TestDetailRepository();
 
+        [HttpGet]
         public IHttpActionResult Get(string id)
         {
             if (string.IsNullOrEmpty(id)) return BadRequest();
@@ -28,21 +29,6 @@ namespace TestSystemManagement.Controllers.API
             else
             {
                 _repo.ImportTextQuestion(testDetail);
-            }
-
-            return Ok("success");
-        }
-
-        [HttpDelete]
-        public IHttpActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return BadRequest("Data is empty");
-            }
-            else
-            {
-                _repo.DeleteQuestion(id);
             }
 
             return Ok("success");

@@ -7,13 +7,15 @@
         .factory('ImportTextQuestionService', ImportTextQuestionService)
         .factory('SearchQuestionService', SearchQuestionService)
         .factory('UpdateQuestionService', UpdateQuestionService)
-        .factory('DeleteQuestionService', DeleteQuestionService);
+        .factory('DeleteQuestionService', DeleteQuestionService)
+        .factory('GetQuestionDetailService', GetQuestionDetailService);
 
     ImportQuestionService.$inject = ['$http', '$q'];
     ImportTextQuestionService.$inject = ['$http'];
     SearchQuestionService.$inject = ['$http'];
     UpdateQuestionService.$inject = ['$http'];
     DeleteQuestionService.$inject = ['$http'];
+    GetQuestionDetailService.$inject = ['$http'];
 
     function ImportTextQuestionService($http) {
         var importTextQuestionService = {};
@@ -44,13 +46,25 @@
         };
         return searchQuestionService;
     }
+
+    function GetQuestionDetailService($http) {
+        var questionDetailService = {};
+        questionDetailService.GetQuestionDetail = function (id) {
+            return $http({
+                url: '/api/QuestionDetail/' + id,
+                method: 'GET'
+            });
+        };
+        return questionDetailService;
+    }
+
     function UpdateQuestionService($http) {
         var updateQuestionService = {};
-        updateQuestionService.UpdateQuestion = function (id) {
+        updateQuestionService.UpdateQuestion = function (jsonData, id) {
             return $http({
-                url: '/api/TestDetails/' + id,
+                url: '/api/QuestionDetail/' + id,
                 method: 'PUT',
-                data: id,
+                data: jsonData,
                 header: {
                     'content-type': 'application/json'
                 }
@@ -63,7 +77,7 @@
         var deleteQuestionService = {};
         deleteQuestionService.DeleteTextQuestion = function (id) {
             return $http({
-                url: '/api/TestDetails/' + id,
+                url: '/api/QuestionDetail/' + id,
                 method: 'DELETE',
                 data: id,
                 header: {
@@ -73,6 +87,7 @@
         };
         return deleteQuestionService;
     }
+
     function ImportQuestionService($http, $q) {
         var importQeustionService = {};
         importQeustionService.UploadQuestion = function (file, extensionType) {

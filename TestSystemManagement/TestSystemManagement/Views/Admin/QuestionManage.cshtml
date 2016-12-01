@@ -1,5 +1,4 @@
-﻿
-<main ng-controller="ImportQuestionController">
+﻿<main ng-controller="ImportQuestionController">
     <div id="upload-form">
         <div class="container form-content">
             <div class="panel panel-primary">
@@ -62,13 +61,14 @@
                             <tr ng-repeat="data in searchData">
                                 <td>{{data.TestChildSubjectId}}</td>
                                 <td><div data-ng-bind-html="data.Question"></div></td>
-                                <td><button class="btn btn-primary" ng-click="UpdateQuestion(data.Id)">Cập nhật</button> / <button class="btn btn-danger" ng-click="DeleteQuestion(data.Id)">Xóa</button></td>
+                                <td><a class="btn btn-primary" ng-click="GetQuestionDetail(data.Id)" href="/Admin/UpdateQuestionDetail/{{data.Id}}">Cập nhật</a> / <button class="btn btn-danger" ng-click="DeleteQuestion(data.Id)">Xóa</button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
             <div id="question-form">
+
                 <form id="NewTextForm" name="NewTextForm" novalidate ng-submit="ImportTextQuiz()">
                     <br /><br />
                     <div class="answer" id="cloneArea">

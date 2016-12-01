@@ -217,6 +217,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config\Helper.cs" />
+    <Compile Include="Controllers\API\QuestionDetailController.cs" />
     <Compile Include="Controllers\API\SubjectController.cs" />
     <Compile Include="Controllers\MVC\TestDetailController.cs" />
     <Compile Include="Controllers\API\TestDetailsController.cs" />
@@ -1288,6 +1289,7 @@
     <Content Include="Scripts\Lib-Js\ckfinder\userfiles\.htaccess" />
     <None Include="Views\Admin\QuestionManage.cshtml" />
     <Content Include="Views\Admin\CourseManage.cshtml" />
+    <Content Include="Views\Admin\UpdateQuestionDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

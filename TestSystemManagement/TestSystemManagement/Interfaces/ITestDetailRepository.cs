@@ -15,5 +15,9 @@ namespace TestSystemManagement.Interfaces
         JsonResult QuestionSearch(string id);
 
         JsonResult DeleteQuestion(string id);
+
+        JsonResult QuestionDetailSearch(string id);
+
+        JsonResult UpdateTextQuestion(int id, string testDetail);
     }
 }

@@ -6,14 +6,17 @@
         .controller('QuizController', QuizController)
         .controller('ImportQuestionController', ImportQuestionController);
 
-    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService', 'UpdateQuestionService', 'DeleteQuestionService'];
+    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService', 'GetQuestionDetailService', 'UpdateQuestionService', 'DeleteQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
 
     var extensionType = null;
 
-    function QuizController($scope, ImportTextQuestionService, SearchQuestionService, UpdateQuestionService, DeleteQuestionService) {
+    function QuizController($scope, ImportTextQuestionService, SearchQuestionService, GetQuestionDetailService, UpdateQuestionService, DeleteQuestionService) {
         $scope.QuizFormSubmitted = false;
         $scope.IsQuizFormFormValid = false;
+        $scope.ShowUpdateForm = false;
+        $scope.HideAddForm = false;
+        $scope.QuestionUpdateId = null;
         $scope.ImportTextData = {
             Question: '',
             AnswerA: '',
@@ -44,6 +47,40 @@
                 alert('Vui lòng nhập số thích hợp');
                 return false;
             }
+        };
+
+        $scope.UpdateTextQuiz = function () {
+            $scope.QuizFormSubmitted = true;
+
+            var checkboxData = [];
+            var list = [];
+            $.each($("input[name='CorrectAnswer']:checked"),
+                function () {
+                    checkboxData.push($(this).val());
+                });
+
+            var data = {
+                Question: CKEDITOR.instances['Question'].getData(),
+                AnswerA: CKEDITOR.instances['AnswerA'].getData(),
+                AnswerB: CKEDITOR.instances['AnswerB'].getData(),
+                AnswerC: CKEDITOR.instances['AnswerC'].getData(),
+                TestChildSubjectId: $("#TestChildSubjectId").val(),
+                AnswerD: CKEDITOR.instances['AnswerD'].getData(),
+                CorrectAnswer: checkboxData,
+                TypeOfQuestion: $("#TypeOfQuestion option:selected").val()
+            };
+            list.push(data);
+
+            var jsonData = JSON.stringify(list);
+            console.log(checkboxData);
+            UpdateQuestionService.UpdateQuestion(jsonData, $scope.QuestionUpdateId).then(function (result) {
+                if (result.data === "success") {
+                    alert("Thêm thành công");
+                }
+                else alert("Có lỗi xảy ra vui lòng thử lại");
+                $scope.ShowUpdateForm = false;
+                $scope.HideAddForm = false;
+            });
         };
 
         $scope.ImportTextQuiz = function () {
@@ -88,10 +125,19 @@
                 });
         }
 
-        $scope.UpdateQuestion = function (id) {
+        $scope.GetQuestionDetail = function (id) {
             console.log(id);
-            UpdateQuestionService.UpdateQuestion(id)
+            GetQuestionDetailService.GetQuestionDetail(id)
                .then(function (result) {
+                   $scope.ShowUpdateForm = true;
+                   $scope.HideAddForm = true;
+                   console.log(result.data.Data.Question);
+                   $scope.QuestionUpdateId = result.data.Data.Id;
+                   CKEDITOR.instances['Question'].setData(result.data.Data.Question);
+                   CKEDITOR.instances['AnswerA'].setData(result.data.Data.AnswerA);
+                   CKEDITOR.instances['AnswerB'].setData(result.data.Data.AnswerB);
+                   CKEDITOR.instances['AnswerC'].setData(result.data.Data.AnswerC);
+                   CKEDITOR.instances['AnswerD'].setData(result.data.Data.AnswerD);
                });
         }
         $scope.DeleteQuestion = function (id) {

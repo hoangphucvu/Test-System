@@ -48,6 +48,36 @@ namespace TestSystemManagement.Repository
             return new JsonResult { Data = true };
         }
 
+        public JsonResult UpdateTextQuestion(int id, string testDetail)
+        {
+            dynamic data = JsonConvert.DeserializeObject(testDetail);
+            var testDetails = new TestDetail();
+            try
+            {
+                foreach (var item in data)
+                {
+                    testDetails.Id = id;
+                    testDetails.Question = item.Question;
+                    testDetails.AnswerA = item.AnswerA;
+                    testDetails.AnswerB = item.AnswerB;
+                    testDetails.AnswerC = item.AnswerC;
+                    testDetails.AnswerD = item.AnswerD;
+                    testDetails.CorrectAnswer = string.Join(",", item.CorrectAnswer);
+                    testDetails.TestChildSubjectId = item.TestChildSubjectId;
+                    testDetails.Point = 0.25;
+                    testDetails.TypeOfQuestion = Convert.ToInt32(item.TypeOfQuestion);
+                    _db.Entry(testDetails).State = System.Data.Entity.EntityState.Modified;
+                    _db.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+                return new JsonResult { Data = false };
+            }
+
+            return new JsonResult { Data = true };
+        }
+
         public JsonResult DeleteQuestion(string id)
         {
             var questionId = int.Parse(id);
@@ -64,6 +94,17 @@ namespace TestSystemManagement.Repository
             }
 
             return new JsonResult { Data = true };
+        }
+
+        public JsonResult QuestionDetailSearch(string id)
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var questionId = int.Parse(id);
+                var result = _db.TestDetails.SingleOrDefault(x => x.Id.Equals(questionId));
+                return new JsonResult { Data = result };
+            }
+            return new JsonResult { Data = false };
         }
 
         public JsonResult QuestionSearch(string id)
