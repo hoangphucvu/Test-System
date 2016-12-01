@@ -13,5 +13,7 @@ namespace TestSystemManagement.Interfaces
         JsonResult ImportTextQuestion(string testDetail);
 
         JsonResult QuestionSearch(string id);
+
+        JsonResult DeleteQuestion(string id);
     }
 }

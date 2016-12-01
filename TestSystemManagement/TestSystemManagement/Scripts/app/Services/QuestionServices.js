@@ -5,11 +5,15 @@
         .module('TestSystemManagement')
         .factory('ImportQuestionService', ImportQuestionService)
         .factory('ImportTextQuestionService', ImportTextQuestionService)
-        .factory('SearchQuestionService', SearchQuestionService);
+        .factory('SearchQuestionService', SearchQuestionService)
+        .factory('UpdateQuestionService', UpdateQuestionService)
+        .factory('DeleteQuestionService', DeleteQuestionService);
 
     ImportQuestionService.$inject = ['$http', '$q'];
     ImportTextQuestionService.$inject = ['$http'];
     SearchQuestionService.$inject = ['$http'];
+    UpdateQuestionService.$inject = ['$http'];
+    DeleteQuestionService.$inject = ['$http'];
 
     function ImportTextQuestionService($http) {
         var importTextQuestionService = {};
@@ -40,7 +44,35 @@
         };
         return searchQuestionService;
     }
+    function UpdateQuestionService($http) {
+        var updateQuestionService = {};
+        updateQuestionService.UpdateQuestion = function (id) {
+            return $http({
+                url: '/api/TestDetails/' + id,
+                method: 'PUT',
+                data: id,
+                header: {
+                    'content-type': 'application/json'
+                }
+            });
+        };
+        return updateQuestionService;
+    }
 
+    function DeleteQuestionService($http) {
+        var deleteQuestionService = {};
+        deleteQuestionService.DeleteTextQuestion = function (id) {
+            return $http({
+                url: '/api/TestDetails/' + id,
+                method: 'DELETE',
+                data: id,
+                header: {
+                    'content-type': 'application/json'
+                }
+            });
+        };
+        return deleteQuestionService;
+    }
     function ImportQuestionService($http, $q) {
         var importQeustionService = {};
         importQeustionService.UploadQuestion = function (file, extensionType) {

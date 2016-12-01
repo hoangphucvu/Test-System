@@ -48,6 +48,24 @@ namespace TestSystemManagement.Repository
             return new JsonResult { Data = true };
         }
 
+        public JsonResult DeleteQuestion(string id)
+        {
+            var questionId = int.Parse(id);
+            var testDetails = new TestDetail();
+            try
+            {
+                var questionRemove = _db.TestDetails.SingleOrDefault(data => data.Id == questionId);
+                _db.TestDetails.Remove(questionRemove);
+                _db.SaveChanges();
+            }
+            catch (Exception)
+            {
+                return new JsonResult { Data = false };
+            }
+
+            return new JsonResult { Data = true };
+        }
+
         public JsonResult QuestionSearch(string id)
         {
             if (!string.IsNullOrEmpty(id))

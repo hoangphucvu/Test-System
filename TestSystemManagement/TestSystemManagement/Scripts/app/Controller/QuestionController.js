@@ -6,12 +6,12 @@
         .controller('QuizController', QuizController)
         .controller('ImportQuestionController', ImportQuestionController);
 
-    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService'];
+    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService', 'UpdateQuestionService', 'DeleteQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
 
     var extensionType = null;
 
-    function QuizController($scope, ImportTextQuestionService, SearchQuestionService) {
+    function QuizController($scope, ImportTextQuestionService, SearchQuestionService, UpdateQuestionService, DeleteQuestionService) {
         $scope.QuizFormSubmitted = false;
         $scope.IsQuizFormFormValid = false;
         $scope.ImportTextData = {
@@ -90,9 +90,19 @@
 
         $scope.UpdateQuestion = function (id) {
             console.log(id);
+            UpdateQuestionService.UpdateQuestion(id)
+               .then(function (result) {
+               });
         }
         $scope.DeleteQuestion = function (id) {
             console.log(id);
+            DeleteQuestionService.DeleteTextQuestion(id).then(function (result) {
+                if (result.data === "success") {
+                    alert("Xóa thành công");
+                }
+                else alert("Có lỗi xảy ra vui lòng thử lại");
+                $(this).parent().parent().remove();
+            });
         }
     }
 

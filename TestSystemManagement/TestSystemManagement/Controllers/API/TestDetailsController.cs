@@ -32,5 +32,20 @@ namespace TestSystemManagement.Controllers.API
 
             return Ok("success");
         }
+
+        [HttpDelete]
+        public IHttpActionResult Delete(string id)
+        {
+            if (id == null)
+            {
+                return BadRequest("Data is empty");
+            }
+            else
+            {
+                _repo.DeleteQuestion(id);
+            }
+
+            return Ok("success");
+        }
     }
 }
