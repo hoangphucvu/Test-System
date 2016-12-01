@@ -70,14 +70,10 @@
             var jsonData = JSON.stringify(list);
             console.log(checkboxData);
             ImportTextQuestionService.NewTextQuestion(jsonData).then(function (result) {
-                console.log(result);
-                if ($scope.IsQuizFormFormValid) {
-                    if (result.status === 200) {
-                        Materialize.toast('Upload thành công', 4000);
-                    } else {
-                        Materialize.toast('Upload không thành công', 4000);
-                    }
+                if (result.data === "success") {
+                    alert("Thêm thành công");
                 }
+                else alert("Có lỗi xảy ra vui lòng thử lại");
             });
         };
 
@@ -90,6 +86,13 @@
                     $scope.searchData = result.data.Data;
                     $scope.showSearchTable = true;
                 });
+        }
+
+        $scope.UpdateQuestion = function (id) {
+            console.log(id);
+        }
+        $scope.DeleteQuestion = function (id) {
+            console.log(id);
         }
     }
 
