@@ -8,7 +8,8 @@
         .factory('SearchQuestionService', SearchQuestionService)
         .factory('UpdateQuestionService', UpdateQuestionService)
         .factory('DeleteQuestionService', DeleteQuestionService)
-        .factory('GetQuestionDetailService', GetQuestionDetailService);
+        .factory('GetQuestionDetailService', GetQuestionDetailService)
+        .factory('DownloadQuestionService', DownloadQuestionService);
 
     ImportQuestionService.$inject = ['$http', '$q'];
     ImportTextQuestionService.$inject = ['$http'];
@@ -16,7 +17,7 @@
     UpdateQuestionService.$inject = ['$http'];
     DeleteQuestionService.$inject = ['$http'];
     GetQuestionDetailService.$inject = ['$http'];
-
+    DownloadQuestionService.$inject = ['$http'];
     function ImportTextQuestionService($http) {
         var importTextQuestionService = {};
         importTextQuestionService.NewTextQuestion = function (result) {
@@ -113,5 +114,24 @@
             return defer.promise;
         };
         return importQeustionService;
+    }
+
+    function DownloadQuestionService($http) {
+        var downloadQuestionService = {};
+        downloadQuestionService.DownloadQuestion = function (easy, mid, hard) {
+            return $http({
+                url: '/Admin/DownloadQuestion',
+                method: 'POST',
+                data: {
+                    easy: easy,
+                    mid: mid,
+                    hard: hard
+                },
+                header: {
+                    'content-type': 'application/json'
+                }
+            });
+        };
+        return downloadQuestionService;
     }
 })();

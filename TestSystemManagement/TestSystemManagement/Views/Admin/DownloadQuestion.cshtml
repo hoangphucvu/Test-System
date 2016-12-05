@@ -1,0 +1,29 @@
+﻿@model IEnumerable<TestSystemManagement.Models.TestDetail>
+@{
+    ViewBag.Title = "DownloadQuestion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var questions = Model;
+}
+<div ng-controller="QuizController">
+    <form id="downloadQuestionForm" ng-submit="DownloadQuestion()">
+        <div class="row">
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Số lượng câu hỏi dễ" ng-model="NumberOfEasyQuestion" />
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Số lượng câu hỏi trung bình" ng-model="NumberOfMidQuestion" />
+            </div>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="Số lượng câu hỏi khó" ng-model="NumberOfHardQuestion" />
+            </div>
+            <button type="submit">Tải đề thi</button>
+        </div>
+    </form>
+    @if (questions != null)
+    {
+        foreach (var question in questions)
+        {
+            <p>@question.Question</p>
+        }
+    }
+</div>

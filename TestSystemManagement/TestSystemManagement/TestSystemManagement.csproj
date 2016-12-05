@@ -1288,6 +1288,7 @@
     <Content Include="Scripts\Lib-Js\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
     <Content Include="Scripts\Lib-Js\ckfinder\userfiles\.htaccess" />
     <Content Include="Views\Admin\CreateQuestion.cshtml" />
+    <Content Include="Views\Admin\DownloadQuestion.cshtml" />
     <None Include="Views\Admin\ImportQuestion.cshtml" />
     <Content Include="Views\Admin\CourseManage.cshtml" />
     <Content Include="Views\Admin\UpdateQuestionDetail.cshtml" />

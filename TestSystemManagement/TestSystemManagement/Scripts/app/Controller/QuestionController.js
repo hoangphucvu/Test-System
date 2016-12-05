@@ -6,12 +6,12 @@
         .controller('QuizController', QuizController)
         .controller('ImportQuestionController', ImportQuestionController);
 
-    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService', 'GetQuestionDetailService', 'UpdateQuestionService', 'DeleteQuestionService'];
+    QuizController.$inject = ['$scope', 'ImportTextQuestionService', 'SearchQuestionService', 'GetQuestionDetailService', 'UpdateQuestionService', 'DeleteQuestionService', 'DownloadQuestionService'];
     ImportQuestionController.inject = ['$scope', 'ImportQuestionService'];
 
     var extensionType = null;
 
-    function QuizController($scope, ImportTextQuestionService, SearchQuestionService, GetQuestionDetailService, UpdateQuestionService, DeleteQuestionService) {
+    function QuizController($scope, ImportTextQuestionService, SearchQuestionService, GetQuestionDetailService, UpdateQuestionService, DeleteQuestionService, DownloadQuestionService) {
         $scope.QuizFormSubmitted = false;
         $scope.IsQuizFormFormValid = false;
         $scope.ShowUpdateForm = false;
@@ -140,6 +140,18 @@
                    CKEDITOR.instances['AnswerC'].setData(result.data.Data.AnswerC);
                    CKEDITOR.instances['AnswerD'].setData(result.data.Data.AnswerD);
                });
+        }
+
+        $scope.DownloadQuestion = function () {
+            var easy = $scope.NumberOfEasyQuestion;
+            var mid = $scope.NumberOfMidQuestion;
+            var hard = $scope.NumberOfHardQuestion;
+            console.log(easy);
+            console.log(mid); console.log(hard);
+            DownloadQuestionService.DownloadQuestion(easy, mid, hard)
+                .then(function (result) {
+                    console.log(result);
+                });
         }
         $scope.DeleteQuestion = function (id) {
             console.log(id);
