@@ -1,0 +1,37 @@
+﻿<main ng-controller="ImportQuestionController">
+    <div id="upload-form">
+        <div class="container form-content">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Upload Câu Hỏi</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <form ng-submit="ImportQuestion()" novalidate name="ImportQuestionForm">
+                            <div class="file-field input-field">
+                                <div class="fileUpload btn btn-primary">
+                                    <span>Vui lòng chọn file upload</span>
+                                    <input type="file" class="upload" onchange="angular.element(this).scope().CheckFile(this)" required ng-class="Submitted?'ng-dirty':''">
+                                    <span class="has-error" ng-show="(ImportQuestionForm.file.$dirty || Submitted) && ImportQuestionForm.file.$error.required">Vui Lòng Chọn File</span>
+                                </div>
+                                <button class="btn btn-primary" type="submit" ng-hide="HideUploadBtn">
+                                    Upload
+                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                </button>
+                                <img src="/Content/img/hourglass.gif" ng-show="Loading" />
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="row">
+                        {{fileMessage}}
+                        {{Message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+@section scripts{
+    <script src="~/Scripts/app/Controller/QuestionController.js"></script>
+}

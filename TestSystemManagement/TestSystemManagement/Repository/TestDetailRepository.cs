@@ -81,7 +81,6 @@ namespace TestSystemManagement.Repository
         public JsonResult DeleteQuestion(string id)
         {
             var questionId = int.Parse(id);
-            var testDetails = new TestDetail();
             try
             {
                 var questionRemove = _db.TestDetails.SingleOrDefault(data => data.Id == questionId);
@@ -98,54 +97,44 @@ namespace TestSystemManagement.Repository
 
         public JsonResult QuestionDetailSearch(string id)
         {
-            if (!string.IsNullOrEmpty(id))
-            {
-                var questionId = int.Parse(id);
-                var result = _db.TestDetails.SingleOrDefault(x => x.Id.Equals(questionId));
-                return new JsonResult { Data = result };
-            }
-            return new JsonResult { Data = false };
+            if (string.IsNullOrEmpty(id)) return new JsonResult { Data = false };
+            var questionId = int.Parse(id);
+            var result = _db.TestDetails.SingleOrDefault(x => x.Id.Equals(questionId));
+            return new JsonResult { Data = result };
         }
 
         public JsonResult QuestionSearch(string id)
         {
-            if (!string.IsNullOrEmpty(id))
-            {
-                var result = _db.TestDetails.Where(x => x.TestChildSubjectId.Equals(id)).ToList();
-                return new JsonResult { Data = result };
-            }
-            return new JsonResult { Data = false };
+            if (string.IsNullOrEmpty(id)) return new JsonResult { Data = false };
+            var result = _db.TestDetails.Where(x => x.TestChildSubjectId.Equals(id)).ToList();
+            return new JsonResult { Data = result };
         }
 
         public JsonResult UploadExcelFile(string file)
         {
-            if (file != null)
+            if (file == null) return new JsonResult { Data = false };
+            var connectionString = new StringBuilder();
+            connectionString.AppendFormat(
+                "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {0};Extended Properties = Excel 8.0", file);
+            var sqlConnectionString = Helper.ConnectionString;
+            var connection = new OleDbConnection(connectionString.ToString());
+            try
             {
-                var connectionString = new StringBuilder();
-                connectionString.AppendFormat(
-                    "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = {0};Extended Properties = Excel 8.0", file);
-                var sqlConnectionString = Helper.ConnectionString;
-                var connection = new OleDbConnection(connectionString.ToString());
-                try
-                {
-                    var command = new OleDbCommand("Select * from [Sheet1$]", connection);
-                    connection.Open();
-                    DbDataReader dr = command.ExecuteReader();
-                    var bulkCopy = new SqlBulkCopy(sqlConnectionString) { DestinationTableName = Helper.TableDetails };
-                    if (dr != null) bulkCopy.WriteToServer(dr);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
-                }
-                return new JsonResult { Data = true };
+                var command = new OleDbCommand("Select * from [Sheet1$]", connection);
+                connection.Open();
+                DbDataReader dr = command.ExecuteReader();
+                var bulkCopy = new SqlBulkCopy(sqlConnectionString) { DestinationTableName = Helper.TableDetails };
+                if (dr != null) bulkCopy.WriteToServer(dr);
             }
-
-            return new JsonResult { Data = false };
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return new JsonResult { Data = true };
         }
 
         public JsonResult UploadTextFile(string file)
@@ -154,26 +143,24 @@ namespace TestSystemManagement.Repository
             try
             {
                 var data = File.ReadAllLines(file);
-                for (int i = 0; i < data.Length; i++)
+                for (var i = 0; i < data.Length; i++)
                 {
-                    if (data[i].Trim() != string.Empty)
-                    {
-                        testDetail.Question = data[i];
-                        i++;
-                        testDetail.AnswerA = data[i];
-                        i++;
-                        testDetail.AnswerB = data[i];
-                        i++;
-                        testDetail.AnswerC = data[i];
-                        i++;
-                        testDetail.AnswerD = data[i];
-                        i++;
-                        testDetail.CorrectAnswer = data[i];
-                        testDetail.Point = 0.25;
-                        _db.TestDetails.Add(testDetail);
-                        _db.SaveChanges();
-                        i++;
-                    }
+                    if (data[i].Trim() == string.Empty) continue;
+                    testDetail.Question = data[i];
+                    i++;
+                    testDetail.AnswerA = data[i];
+                    i++;
+                    testDetail.AnswerB = data[i];
+                    i++;
+                    testDetail.AnswerC = data[i];
+                    i++;
+                    testDetail.AnswerD = data[i];
+                    i++;
+                    testDetail.CorrectAnswer = data[i];
+                    testDetail.Point = 0.25;
+                    _db.TestDetails.Add(testDetail);
+                    _db.SaveChanges();
+                    i++;
                 }
             }
             catch (Exception exception)
@@ -200,26 +187,24 @@ namespace TestSystemManagement.Repository
                     ref missing, ref missing, ref missing, ref missing, ref missing, ref isVisible);
                 var stringData = doc.Content.Text;
                 var arrayData = stringData.Split('\r');
-                for (int i = 0; i < arrayData.Length; i++)
+                for (var i = 0; i < arrayData.Length; i++)
                 {
-                    if (arrayData[i] != string.Empty)
-                    {
-                        testDetail.Question = arrayData[i];
-                        i++;
-                        testDetail.AnswerA = arrayData[i];
-                        i++;
-                        testDetail.AnswerB = arrayData[i];
-                        i++;
-                        testDetail.AnswerC = arrayData[i];
-                        i++;
-                        testDetail.AnswerD = arrayData[i];
-                        i++;
-                        testDetail.CorrectAnswer = arrayData[i];
-                        testDetail.Point = 0.25;
-                        _db.TestDetails.Add(testDetail);
-                        _db.SaveChanges();
-                        i++;
-                    }
+                    if (arrayData[i] == string.Empty) continue;
+                    testDetail.Question = arrayData[i];
+                    i++;
+                    testDetail.AnswerA = arrayData[i];
+                    i++;
+                    testDetail.AnswerB = arrayData[i];
+                    i++;
+                    testDetail.AnswerC = arrayData[i];
+                    i++;
+                    testDetail.AnswerD = arrayData[i];
+                    i++;
+                    testDetail.CorrectAnswer = arrayData[i];
+                    testDetail.Point = 0.25;
+                    _db.TestDetails.Add(testDetail);
+                    _db.SaveChanges();
+                    i++;
                 }
             }
             catch (Exception ex)

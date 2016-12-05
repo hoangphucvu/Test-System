@@ -75,66 +75,61 @@
                 </div>
             </div>
         </div><br />
-        <button type="submit" class="btn btn-primary btn-block" >
+        <button type="submit" class="btn btn-primary btn-block">
             Cập Nhật Câu Hỏi
         </button>
     </form>
 </div>
-@section scripts{
-    <script src="~/Scripts/app/Controller/QuestionController.js"></script>
-    <script>
-        CKEDITOR.replace('Question',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 500,
-            height: 200
+<script>
+    CKEDITOR.replace('Question',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 500,
+        height: 200
+    });
+    CKEDITOR.replace('AnswerA',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerB',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerC',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerD',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
+    var id = $("#QuestionId").attr("value");
+    console.log("id" + id);
+    $(document)
+        .ready(function () {
+            $.ajax({
+                url: '/api/QuestionDetail/' + id,
+                method: 'GET',
+                header: {
+                    'content-type': 'application/json'
+                }
+            })
+                .done(function (result) {
+                    console.log(result);
+                    CKEDITOR.instances['Question'].setData(result.Data.Question);
+                    CKEDITOR.instances['AnswerA'].setData(result.Data.AnswerA);
+                    CKEDITOR.instances['AnswerB'].setData(result.Data.AnswerB);
+                    CKEDITOR.instances['AnswerC'].setData(result.Data.AnswerC);
+                    CKEDITOR.instances['AnswerD'].setData(result.Data.AnswerD);
+                });
         });
-        CKEDITOR.replace('AnswerA',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerB',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerC',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerD',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
-    </script>
-    <script>
-        var id = $("#QuestionId").attr("value");
-        console.log("id" + id);
-        $(document)
-            .ready(function () {
-                $.ajax({
-                    url: '/api/QuestionDetail/' + id,
-                    method: 'GET',
-                    header: {
-                        'content-type': 'application/json'
-                    }
-                })
-                    .done(function (result) {
-                        console.log(result);
-                        CKEDITOR.instances['Question'].setData(result.Data.Question);
-                        CKEDITOR.instances['AnswerA'].setData(result.Data.AnswerA);
-                        CKEDITOR.instances['AnswerB'].setData(result.Data.AnswerB);
-                        CKEDITOR.instances['AnswerC'].setData(result.Data.AnswerC);
-                        CKEDITOR.instances['AnswerD'].setData(result.Data.AnswerD);
-                    });
-            });
-    </script>
-}
+</script>

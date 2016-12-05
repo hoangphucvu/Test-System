@@ -108,7 +108,7 @@
             var jsonData = JSON.stringify(list);
             console.log(checkboxData);
             ImportTextQuestionService.NewTextQuestion(jsonData).then(function (result) {
-                if (result.data === "success") {
+                if (result.data === true) {
                     alert("Thêm thành công");
                 }
                 else alert("Có lỗi xảy ra vui lòng thử lại");
@@ -195,21 +195,19 @@
                 ImportQuestionService.UploadQuestion($scope.fileUpload, extensionType).then(function (result) {
                     console.log(result);
                     if (result === true) {
-                        //$scope.Message = "Upload thành công";
-                        //ClearForm();
-                        Materialize.toast('Upload thành công', 4000);
+                        alert("Upload thành công");
                         $scope.HideUploadBtn = false;
                         $scope.Loading = false;
                     } else {
-                        $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
+                        alert("Có lỗi xảy ra vui lòng thử lại");
                         $scope.HideUploadBtn = false;
                         $scope.Loading = false;
                     }
                 }, function (err) {
-                    $scope.Message = "Có lỗi xảy ra vui lòng thử lại";
+                    alert("Có lỗi xảy ra vui lòng thử lại");
                 });
             } else {
-                $scope.Message = "Vui lòng chọn file";
+                alert("Có lỗi xảy ra vui lòng thử lại");
                 $scope.HideUploadBtn = false;
                 $scope.Loading = false;
             }

@@ -1,37 +1,7 @@
-﻿<main ng-controller="ImportQuestionController">
-    <div id="upload-form">
-        <div class="container form-content">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Upload Câu Hỏi</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="row">
-                        <form ng-submit="ImportQuestion()" novalidate name="ImportQuestionForm">
-                            <div class="file-field input-field">
-                                <div class="fileUpload btn btn-primary">
-                                    <span>Vui lòng chọn file upload</span>
-                                    <input type="file" class="upload" onchange="angular.element(this).scope().CheckFile(this)" required ng-class="Submitted?'ng-dirty':''">
-                                    <span class="has-error" ng-show="(ImportQuestionForm.file.$dirty || Submitted) && ImportQuestionForm.file.$error.required">Vui Lòng Chọn File</span>
-                                </div>
-                                <button class="btn btn-primary" type="submit" ng-hide="HideUploadBtn">
-                                    Upload
-                                    <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                </button>
-                                <img src="/Content/img/hourglass.gif" ng-show="Loading" />
-                            </div>
-                        </form>
-                    </div>
-
-                    <div class="row">
-                        {{fileMessage}}
-                        {{Message}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+﻿@{
+    ViewBag.Title = "CreateQuestion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <main ng-controller="QuizController">
     <div class="panel panel-primary">
@@ -51,18 +21,18 @@
                 <div class="col-md-12" style="margin-top: 10px" ng-show="showSearchTable">
                     <table class="table table-bordered">
                         <thead>
-                            <tr>
-                                <th>Mã Môn</th>
-                                <th>Câu hỏi</th>
-                                <th>Cập Nhật/Xóa</th>
-                            </tr>
+                        <tr>
+                            <th>Mã Môn</th>
+                            <th>Câu hỏi</th>
+                            <th>Cập Nhật/Xóa</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="data in searchData">
-                                <td>{{data.TestChildSubjectId}}</td>
-                                <td><div data-ng-bind-html="data.Question"></div></td>
-                                <td><a class="btn btn-primary" ng-click="GetQuestionDetail(data.Id)" href="/Admin/UpdateQuestionDetail/{{data.Id}}">Cập nhật</a> / <button class="btn btn-danger" ng-click="DeleteQuestion(data.Id)">Xóa</button></td>
-                            </tr>
+                        <tr ng-repeat="data in searchData">
+                            <td>{{data.TestChildSubjectId}}</td>
+                            <td><div data-ng-bind-html="data.Question"></div></td>
+                            <td><a class="btn btn-primary" ng-click="GetQuestionDetail(data.Id)" href="/Admin/UpdateQuestionDetail/{{data.Id}}">Cập nhật</a> / <button class="btn btn-danger" ng-click="DeleteQuestion(data.Id)">Xóa</button></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -148,37 +118,37 @@
 </main>
 @section scripts{
     <script src="~/Scripts/app/Controller/QuestionController.js"></script>
-    <script>
-        CKEDITOR.replace('Question',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 500,
-            height: 200
-        });
-        CKEDITOR.replace('AnswerA',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerB',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerC',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKEDITOR.replace('AnswerD',
-        {
-            enterMode: CKEDITOR.ENTER_BR,
-            width: 400,
-            height: 100
-        });
-        CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
-    </script>
+<script>
+    CKEDITOR.replace('Question',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 500,
+        height: 200
+    });
+    CKEDITOR.replace('AnswerA',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerB',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerC',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKEDITOR.replace('AnswerD',
+    {
+        enterMode: CKEDITOR.ENTER_BR,
+        width: 400,
+        height: 100
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/Scripts/Lib-Js/ckfinder/")');
+</script>
 }

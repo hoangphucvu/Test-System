@@ -15,7 +15,12 @@ namespace TestSystemManagement.Controllers.MVC
             return View();
         }
 
-        public ActionResult QuestionManage()
+        public ActionResult CreateQuestion()
+        {
+            return View();
+        }
+
+        public ActionResult ImportQuestion()
         {
             return View();
         }
