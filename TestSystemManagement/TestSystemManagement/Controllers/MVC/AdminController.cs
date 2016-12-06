@@ -39,12 +39,15 @@ namespace TestSystemManagement.Controllers.MVC
         [HttpPost]
         public JsonResult DownloadQuestion(int easy, int mid, int hard)
         {
-            var result = _db.TestDetails
-                .Where(x => x.TypeOfQuestion == easy)
-                .Where(x => x.TypeOfQuestion == mid)
-                .Where(x => x.TypeOfQuestion == hard)
-                .OrderBy(context => Guid.NewGuid()).ToList();
-            return new JsonResult { Data = result, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            var resultEasy = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == 1).OrderBy(x=>Guid.NewGuid()).Take(easy);
+            var resultMid = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == 2).OrderBy(x => Guid.NewGuid()).Take(mid);
+            var resultHard = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == 3).OrderBy(x => Guid.NewGuid()).Take(hard);
+
+            var result = resultEasy.Union(resultMid).Union(resultHard);
+            return new JsonResult{Data = result,JsonRequestBehavior = JsonRequestBehavior.AllowGet};
         }
 
         public ActionResult UpdateQuestionDetail(int id)
