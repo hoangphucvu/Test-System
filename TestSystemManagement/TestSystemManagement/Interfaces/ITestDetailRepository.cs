@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using TestSystemManagement.Models;
 
 namespace TestSystemManagement.Interfaces
 {
@@ -19,5 +22,7 @@ namespace TestSystemManagement.Interfaces
         JsonResult QuestionDetailSearch(string id);
 
         JsonResult UpdateTextQuestion(int id, string testDetail);
+
+        JsonResult DownloadQuestion(List<TestDetail> testDetail);
     }
 }

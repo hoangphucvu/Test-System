@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Web.Mvc;
 using TestSystemManagement.Helpers;
+using TestSystemManagement.Interfaces;
 using TestSystemManagement.Models;
+using TestSystemManagement.Repository;
 
 namespace TestSystemManagement.Controllers.MVC
 {
@@ -10,7 +12,7 @@ namespace TestSystemManagement.Controllers.MVC
     public class AdminController : Controller
     {
         private readonly TestSystemManagementEntities _db = new TestSystemManagementEntities();
-
+        private readonly  ITestDetailRepository _testDetailRepository = new TestDetailRepository();
         public ActionResult Index()
         {
             return View();
@@ -46,8 +48,9 @@ namespace TestSystemManagement.Controllers.MVC
             var resultHard = _db.TestDetails
                 .Where(x => x.TypeOfQuestion == 3).OrderBy(x => Guid.NewGuid()).Take(hard);
 
-            var result = resultEasy.Union(resultMid).Union(resultHard);
-            return new JsonResult{Data = result,JsonRequestBehavior = JsonRequestBehavior.AllowGet};
+            var result = resultEasy.Union(resultMid).Union(resultHard).ToList();
+            _testDetailRepository.DownloadQuestion(result);
+            return new JsonResult{Data = true,JsonRequestBehavior = JsonRequestBehavior.AllowGet};
         }
 
         public ActionResult UpdateQuestionDetail(int id)
