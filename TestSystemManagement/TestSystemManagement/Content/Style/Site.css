@@ -4,6 +4,11 @@
 
 @fa-font-path:"fonts";
 
+.row {
+    margin-right: 0;
+    margin-left: -15px;
+}
+
 @font-face {
     font-family: helveticaneue-light-webfont;
     src: url(../fonts/helveticaneue-light-webfont.woff);
@@ -124,10 +129,10 @@ html {
     padding: 20px;
 }
 /* End Index Page */
-#cotain-partial {
+/*#cotain-partial {
     padding: 100px;
     margin-left: 20%;
-}
+}*/
 
 .contain-wrapper {
     padding: 5%;
@@ -326,4 +331,18 @@ textarea {
 body {
     margin: 0px;
     padding: 0px;
+}
+
+@media print {
+    .nav-side-menu {
+        display: none;
+    }
+
+    #downloadQuestionInput {
+        display: none;
+    }
+
+    #print-button {
+        display: none;
+    }
 }

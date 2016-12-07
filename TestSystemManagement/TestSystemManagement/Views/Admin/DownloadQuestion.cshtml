@@ -1,29 +1,40 @@
 ﻿@model IEnumerable<TestSystemManagement.Models.TestDetail>
 @{
-    ViewBag.Title = "DownloadQuestion";
+    ViewBag.Title = "In Đề Thi";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var questions = Model;
+    var number = 1;
 }
-<div ng-controller="QuizController">
-    <form id="downloadQuestionForm" ng-submit="DownloadQuestion()">
-        <div class="row">
+<div @*ng-controller="QuizController"*@>
+    <form id="downloadQuestionForm" @*ng-submit="DownloadQuestion()"*@ action="@Url.Action("DownloadQuestion","Admin")" method="POST">
+        <div class="row" id="downloadQuestionInput" style="padding: 5%;">
             <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="Số lượng câu hỏi dễ" ng-model="NumberOfEasyQuestion" />
+                <input type="text" class="form-control" name="easy" placeholder="Số lượng câu hỏi dễ" ng-model="NumberOfEasyQuestion" />
             </div>
             <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="Số lượng câu hỏi trung bình" ng-model="NumberOfMidQuestion" />
+                <input type="text" class="form-control" name="mid" placeholder="Số lượng câu hỏi trung bình" ng-model="NumberOfMidQuestion" />
             </div>
             <div class="col-md-4">
-                <input type="text" class="form-control" placeholder="Số lượng câu hỏi khó" ng-model="NumberOfHardQuestion" />
+                <input type="text" class="form-control" name="hard" placeholder="Số lượng câu hỏi khó" ng-model="NumberOfHardQuestion" />
             </div>
-            <button type="submit">Tải đề thi</button>
+
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px">Tải đề thi</button>
         </div>
     </form>
-    @if (questions != null)
-    {
-        foreach (var question in questions)
+    <div class="row" style="padding: 5%;">
+        @if (questions != null)
         {
-            <p>@question.Question</p>
+            <a href="javascript:window.print()"><img src="~/Content/img/click-here-to-print.jpg" alt="print this page" id="print-button" style="margin-bottom:30px" /></a>
+            foreach (var question in questions)
+            {
+                <p><span style="font-size: 20px; margin-bottom: 20px;color:blue">Câu Hỏi @number:@Html.Raw(question.Question)</span></p>
+                <p>Đáp án A: @number: @Html.Raw(question.AnswerA)</p>
+                <p>Đáp án B: @number: @Html.Raw(question.AnswerB)</p>
+                <p>Đáp án C: @number: @Html.Raw(question.AnswerC)</p>
+                <p>Đáp án D: @number: @Html.Raw(question.AnswerD)</p>
+                <p style="margin-top:25px"></p>
+                number++;
+            }
         }
-    }
+    </div>
 </div>

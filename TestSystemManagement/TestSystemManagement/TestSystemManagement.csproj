@@ -263,6 +263,7 @@
     <Content Include="Content\Css-Lib\font-awesome.min.css" />
     <Content Include="Content\Css-Lib\materialize.min.css" />
     <Content Include="Content\img\avatar.png" />
+    <Content Include="Content\img\click-here-to-print.jpg" />
     <Content Include="Content\img\hourglass.gif" />
     <Content Include="Content\img\loading.gif" />
     <Content Include="Content\Style\Site.css" />
