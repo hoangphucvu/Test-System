@@ -6,8 +6,8 @@
     var number = 1;
 }
 <div @*ng-controller="QuizController"*@>
-    <form id="downloadQuestionForm" @*ng-submit="DownloadQuestion()"*@ action="@Url.Action("DownloadQuestion","Admin")" method="POST">
-        <div class="row" id="downloadQuestionInput" style="padding: 5%;">
+    <form id="downloadQuestionForm" @*ng-submit="DownloadQuestion()"*@ action="@Url.Action("DownloadQuestion", "TestDetail")" method="POST">
+        <div class="row" id="downloadQuestionInput" style="padding: 10%;">
             <div class="col-md-4">
                 <input type="text" class="form-control" name="easy" placeholder="Số lượng câu hỏi dễ" ng-model="NumberOfEasyQuestion" />
             </div>
@@ -21,7 +21,7 @@
             <button type="submit" class="btn btn-primary" style="margin-top: 20px">Tải đề thi</button>
         </div>
     </form>
-    <div class="row" style="padding: 5%;">
+    <div class="row" style="padding: 10%;">
         @if (questions != null)
         {
             <a href="javascript:window.print()"><img src="~/Content/img/click-here-to-print.jpg" alt="print this page" id="print-button" style="margin-bottom:30px" /></a>

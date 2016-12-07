@@ -41,5 +41,20 @@ namespace TestSystemManagement.Controllers.MVC
             }
             return new JsonResult { Data = true, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
         }
+
+        [HttpPost]
+        public ActionResult DownloadQuestion(int easy, int mid, int hard)
+        {
+            var resultEasy = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == Constant.EasyQuestion).OrderBy(x => Guid.NewGuid()).Take(easy);
+            var resultMid = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == Constant.MidQuestion).OrderBy(x => Guid.NewGuid()).Take(mid);
+            var resultHard = _db.TestDetails
+                .Where(x => x.TypeOfQuestion == Constant.HardQuestion).OrderBy(x => Guid.NewGuid()).Take(hard);
+
+            var result = resultEasy.Union(resultMid).Union(resultHard).ToList();
+
+            return View("~/Views/Admin/DownloadQuestion.cshtml", result);
+        }
     }
 }
